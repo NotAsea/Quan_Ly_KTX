@@ -5,29 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
-        Title="Quản Lý ký túc xá" Height="650" Width="800"
+        Title="Quản Lý ký túc xá" Height="550" Width="820"
+        Background="LightGray"
           >
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width ="*"/>
-                <ColumnDefinition Width="6*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Chào mừng đến với phần mềm Quản lý ký túc xá" Grid.Column="1" FontFamily="Serif" HorizontalAlignment="Stretch" 
-                       FontSize="30" VerticalAlignment="Center" FontStyle="Oblique" TextWrapping="Wrap"
-                       FontWeight="DemiBold"/>
-            
-            <Image Grid.Column="0"/>
+    <Border Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Chào mừng đến với phần mềm Quản lý ký túc xá" Grid.Column="1" FontFamily="Serif" HorizontalAlignment="Stretch" 
+                       FontSize="30" VerticalAlignment="Center" FontStyle="Oblique" TextWrapping="NoWrap" TextBlock.Foreground="BlueViolet"
+                       FontWeight="DemiBold" />
+
+                <Image Grid.Column="0" Source="logo.jpg" Margin="0 0 10 0" Stretch="Uniform"/>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <TextBlock Text=" Bạn cần đăng nhập để sử dụng app này" FontFamily="Serif" FontSize="26" HorizontalAlignment="Center"  FontStyle="Italic"
+                      TextBlock.Foreground="Blue" Background="LightCoral"  />
+                <Grid Margin="0 25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Tên đăng nhập" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" x:Name="UserName" Padding="10" Background="Cyan" Margin="0 0 10 0">
+                        <TextBlock.ToolTip>
+                            <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+
+
+                </Grid>
+                <Grid Margin="0 25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Mật khẩu" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" x:Name="Password" Padding="10" Background="Cyan" Margin="0 0 10 0">
+                        <TextBlock.ToolTip>
+                            <ToolTip>Mật khẩu không quá 30 ký tự</ToolTip>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+                    
+
+                </Grid>
+                <TextBlock Text="Không có tài khoản?, chọn đăng ký" FontSize="20" FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center"/>
+                <Grid Margin="0 50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="GreenYellow">
+                        <Button.ToolTip>
+                            <ToolTip>Ấn nút để đăng nhâp</ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Grid.Column="1" Content="Đăng Ký" Width="200" Padding="10" FontSize="20" x:Name="Signup" Click="Signup_Click" Background="GreenYellow">
+                        <Button.ToolTip>
+                            <ToolTip>Ấn nút để đăng ký nếu không có tài khoản</ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                </Grid>
+            </StackPanel>
         </Grid>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text=" Bạn cần đăng nhập để sử dụng app này" FontFamily="Serif" FontSize="26" HorizontalAlignment="Center" TextDecorations="Underline" FontStyle="Italic"
-                      TextBlock.Foreground="Blue"
-                       />
-            <TextBlock/>
-        </StackPanel>
-    </Grid> 
+    </Border>
+    
 </Window>

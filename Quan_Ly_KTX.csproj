@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\Enity\" />
     <Folder Include="Controller\" />
     <Folder Include="Resource\" />
@@ -20,6 +24,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="logo.jpg" />
   </ItemGroup>
 
 </Project>
