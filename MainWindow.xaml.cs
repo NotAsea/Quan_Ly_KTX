@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Quan_Ly_KTX;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -32,7 +32,8 @@ namespace Quan_Ly_KTX
 
         private void Signup_Click(object sender, RoutedEventArgs e)
         {
-
+            Window1 sf = new();
+            sf.Show();
         }
     }
 }

@@ -23,5 +23,13 @@ namespace Quan_Ly_KTX
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            string result = "";
+            _ = MessageBox.Show(result, "Fom đăng ký thông báo");
+            this.Close();   
+
+        }
     }
 }
