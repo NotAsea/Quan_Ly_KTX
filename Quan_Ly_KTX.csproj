@@ -5,21 +5,20 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	  
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="logo.jpg" />
+    <None Remove="Resource\logo_icon.ico" />
   </ItemGroup>
 
+  
+
   <ItemGroup>
-    <Folder Include="Model\Enity\" />
-    <Folder Include="Controller\" />
-    <Folder Include="Resource\" />
     <Folder Include="Util\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
@@ -27,7 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="logo.jpg" />
+    <Resource Include="Resource\logo.jpg" />
+    <Resource Include="Resource\logo_icon.ico" />
   </ItemGroup>
 
 </Project>

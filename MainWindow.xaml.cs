@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quan_Ly_KTX;
+
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -27,7 +28,9 @@ namespace Quan_Ly_KTX
 
         private void Loggin_Click(object sender, RoutedEventArgs e)
         {
-
+            FormSVDS sv = new();
+            this.Close();
+            sv.Show();
         }
 
         private void Signup_Click(object sender, RoutedEventArgs e)

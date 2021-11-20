@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
         Title="Form Đăng ký" Height="400" Width="800"
-        Background="LightSlateGray">
+        Background="LightSlateGray"
+        Icon="Resource/logo_icon.ico"
+        >
     <Border Padding="10">
         <StackPanel>
             <TextBlock Text="Đăng ký"  FontSize=" 30" HorizontalAlignment="Center" FontWeight="Bold"/>
