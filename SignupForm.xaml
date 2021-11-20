@@ -19,11 +19,11 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Tên đăng nhập" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <TextBlock x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
-                    <TextBlock.ToolTip>
+                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
+                    <TextBox.ToolTip>
                         <ToolTip>Tên đăng nhập không dài quá 50 ký tự </ToolTip>
-                    </TextBlock.ToolTip>
-                </TextBlock>
+                    </TextBox.ToolTip>
+                </TextBox>
        
             </Grid>
             <Grid Margin="0 20">
@@ -32,11 +32,11 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <TextBlock x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
-                    <TextBlock.ToolTip>
+                <TextBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
+                    <TextBox.ToolTip>
                         <ToolTip>Mật khẩu không dài quá 50 ký tự và có đủ chữ số</ToolTip>
-                    </TextBlock.ToolTip>
-                </TextBlock>
+                    </TextBox.ToolTip>
+                </TextBox>
 
             </Grid>
             <Grid Margin="0 20">
@@ -45,9 +45,9 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Nhập lại Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <TextBlock x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
+                <TextBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1">
                    
-                </TextBlock>
+                </TextBox>
 
             </Grid>
 

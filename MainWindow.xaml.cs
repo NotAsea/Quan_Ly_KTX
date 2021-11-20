@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quan_Ly_KTX;
-
+using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -28,9 +28,21 @@ namespace Quan_Ly_KTX
 
         private void Loggin_Click(object sender, RoutedEventArgs e)
         {
-            FormSVDS sv = new();
-            this.Close();
-            sv.Show();
+            String s = "";
+            if (String.IsNullOrWhiteSpace(UserName.Text))
+            {
+                s += "Trường tên ĐN còn trống ";
+            }
+            if (String.IsNullOrWhiteSpace(Password.Text)) s += "Trường mk còn trống";
+            if (s != null) MessageBox.Show(s, "FormĐN");
+            var result = LogginController.isLoggin(UserName.Text, Password.Text);
+            if (result == "User")
+            {
+                FormSVDS sv = new();
+                this.Close();
+                sv.Show();
+            }
+            else MessageBox.Show(result, "FormĐN");
         }
 
         private void Signup_Click(object sender, RoutedEventArgs e)

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Quan_Ly_KTX.Controller
 {
     internal class SiginupController
-    {
+       {
+       
     }
 }
