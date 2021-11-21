@@ -8,6 +8,7 @@
         Title="Quản Lý ký túc xá" Height="550" Width="820"
         Background="LightGray"
         Icon="Resource/logo_icon.ico"
+        WindowStartupLocation="CenterScreen"
           >
     <Border Padding="10">
         <Grid>
@@ -56,24 +57,16 @@
                     
 
                 </Grid>
-                <TextBlock Text="Không có tài khoản?, chọn đăng ký" FontSize="20" FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center"/>
-                <Grid Margin="0 50">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="GreenYellow">
-                        <Button.ToolTip>
-                            <ToolTip>Ấn nút để đăng nhâp</ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button Grid.Column="1" Content="Đăng Ký" Width="200" Padding="10" FontSize="20" x:Name="Signup" Click="Signup_Click" Background="GreenYellow">
-                        <Button.ToolTip>
-                            <ToolTip>Ấn nút để đăng ký nếu không có tài khoản</ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                </Grid>
+                <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="GreenYellow" Margin="0 20">
+                    <Button.ToolTip>
+                        <ToolTip>Ấn nút để đăng nhâp</ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="Không có tài khoản?, bấm để đăng ký" FontSize="16" FontStyle="Italic" TextBlock.Foreground="DarkMagenta" x:Name="signup" Click="signup_Click"
+                        Background="LightGray" BorderThickness="0" 
+                        />
+
+
             </StackPanel>
         </Grid>
     </Border>

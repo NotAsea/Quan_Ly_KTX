@@ -12,12 +12,6 @@
     <None Remove="Resource\logo_icon.ico" />
   </ItemGroup>
 
-  
-
-  <ItemGroup>
-    <Folder Include="Util\" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.0" />
@@ -32,6 +26,10 @@
   <ItemGroup>
     <Resource Include="Resource\logo.jpg" />
     <Resource Include="Resource\logo_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Util\" />
   </ItemGroup>
 
 </Project>

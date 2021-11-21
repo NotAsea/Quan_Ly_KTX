@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +35,7 @@ namespace Quan_Ly_KTX
             
             if (String.IsNullOrWhiteSpace(Password.Text)) s += "Trường mk còn trống";
             if (!String.IsNullOrWhiteSpace(s))  _=MessageBox.Show(s, "FormĐN");
-            var result = LogginController.IsLoggin(UserName.Text, Password.Text);
+            var (result,ID) = LogginController.IsLoggin(UserName.Text, Password.Text);
             if (result == "User")
             {
                 FormSVDS sv = new();
@@ -43,10 +45,10 @@ namespace Quan_Ly_KTX
             else MessageBox.Show(result, "FormĐN");
         }
 
-        private void Signup_Click(object sender, RoutedEventArgs e)
+        private void signup_Click(object sender, RoutedEventArgs e)
         {
-            Window1 sf = new();
-            sf.Show();
+            Window1 dk = new();
+            dk.Show();
         }
     }
 }

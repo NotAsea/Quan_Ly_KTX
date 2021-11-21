@@ -19,9 +19,16 @@ namespace Quan_Ly_KTX
     /// </summary>
     public partial class FormSVDS : Window
     {
+        public int ID { get; init; }
         public FormSVDS()
         {
             InitializeComponent();
         }
+        public FormSVDS(int id)
+        {
+           _= new FormSVDS();
+            this.ID = id;
+        }
+
     }
 }
