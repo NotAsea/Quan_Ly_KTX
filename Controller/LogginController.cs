@@ -10,9 +10,9 @@ namespace Quan_Ly_KTX.Controller
 {
     internal static class LogginController
     {  
-        public static String isLoggin(String username, String password)
+        public static String IsLoggin(String username, String password)
         {
-            
+
             KTX_KMAContext context = new();
             var UserExist = context.UserNguoiDungs.Join(context.VaiTros, a => a.RoleId, b => b.RoleId, (c, d) => new
             {

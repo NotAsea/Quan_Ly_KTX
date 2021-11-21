@@ -9,10 +9,7 @@
         Height="{x:Static SystemParameters.PrimaryScreenHeight}"
         Width="{x:Static SystemParameters.PrimaryScreenWidth}"
         WindowStartupLocation="CenterScreen"
-       Icon="Resource/logo_icon.ico" 
-       
-      
-        >
+       Icon="Resource/logo_icon.ico" >
     <Border Padding="10">
         <StackPanel Margin="0 10">
             <Grid>
@@ -38,6 +35,7 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <!--Menu bên trái-->
+                
                 <!--Nội dung bên phải-->
             </Grid>
             

@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
-        Title="Form Đăng ký" Height="400" Width="800"
+        Title="Form Đăng ký" Height="550" Width="820"
         Background="LightSlateGray"
         Icon="Resource/logo_icon.ico"
         >
     <Border Padding="10">
         <StackPanel>
+            <Image Height="200" Width="200" Source="Resource/logo.jpg"/>
             <TextBlock Text="Đăng ký"  FontSize=" 30" HorizontalAlignment="Center" FontWeight="Bold"/>
             <TextBlock Text="Nhập các thông tin để đăng ký" FontSize="14" FontStyle="Italic" HorizontalAlignment="Center"/>
             <Grid Margin="0 20">

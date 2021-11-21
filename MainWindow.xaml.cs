@@ -33,7 +33,7 @@ namespace Quan_Ly_KTX
             
             if (String.IsNullOrWhiteSpace(Password.Text)) s += "Trường mk còn trống";
             if (!String.IsNullOrWhiteSpace(s))  _=MessageBox.Show(s, "FormĐN");
-            var result = LogginController.isLoggin(UserName.Text, Password.Text);
+            var result = LogginController.IsLoggin(UserName.Text, Password.Text);
             if (result == "User")
             {
                 FormSVDS sv = new();
