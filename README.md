@@ -1,7 +1,19 @@
 # Quan_Ly_KTX
-init project
-# Đây là CI/CD để làm việc
 
+## Đây là CI/CD để làm việc
+
+  Muốn clone thì:
+  ```cmd
+  cd <folder muốn đặt project>
+  git clone https://github.com/NotAsea/Quan_Ly_KTX.git
+  ```
+  nó tự clone về luôn nhớ sau khi clone thì chạy cái này
+  ```cmd
+  dotnet tool install --global dotnet-ef
+  dotnet build
+  dotnet ef migrations add InitialCreate
+  dotnet ef update database 
+  ```
   Muốn push hay pull về thì:  
  ```cmd
   git init 
