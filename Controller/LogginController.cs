@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
 
 namespace Quan_Ly_KTX.Controller
@@ -11,13 +12,14 @@ namespace Quan_Ly_KTX.Controller
     {  
         public static String isLoggin(String username, String password)
         {
-            String s = "";
+            
             KTX_KMAContext context = new();
-            var UserExist= from u in context.Set<UserNguoiDung>() join r in context.Set<VaiTro>()
-                          on u.IdUser equals r.IdUser where u.Username == username && u.MatKhau==password
-                           select r.RoleName;
-            if (UserExist.Any()) return UserExist.Any().ToString();
-            else return "không có tài khoản";
+            var UserExist = context.UserNguoiDungs.Join(context.VaiTros, a => a.RoleId, b => b.RoleId, (c, d) => new
+            {
+                c.IdUser, c.Username, c.MatKhau, d.RoleId, d.RoleName
+            }) .Where(s=> s.Username==username).Where(p=>p.MatKhau==password).Select(s=>s.RoleName).FirstOrDefault()!.ToString();
+            return UserExist ?? "Không có tài khoản";
+
         }
     }
 }

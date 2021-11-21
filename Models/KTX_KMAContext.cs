@@ -29,8 +29,8 @@ namespace Quan_Ly_KTX.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;User ID=sa;Password=123");
+
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
             }
         }
 
@@ -199,7 +199,14 @@ namespace Quan_Ly_KTX.Models
                     .HasMaxLength(15)
                     .IsUnicode(false);
 
+                entity.Property(e => e.RoleId).HasColumnName("RoleID");
+
                 entity.Property(e => e.Username).HasMaxLength(75);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.UserNguoiDungs)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("User_Role");
             });
 
             modelBuilder.Entity<VaiTro>(entity =>
@@ -213,19 +220,9 @@ namespace Quan_Ly_KTX.Models
                     .ValueGeneratedNever()
                     .HasColumnName("RoleID");
 
-                entity.Property(e => e.IdUser)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ID_user");
-
                 entity.Property(e => e.RoleName)
                     .HasMaxLength(15)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.IdUserNavigation)
-                    .WithMany(p => p.VaiTros)
-                    .HasForeignKey(d => d.IdUser)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("ahhhh");
             });
 
             modelBuilder.Entity<Đkdvcn>(entity =>
