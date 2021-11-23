@@ -12,7 +12,7 @@
   dotnet tool install --global dotnet-ef
   dotnet build
   dotnet ef migrations add InitialCreate
-  dotnet ef update database 
+  dotnet ef database update  
   ```
   Muốn push hay pull về thì:  
  ```cmd
