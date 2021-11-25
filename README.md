@@ -10,9 +10,11 @@
   nó tự clone về luôn nhớ sau khi clone thì chạy cái này
   ```cmd
   dotnet tool install --global dotnet-ef
+  dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.0
+  dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0.0
+  dotnet add package Microsoft.EntityFrameworkCore --version 6.0.0 
   dotnet build
-  dotnet ef migrations add InitialCreate
-  dotnet ef database update  
+  dotnet ef database scaffold "" Microsoft.EntityFrameworkCore.SqlServer -o Models 
   ```
   Muốn push hay pull về thì:  
  ```cmd
