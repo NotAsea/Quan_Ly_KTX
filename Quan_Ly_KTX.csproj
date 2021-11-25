@@ -9,7 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Icon\button_add_icon.png" />
+    <None Remove="Resource\Icon\edit_button_icon.png" />
+    <None Remove="Resource\Icon\register_button.png" />
+    <None Remove="Resource\Icon\view_icon.png" />
     <None Remove="Resource\logo_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Icon\register_button.png" />
+    <Resource Include="Resource\Icon\view_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\Icon\button_add_icon.png" />
+    <Resource Include="Resource\Icon\edit_button_icon.png" />
     <Resource Include="Resource\logo.jpg" />
     <Resource Include="Resource\logo_icon.ico" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
+using Quan_Ly_KTX.View;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -21,5 +22,8 @@ namespace Quan_Ly_KTX.Controller
             return UserExist.RoleName != null ? (UserExist.RoleName, UserExist.IdUser) : ("Không có tài khoản",-1);
 
         }
+       
+            
+      
     }
 }
