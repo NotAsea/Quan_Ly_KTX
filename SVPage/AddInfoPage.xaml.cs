@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Quan_Ly_KTX.Page
+namespace Quan_Ly_KTX.SVPage
 {
     /// <summary>
-    /// Interaction logic for AddInfoPafe.xaml
+    /// Interaction logic for AddInfoPage.xaml
     /// </summary>
-    public partial class AddInfoPafe : Page
+    public partial class AddInfoPage : Page
     {
-        public AddInfoPafe()
+        public AddInfoPage()
         {
             InitializeComponent();
         }
