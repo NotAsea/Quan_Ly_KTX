@@ -38,7 +38,7 @@ namespace Quan_Ly_KTX
             var (result,ID) = LogginController.IsLoggin(UserName.Text, Password.Text);
             if (result == "User")
             {
-                FormSVDS sv = new();
+                FormSVDS sv = new(ID);
                 this.Close();
                 sv.Show();
             }

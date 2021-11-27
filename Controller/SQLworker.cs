@@ -10,7 +10,7 @@ namespace Quan_Ly_KTX.Controller
 {
     internal static class SQLworker
     {
-        public static InfoSV LayDSSV( int id)
+        public static ICollection<InfoSV> LayDSSV( int id)
         {
             KTX_KMAContext context = new();
             var result = context.SinhViens.Join(context.Phongs, a => a.MaPhong,
@@ -23,7 +23,7 @@ namespace Quan_Ly_KTX.Controller
                     c.NgaySinh,
                     c.NamHoc,
                     d.MaPhong,
-                    d.TinhTrangPhong,
+                  
                     c.MaHe
                 }).Join(context.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
                 {
@@ -32,13 +32,22 @@ namespace Quan_Ly_KTX.Controller
                     c.Hoten,
                     c.GioiTinh,
                     c.NgaySinh,
-                    c.MaPhong,
                     c.NamHoc,
-                    c.TinhTrangPhong,
+                    c.MaPhong,
+                   
                     d.MaHe,
                     d.TenHe
-                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe, s.TinhTrangPhong)).FirstOrDefault();
+                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe)).ToList();
             return result;
+        }
+        public static String timMH(InfoSV sv)
+        {
+            var kq="";
+            using(KTX_KMAContext context = new())
+            {
+                kq = context.Hes.Where(x => x.TenHe == sv.TenHe).Select(x => x.MaHe).FirstOrDefault();
+            }
+            return kq;
         }
     }
 }

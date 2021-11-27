@@ -19,8 +19,9 @@ namespace Quan_Ly_KTX.Controller
             {
                 c.IdUser, c.Username, c.MatKhau, d.RoleId, d.RoleName
             }) .Where(s=> s.Username==username).Where(p=>p.MatKhau==password).Select(s => new { s.RoleName, s.IdUser }).FirstOrDefault();
-            return UserExist.RoleName != null ? (UserExist.RoleName, UserExist.IdUser) : ("Không có tài khoản",-1);
-
+            context.Dispose();
+            return UserExist != null ? (UserExist.RoleName, UserExist.IdUser) : ("Không có tài khoản",-1);
+          
         }
        
             

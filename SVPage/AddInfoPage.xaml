@@ -7,18 +7,18 @@
       mc:Ignorable="d" 
           d:DesignHeight="600" d:DesignWidth="1516"
       Title="AddInfoPafe" 
-      Background="Beige">
+      Background="LightBlue">
     
-    <StackPanel Margin="10 10">
+    <StackPanel Margin="60 50">
         <TextBlock Text="Nhập thông tin của bạn" FontSize="40" FontWeight="Bold" FontFamily="Serif" HorizontalAlignment="Center" Margin=" 0 10"/>
-        <Grid Margin="0 5">
+        <Grid Margin=" 0 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Họ tên" HorizontalAlignment="Center" FontSize="20" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="Name" Grid.Column="1" Padding="2" FontSize="20"/>
+            <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20"/>
         </Grid>
         <Grid Margin="0 5">
             <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Mã sinh viên" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="svid" FontSize="20" Padding="2" Grid.Column="1"/>
+            <TextBox x:Name="msv" FontSize="20" Padding="2" Grid.Column="1"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -43,6 +43,52 @@
                 </CheckBox>
             </StackPanel>
         </Grid>
+        <Grid Margin="0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Mã phòng" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
+            <TextBox x:Name="maphong" FontSize="20" Padding="2" Grid.Column="1"/>
+        </Grid>
+        <Grid Margin="0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Hệ" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
+            <ComboBox x:Name="he" Grid.Column="1">
+                <ComboBoxItem IsSelected="True" FontSize="20">
+                  Dân sự
+                </ComboBoxItem>
+                <ComboBoxItem FontSize="20">
+                    Quân sự
+                </ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Margin="0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Năm học" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
+            <TextBox x:Name="namhoc" FontSize="20" Padding="2" Grid.Column="1"/>
+        </Grid>
+        <Grid Margin=" 0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Ngày sinh" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
+            <TextBox x:Name="ns" FontSize="20" Padding="2" Grid.Column="1"/>
+        </Grid>
+        <Button Content="Submit" x:Name="submit" HorizontalAlignment="Center" FontSize="25" Padding="3" Margin="0 30" Click="submit_Click"/>
+
+
 
     </StackPanel>
 

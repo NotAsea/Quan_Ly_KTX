@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
+using Quan_Ly_KTX.SVPage;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -22,20 +23,16 @@ namespace Quan_Ly_KTX
     {
         public int ID { get; init; }
       //  public InfoSV InfoSV { get; init; }
-        public FormSVDS()
-        {
-            InitializeComponent();
-        }
         public FormSVDS(int id)
         {
-           _= new FormSVDS();
-            this.ID = id;
-          //  this.InfoSV = SQLworker.LayDSSV(ID);
-}
+            InitializeComponent();
+            ID= id;
+        }
+
 
         private void AddInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new AddInfoPage() };
         }
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)

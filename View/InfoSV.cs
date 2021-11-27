@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Quan_Ly_KTX.Controller;
 
 namespace Quan_Ly_KTX.View
 {
-    internal class InfoSV
+    internal  class InfoSV
     {
         
-        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe, string tinhtrangPhong)
+        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe)
         {
             MSV = sVID;
             HoTen = hoTen;
@@ -19,7 +20,7 @@ namespace Quan_Ly_KTX.View
             Nh = nh;
             MaPhong = maPhong;
             TenHe = tenHe;
-            this.tinhtrangPhong = tinhtrangPhong;
+           
         }
 
         public string MSV { get; set; }
@@ -29,7 +30,7 @@ namespace Quan_Ly_KTX.View
         public int Nh { get; set; }
         public int MaPhong { get; set; }
         public string  TenHe { get; set; }
-        public string tinhtrangPhong { get; set; }
+        
 
      //   public InfoSV toInfoSV( int IdUser, string Hoten, string GioiTinh, DateTime NgaySinh 
           //  , int NamHoc, int MaPhong,  string tenhe, string ttPhong  ) =>  
@@ -41,5 +42,21 @@ namespace Quan_Ly_KTX.View
             foreach (var item in info) dsSV.Add(item);
             return dsSV;
         }
+        public SinhVien ToSV()
+        {
+            SinhVien sv = new();
+            sv.Msv = MSV;
+            sv.NamHoc = Nh;
+            sv.MaHe = SQLworker.timMH(this);
+            sv.Hoten = HoTen;
+            sv.GioiTinh = GT;
+            sv.MaPhong = MaPhong;
+            sv.NgaySinh = NS;
+            return sv;
+
+        }
+        
+
+        
     }
 }

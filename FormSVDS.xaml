@@ -18,7 +18,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="5*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="Resource/logo.jpg" Stretch="Uniform" Margin="0 0 20 0"/>
+                <Image Grid.Column="0" Source="Resource/logo.jpg" Stretch="Uniform" Margin="0,0,20,0"  Height="150" VerticalAlignment="Bottom"/>
                 <Rectangle Grid.Column="1" Fill="MediumTurquoise"/>
                 <StackPanel Grid.Column="1" Margin="0 20" >
                     <TextBlock  Text="Ký túc xá"
@@ -27,7 +27,7 @@
                            />
                     <TextBlock />
                 </StackPanel>
-               
+
 
 
             </Grid>
@@ -42,7 +42,7 @@
                     <Button x:Name="AddInfo" Click="AddInfo_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resource/Icon/button_add_icon.png" Width="24" Height="24" Margin="0 0 20 0" />
-                            
+
                             <TextBlock FontSize="20">Thêm thông tin</TextBlock>
 
                         </StackPanel>
@@ -71,7 +71,7 @@
 
                         </StackPanel>
                     </Button>
-                    <Button x:Name="HistoryDV" Click="History_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
+                    <Button x:Name="HistoryDV" Click="HistoryDV_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resource/Icon/history_button.png" Width="24" Height="24" Margin="0 0 20 0" />
 
@@ -82,9 +82,14 @@
 
                 </StackPanel>
                 <!--Nội dung bên phải-->
-                <Page x:Name="MainContent" Grid.Column="1"/>
+                <Frame Grid.Column="1" Margin="10 10">
+                    <Frame.Content>
+                        <Page x:Name="MainContent"/>
+                    </Frame.Content>
+                </Frame>
+
             </Grid>
-            
+
         </StackPanel>
     </Border>
 </Window>
