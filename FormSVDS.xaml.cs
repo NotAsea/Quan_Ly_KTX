@@ -22,17 +22,33 @@ namespace Quan_Ly_KTX
     public partial class FormSVDS : Window
     {
         public int ID { get; init; }
-      //  public InfoSV InfoSV { get; init; }
+
+        private static InfoSV? SV;
         public FormSVDS(int id)
         {
             InitializeComponent();
             ID= id;
+            SV = SQLworker.LaySV(ID);
+           
+            if (SV != null)
+            {
+                AddInfo.Visibility = Visibility.Collapsed;
+                inra.DataContext = SV;
+            }
+            else
+            {
+                EditInfo.Visibility=Visibility.Collapsed;
+                HistoryDV.Visibility=Visibility.Collapsed;
+                inra.Visibility = Visibility.Hidden;
+                SignDV.Visibility = Visibility.Collapsed;
+
+            }
         }
 
 
         private void AddInfo_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new Frame() { Content = new AddInfoPage() };
+            MainContent.Content = new Frame() { Content = new AddInfoPage(this.ID) };
         }
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)
@@ -40,10 +56,7 @@ namespace Quan_Ly_KTX
 
         }
 
-        private void ViewDV_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void SignDV_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +66,13 @@ namespace Quan_Ly_KTX
         private void HistoryDV_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Loginout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new();
+            m.Show();
+            this.Close();
         }
     }
 }

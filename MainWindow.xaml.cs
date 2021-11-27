@@ -26,6 +26,7 @@ namespace Quan_Ly_KTX
         public MainWindow()
         {
             InitializeComponent();
+           
         }
 
         private void Loggin_Click(object sender, RoutedEventArgs e)
@@ -33,9 +34,9 @@ namespace Quan_Ly_KTX
             String s = "";
             if (String.IsNullOrWhiteSpace(UserName.Text))  s += "Trường tên ĐN còn trống ";
             
-            if (String.IsNullOrWhiteSpace(Password.Text)) s += "Trường mk còn trống";
+            if (String.IsNullOrWhiteSpace(Password.Password)) s += "Trường mk còn trống";
             if (!String.IsNullOrWhiteSpace(s))  _=MessageBox.Show(s, "FormĐN");
-            var (result,ID) = LogginController.IsLoggin(UserName.Text, Password.Text);
+            var (result,ID) = LogginController.IsLoggin(UserName.Text, Password.Password);
             if (result == "User")
             {
                 FormSVDS sv = new(ID);
@@ -47,7 +48,8 @@ namespace Quan_Ly_KTX
 
         private void signup_Click(object sender, RoutedEventArgs e)
         {
-            Window1 dk = new();
+            Window1 dk = new() { Owner = this };
+
             dk.Show();
         }
     }

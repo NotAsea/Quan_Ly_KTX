@@ -22,9 +22,11 @@ namespace Quan_Ly_KTX.SVPage
     /// </summary>
     public partial class AddInfoPage : Page
     {
-        public AddInfoPage()
+        public int ID { get; set; }
+        public AddInfoPage(int ID)
         {
             InitializeComponent();
+            this.ID = ID; 
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
@@ -32,24 +34,37 @@ namespace Quan_Ly_KTX.SVPage
             String check = "";
             if (String.IsNullOrEmpty(Namee.Text)) check += "Tên đang để trống, ";
             if (String.IsNullOrEmpty(msv.Text)) check += "Mã sinh viên đang để trống, ";
-            if ( (bool)!gtnam.IsChecked && (bool)!gtnu.IsChecked) check += "Giới tinh chưa chọn, ";
-            if (String.IsNullOrWhiteSpace(maphong.Text)) check += "Chưa điền mã phòng, ";
+            if ((bool)!gtnam.IsChecked && (bool)!gtnu.IsChecked) check += "Giới tính chưa chọn, ";
+            else if ((bool)gtnam.IsChecked && (bool)gtnu.IsChecked) check += "Giới tính không được chọn cả 2, ";
+           
             if (String.IsNullOrWhiteSpace(namhoc.Text)) check += "Chưa điền năm học, ";
             if (String.IsNullOrWhiteSpace(ns.Text)) check += "Chưa điền năm sinh, ";
             if (check.Length > 0)
             {
-                check = check.Replace(',', ' ');
+                check = check.Remove(check.Length - 2);
                 _ = MessageBox.Show(check, "Add Page thông báo");
 
             }
             else
             {
-                InfoSV sv = new(msv.Text, Namee.Text, (bool)gtnam.IsChecked ? gtnam.Content.ToString() : gtnu.Content.ToString(), DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
-                    , int.Parse(maphong.Text), he.Text);
-                try { AddInfoSVController.addInfo(sv); }
-                catch (Exception) { _ = MessageBox.Show("đã có lỗi xảy ra"); }
+                var hechon = he.SelectedItem as ComboBoxItem;
+                var tenhe = hechon!.Content.ToString();
+                var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
+                InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
+                    , SQLworker.XepPhong(tenhe, gt),tenhe );
+                
+                    AddInfoSVController.addInfo(sv);
+                    _ = MessageBox.Show("thêm thông tin thành công", "Thêm thông tin");
+                    Application.Current.Shutdown();
+                    FormSVDS f = new(this.ID);
+                    f.Show();
+             //   }
+              //  catch (Exception) { _ = MessageBox.Show("đã có lỗi xảy ra","Thêm thông tin"); }
+
             }
 
         }
+
+      
     }
 }

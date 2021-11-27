@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quan_Ly_KTX.SVPage"
       mc:Ignorable="d" 
-          d:DesignHeight="600" d:DesignWidth="1516"
+          d:DesignHeight="580" d:DesignWidth="1236"
       Title="AddInfoPafe" 
       Background="LightBlue">
-    
+
     <StackPanel Margin="60 50">
         <TextBlock Text="Nhập thông tin của bạn" FontSize="40" FontWeight="Bold" FontFamily="Serif" HorizontalAlignment="Center" Margin=" 0 10"/>
         <Grid Margin=" 0 10">
@@ -18,7 +18,7 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Họ tên" HorizontalAlignment="Center" FontSize="20" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20"/>
+            <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20" Margin="200 0  0 0"/>
         </Grid>
         <Grid Margin="0 5">
             <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Mã sinh viên" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="msv" FontSize="20" Padding="2" Grid.Column="1"/>
+            <TextBox x:Name="msv" FontSize="20" Padding="2" Grid.Column="1" Margin=" 500 0 0 0"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -34,23 +34,15 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Giới tính" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="20 0">
-                <CheckBox x:Name="gtnam" Margin="20 0" Padding="2" >
-                    <TextBlock Text="Nam" FontSize=" 20"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="500 0 0 0">
+                <CheckBox x:Name="gtnam" Margin="20 0" Padding="2" Content="Nam" FontSize="20"  >
+                    
+
                 </CheckBox>
-                <CheckBox x:Name="gtnu" Margin="20 0" >
-                    <TextBlock Text="Nữ" FontSize="20"/>
+                <CheckBox x:Name="gtnu" Margin="20 0" Content="Nữ" FontSize="20">
+                    
                 </CheckBox>
             </StackPanel>
-        </Grid>
-        <Grid Margin="0 10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
-                
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Mã phòng" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="maphong" FontSize="20" Padding="2" Grid.Column="1"/>
         </Grid>
         <Grid Margin="0 10">
             <Grid.ColumnDefinitions>
@@ -59,9 +51,9 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Hệ" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <ComboBox x:Name="he" Grid.Column="1">
+            <ComboBox x:Name="he" Grid.Column="1" Margin="500 0 0 0" FontSize="20">
                 <ComboBoxItem IsSelected="True" FontSize="20">
-                  Dân sự
+                    Dân sự
                 </ComboBoxItem>
                 <ComboBoxItem FontSize="20">
                     Quân sự
@@ -75,7 +67,7 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Năm học" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="namhoc" FontSize="20" Padding="2" Grid.Column="1"/>
+            <TextBox x:Name="namhoc" FontSize="20" Padding="2" Grid.Column="1" Margin="500 0 0 0"/>
         </Grid>
         <Grid Margin=" 0 10">
             <Grid.ColumnDefinitions>
@@ -84,7 +76,7 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Ngày sinh" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="ns" FontSize="20" Padding="2" Grid.Column="1"/>
+            <TextBox x:Name="ns" FontSize="20" Padding="2" Grid.Column="1" Margin="500 0 0 0"/>
         </Grid>
         <Button Content="Submit" x:Name="submit" HorizontalAlignment="Center" FontSize="25" Padding="3" Margin="0 30" Click="submit_Click"/>
 

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Quan_Ly_KTX.Controller;
 
 namespace Quan_Ly_KTX
 {
@@ -26,9 +27,21 @@ namespace Quan_Ly_KTX
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            string result = "";
-            _ = MessageBox.Show(result, "Fom đăng ký thông báo");
-            this.Close();   
+            String mss = "";
+            if (String.IsNullOrEmpty(Username.Text)) mss += "Tên đăng nhập đang trống, ";
+            if (String.IsNullOrEmpty(Password.Password)) mss += "Mật khẩu đang trống, ";
+            if (String.IsNullOrEmpty(RePassword.Password)) mss += "Mật khẩu nhập lại đang trống, ";
+            else if (RePassword.Password != Password.Password) mss += "Mật khẩu nhập lại không trùng mật khẩu gốc  ";
+            if (mss.Length > 0)
+            {
+                mss = mss.Remove(mss.Length - 2);
+                _ = MessageBox.Show(mss, "Form Đăng nhập");
+            }
+            else
+            {
+                SiginupController.addUser(Username.Text, Password.Password);
+                _ = MessageBox.Show("Đăng nhập thành công", "Form đăng nhập");
+            }
 
         }
     }

@@ -35,7 +35,7 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Tên đăng nhập" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="Aqua" Margin="0 0 10 0">
+                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="Aqua" Margin="0 0 10 0" FontSize="18">
                         <TextBox.ToolTip>
                             <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
                         </TextBox.ToolTip>
@@ -49,11 +49,11 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Mật khẩu" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <TextBox Grid.Column="1" x:Name="Password" Padding="10" Background="Cyan" Margin="0 0 10 0">
-                        <TextBox.ToolTip>
+                    <PasswordBox Grid.Column="1" x:Name="Password" Padding="10" Background="Cyan" Margin="0 0 10 0" FontSize="18" PasswordChar="*">
+                        <PasswordBox.ToolTip>
                             <ToolTip>Mật khẩu không quá 30 ký tự</ToolTip>
-                        </TextBox.ToolTip>
-                    </TextBox>
+                        </PasswordBox.ToolTip>
+                    </PasswordBox>
                     
 
                 </Grid>
