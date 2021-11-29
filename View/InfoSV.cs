@@ -8,7 +8,7 @@ using Quan_Ly_KTX.Controller;
 
 namespace Quan_Ly_KTX.View
 {
-    internal  class InfoSV
+    public   class InfoSV
     {
         
         public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe)
@@ -22,6 +22,7 @@ namespace Quan_Ly_KTX.View
             TenHe = tenHe;
            
         }
+        public InfoSV() { }
 
         public string MSV { get; set; }
         public string HoTen { get; set; }

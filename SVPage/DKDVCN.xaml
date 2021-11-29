@@ -1,0 +1,36 @@
+﻿<Page x:Class="Quan_Ly_KTX.SVPage.DKDVCN"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quan_Ly_KTX.SVPage"
+    
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1000"
+      Title="DKDVCN"
+      Background="LightCyan"  >
+    <Page.Resources>
+        <CollectionViewSource x:Key="DVsource" />
+     <!--   <CollectionViewSource x:Key="DvInra" Source="{Binding DichVu, Source={StaticResource DVsource}}"/>-->
+    </Page.Resources>
+    <StackPanel Margin="10 10" >
+        <TextBlock Text="Đăng ký dịch vụ" FontSize="40" HorizontalAlignment="Center"/>
+        
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Padding="2" Margin=" 10 20" AutoGenerateColumns="False" x:Name="dichvuList" VerticalAlignment="Top" HorizontalAlignment="Center" Height="Auto" Width="600"
+                      ItemsSource="{Binding Source={StaticResource DVsource}}" FontSize="20" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"  Grid.Row="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding MaDv}" Header="Mã Dịch Vụ" IsReadOnly="True" Width="150" FontSize="20"/>
+                    <DataGridTextColumn Binding="{Binding TenDv}" Header="Tên dịch vụ" IsReadOnly="True" Width="230" FontSize="20"/>
+                    <DataGridTextColumn Binding="{Binding GiaDv}" Header="Giá dịch vụ " IsReadOnly="True" Width="220" FontSize=" 20 "/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+    </StackPanel>
+   
+</Page>

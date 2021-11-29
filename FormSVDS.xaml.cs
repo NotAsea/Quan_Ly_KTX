@@ -53,14 +53,14 @@ namespace Quan_Ly_KTX
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new EditInfoPage(SV) };
         }
 
-      
+    
 
         private void SignDV_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new DKDVCN() };
         }
 
         private void HistoryDV_Click(object sender, RoutedEventArgs e)

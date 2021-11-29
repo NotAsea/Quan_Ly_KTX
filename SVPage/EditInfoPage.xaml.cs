@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
 
 namespace Quan_Ly_KTX.SVPage
 {
@@ -20,9 +22,48 @@ namespace Quan_Ly_KTX.SVPage
     /// </summary>
     public partial class EditInfoPage : Page
     {
-        public EditInfoPage()
+        public InfoSV Sv { get; set; }
+        public EditInfoPage(InfoSV sv)
         {
             InitializeComponent();
+            Sv = sv;
+            this.DataContext = Sv;
+
+        }
+
+        private void EditName_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditMsv_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditGT_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditNS_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditNh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditMp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
