@@ -8,15 +8,7 @@
 	  
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resource\Icon\button_add_icon.png" />
-    <None Remove="Resource\Icon\edit_button_icon.png" />
-    <None Remove="Resource\Icon\history_button.png" />
-    <None Remove="Resource\Icon\register_button.png" />
-    <None Remove="Resource\Icon\signout_button.png" />
-    <None Remove="Resource\Icon\view_icon.png" />
-    <None Remove="Resource\logo_icon.ico" />
-  </ItemGroup>
+  
 
   <ItemGroup>
     <Resource Include="Resource\Icon\history_button.png" />
