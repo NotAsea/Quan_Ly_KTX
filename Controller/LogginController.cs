@@ -11,7 +11,7 @@ namespace Quan_Ly_KTX.Controller
 {
     internal static class LogginController
     {  
-        public static (String, int) IsLoggin(String username, String password)
+        public static  (String, int) IsLoggin(String username, String password)
         {
 
             KTX_KMAContext context = new();

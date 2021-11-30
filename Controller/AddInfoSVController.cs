@@ -13,11 +13,9 @@ namespace Quan_Ly_KTX.Controller
        
         public static void addInfo(InfoSV sv)
         {
-            using(KTX_KMAContext context = new())
-            {
-                context.SinhViens.Add(sv.ToSV());
-                context.SaveChanges();
-            }
+            using KTX_KMAContext context = new();
+            context.SinhViens.Add(sv.ToSV());
+            context.SaveChanges();
         }
     }
 }

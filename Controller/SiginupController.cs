@@ -14,11 +14,9 @@ namespace Quan_Ly_KTX.Controller
             u.Username = username;
             u.MatKhau= Password;
             u.RoleId = 1;
-            using (KTX_KMAContext context= new())
-            {
-                context.UserNguoiDungs.Add(u);
-                context.SaveChanges();
-            }
+            using KTX_KMAContext context = new();
+            context.UserNguoiDungs.Add(u);
+            context.SaveChanges();
         }
     }
 }

@@ -52,14 +52,14 @@ namespace Quan_Ly_KTX.SVPage
                 var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
                 InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
                     , SQLworker.XepPhong(tenhe, gt),tenhe );
-                
+                try {      
                     AddInfoSVController.addInfo(sv);
                     _ = MessageBox.Show("thêm thông tin thành công", "Thêm thông tin");
                     Application.Current.Shutdown();
                     FormSVDS f = new(this.ID);
                     f.Show();
-             //   }
-              //  catch (Exception) { _ = MessageBox.Show("đã có lỗi xảy ra","Thêm thông tin"); }
+               }
+                catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
 
             }
 
