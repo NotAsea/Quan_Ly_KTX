@@ -11,26 +11,37 @@
       Background="LightCyan"  >
     <Page.Resources>
         <CollectionViewSource x:Key="DVsource" />
-     <!--   <CollectionViewSource x:Key="DvInra" Source="{Binding DichVu, Source={StaticResource DVsource}}"/>-->
+        <!--   <CollectionViewSource x:Key="DvInra" Source="{Binding DichVu, Source={StaticResource DVsource}}"/>-->
     </Page.Resources>
     <StackPanel Margin="10 10" >
         <TextBlock Text="Đăng ký dịch vụ" FontSize="40" HorizontalAlignment="Center"/>
-        
+        <TextBlock Text="Chọn một dịch vụ để đăng ký" Padding="3" FontSize="18" FontStyle="Italic" Margin="0 20" HorizontalAlignment="Center" TextBlock.Foreground="Blue"/>
         <Grid >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <DataGrid Padding="2" Margin=" 10 20" AutoGenerateColumns="False" x:Name="dichvuList" VerticalAlignment="Top" HorizontalAlignment="Center" Height="Auto" Width="600"
-                      ItemsSource="{Binding Source={StaticResource DVsource}}" FontSize="20" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"  Grid.Row="0">
+          
+            <DataGrid Padding="2" Margin="190,0,0,0" AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
+                      CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick"
+                      ItemsSource="{Binding Source={StaticResource DVsource}}" 
+                      CanUserResizeColumns="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MaDv}" Header="Mã Dịch Vụ" IsReadOnly="True" Width="150" FontSize="20"/>
                     <DataGridTextColumn Binding="{Binding TenDv}" Header="Tên dịch vụ" IsReadOnly="True" Width="230" FontSize="20"/>
                     <DataGridTextColumn Binding="{Binding GiaDv}" Header="Giá dịch vụ " IsReadOnly="True" Width="220" FontSize=" 20 "/>
                 </DataGrid.Columns>
+
             </DataGrid>
 
         </Grid>
+        <Grid Margin="0 40 0 10">
+            <DataGrid x:Name="dichvuDK" AutoGenerateColumns="False"  VerticalAlignment="Stretch" HorizontalAlignment="Center" CanUserAddRows="False"
+                      CanUserDeleteRows="False" CanUserResizeColumns="False" FontSize="20" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tên dịch vụ bạn đã đăng ký" Binding="{Binding tendv}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Giá dịch vụ" Binding="{Binding giadv}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Button x:Name="Submit" Click="Submit_Click" Padding="2"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Xác nhận" 
+                FontSize="20" Background="Chartreuse"/>
     </StackPanel>
-   
+
 </Page>

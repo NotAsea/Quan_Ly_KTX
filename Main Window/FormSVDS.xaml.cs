@@ -60,7 +60,7 @@ namespace Quan_Ly_KTX
 
         private void SignDV_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new Frame() { Content = new DKDVCN() };
+            MainContent.Content = new Frame() { Content = new DKDVCN(SV.MSV) };
         }
 
         private void HistoryDV_Click(object sender, RoutedEventArgs e)

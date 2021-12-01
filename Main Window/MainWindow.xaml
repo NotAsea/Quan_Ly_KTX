@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Quản Lý ký túc xá" Height="550" Width="820"
         Background="LightGray"
-        Icon="Resource/logo_icon.ico"
+        Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterScreen"
           >
     <Border Padding="10">
@@ -25,7 +25,7 @@
                        FontSize="40" VerticalAlignment="Center" FontStyle="Oblique" TextWrapping="NoWrap" TextBlock.Foreground="BlueViolet"
                        FontWeight="DemiBold" />
 
-                <Image Grid.Column="0" Source="Resource/logo.jpg" Margin="0 0 10 0" Stretch="Uniform"/>
+                <Image Grid.Column="0" Source="/Resource/logo.jpg" Margin="0 0 10 0" Stretch="Uniform"/>
             </Grid>
             <StackPanel Grid.Row="1">
                 
