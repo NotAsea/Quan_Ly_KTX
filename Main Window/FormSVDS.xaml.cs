@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.SVPage;
+using Quan_Ly_KTX.Main_Window.SVPage;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -65,7 +66,7 @@ namespace Quan_Ly_KTX
 
         private void HistoryDV_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new History_dv(SV.MSV) };
         }
 
         private void Loginout_Click(object sender, RoutedEventArgs e)

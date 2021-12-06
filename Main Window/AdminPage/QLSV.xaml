@@ -1,0 +1,28 @@
+﻿<Page x:Class="Quan_Ly_KTX.Main_Window.AdminPage.QLSV"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="QLSV"
+      Background="Bisque"
+      >
+    <Page.Resources>
+        <CollectionViewSource x:Key="SVList"/>
+    </Page.Resources>
+    <StackPanel>
+        <TextBlock Text="Danh sách sinh viên" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
+        <Grid>
+            <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial">
+                <DataGrid.Columns>
+                    
+                </DataGrid.Columns>
+                
+            </DataGrid>
+
+        </Grid>
+    </StackPanel>
+    
+</Page>

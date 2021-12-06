@@ -18,7 +18,7 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Họ tên" HorizontalAlignment="Center" FontSize="20" Padding="2" Grid.Column="0"/>
-            <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20" Margin="200 0  0 0"/>
+            <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20" Margin="200 0  0 0" TextChanged="Namee_TextChanged"/>
         </Grid>
         <Grid Margin="0 5">
             <Grid.ColumnDefinitions>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.Models;
 
+
 namespace Quan_Ly_KTX.Controller
 {
     public static class DichVuController
@@ -24,5 +25,6 @@ namespace Quan_Ly_KTX.Controller
             foreach(var d in dk)  context.Đkdvcns.Add(d);
             context.SaveChanges();
         }
+       
     }
 }

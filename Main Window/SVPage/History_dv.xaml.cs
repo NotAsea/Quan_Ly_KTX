@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
 
 namespace Quan_Ly_KTX.Main_Window.SVPage
 {
@@ -20,9 +22,19 @@ namespace Quan_Ly_KTX.Main_Window.SVPage
     /// </summary>
     public partial class History_dv : Page
     {
-        public History_dv()
+        private CollectionViewSource LsDangKy;
+        private string msv;
+      
+        private ICollection<HistoryDv> ds;
+        public History_dv( string msv)
         {
             InitializeComponent();
+            LsDangKy= (CollectionViewSource)FindResource(nameof(LsDangKy));
+            ds= LichSuDK.layLsSV(msv);
+            LsDangKy.Source = ds;
+            var tongcong = new tongcong(ds.Sum(x => x.giadv));
+            Totalrow.DataContext = tongcong;
+
         }
     }
 }

@@ -65,6 +65,9 @@ namespace Quan_Ly_KTX.SVPage
 
         }
 
-      
+        private void Namee_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
