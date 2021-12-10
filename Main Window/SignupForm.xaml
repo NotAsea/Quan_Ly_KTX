@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
         Title="Form Đăng ký" Height="550" Width="820"
-        Background="LightSlateGray"
+        Background="#E6E6FA"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterOwner"
         >
@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Tên đăng nhập" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" FontSize="18">
+                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" FontSize="18" Foreground="White">
                     <TextBox.ToolTip>
                         <ToolTip>Tên đăng nhập không dài quá 50 ký tự </ToolTip>
                     </TextBox.ToolTip>
@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <PasswordBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="8,0,12,0" Grid.Column="1" PasswordChar="*" FontSize="18">
+                <PasswordBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="8,0,12,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="White">
                     <PasswordBox.ToolTip>
                         <ToolTip>Mật khẩu không dài quá 50 ký tự và có đủ chữ số</ToolTip>
                     </PasswordBox.ToolTip>
@@ -47,14 +47,14 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Nhập lại Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <PasswordBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" PasswordChar="*" FontSize="18">
+                <PasswordBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="White">
                    
                 </PasswordBox>
 
             </Grid>
 
             <Button x:Name="Submit" Content="Xác nhận" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 20" FontFamily="Time New Roman" 
-                 FontSize="20" Background="Cyan"/>
+                 FontSize="20" Background="#90EE90"/>
 
         </StackPanel>
     </Border>

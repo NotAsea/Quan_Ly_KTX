@@ -8,13 +8,19 @@ using Quan_Ly_KTX.Models;
 
 namespace Quan_Ly_KTX.Controller
 {
-    internal static class AddInfoSVController
+    public  static class AddInfoSVController
     {
        
         public static void addInfo(InfoSV sv)
         {
             using KTX_KMAContext context = new();
             context.SinhViens.Add(sv.ToSV());
+            context.SaveChanges();
+        }
+        public static void UpdateInfoSV (InfoSV sv)
+        {
+            using KTX_KMAContext context = new();
+            context.SinhViens.Update(sv.ToSV());
             context.SaveChanges();
         }
     }

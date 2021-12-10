@@ -15,9 +15,32 @@
     <StackPanel>
         <TextBlock Text="Danh sách sinh viên" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
         <Grid>
-            <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial">
+            <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial"
+                      HorizontalAlignment="Center">
                 <DataGrid.Columns>
-                    
+                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MSV}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding Hoten}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Giới tính" Binding="{Binding GT}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Năm sinh" Binding="{Binding NS}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Năm học" Binding="{Binding Nh}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding MaPhong}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Hệ" Binding="{Binding TenHe}" IsReadOnly="True"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnEdit" Click="btnEdit_Click" Content="Edit" FontSize="18"  Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                               
+                            </DataTemplate>
+                            
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 
             </DataGrid>

@@ -52,14 +52,14 @@ namespace Quan_Ly_KTX.SVPage
                 var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
                 InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
                     , SQLworker.XepPhong(tenhe, gt),tenhe );
-                try {      
+              // try {      
                     AddInfoSVController.addInfo(sv);
                     _ = MessageBox.Show("thêm thông tin thành công", "Thêm thông tin");
                     Application.Current.Shutdown();
                     FormSVDS f = new(this.ID);
                     f.Show();
-               }
-                catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
+           //    }
+          //      catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
 
             }
 
@@ -68,6 +68,14 @@ namespace Quan_Ly_KTX.SVPage
         private void Namee_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void reset_Click(object sender, RoutedEventArgs e)
+        {
+            Namee.Text = "";
+            msv.Text = "";
+            namhoc.Text = "";
+            ns.Text = "";
         }
     }
 }

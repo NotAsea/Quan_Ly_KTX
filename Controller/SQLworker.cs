@@ -39,6 +39,7 @@ namespace Quan_Ly_KTX.Controller
                     d.MaHe,
                     d.TenHe
                 }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe)).FirstOrDefault();
+            context.Dispose();
             return result;
         }
         public static String timMH(InfoSV sv)
@@ -55,7 +56,7 @@ namespace Quan_Ly_KTX.Controller
             int maphong ;
             using(KTX_KMAContext context = new())
             {
-                maphong=context.Phongs.Where(p => p.MaHe == he).Where(p => p.TinhTrangPhong.Equals( "Còn")).Where(p=> p.TinhTrangPhong.Equals(gt)).Select(x=> x.MaPhong).FirstOrDefault();
+                maphong = context.Phongs.Where(p => p.MaHe == he).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt)).Select(x => x.MaPhong).FirstOrDefault();
             }
             return maphong;
         }

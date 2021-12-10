@@ -19,7 +19,7 @@
         <Grid >
           
             <DataGrid Padding="2" Margin="190,0,0,0" AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
-                      CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick"
+                      CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ItemsSource="{Binding Source={StaticResource DVsource}}" 
                       CanUserResizeColumns="False" >
                 <DataGrid.Columns>

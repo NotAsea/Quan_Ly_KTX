@@ -8,10 +8,24 @@
 	  
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resource\Icon\dich_vu_icon.png" />
+    <None Remove="Resource\Icon\dk_icon.png" />
+    <None Remove="Resource\Icon\list_icon.png" />
+    <None Remove="Resource\logo_chinh_moi.png" />
+    <None Remove="Resource\Main_Icon_new.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Icon\dich_vu_icon.png" />
+    <Resource Include="Resource\Icon\dk_icon.png" />
+  </ItemGroup>
+
   
 
   <ItemGroup>
     <Resource Include="Resource\Icon\history_button.png" />
+    <Resource Include="Resource\Icon\list_icon.png" />
     <Resource Include="Resource\Icon\register_button.png" />
     <Resource Include="Resource\Icon\signout_button.png" />
     <Resource Include="Resource\Icon\view_icon.png" />
@@ -32,11 +46,9 @@
     <Resource Include="Resource\Icon\button_add_icon.png" />
     <Resource Include="Resource\Icon\edit_button_icon.png" />
     <Resource Include="Resource\logo.jpg" />
+    <Resource Include="Resource\logo_chinh_moi.png" />
     <Resource Include="Resource\logo_icon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Util\" />
+    <Resource Include="Resource\Main_Icon_new.png" />
   </ItemGroup>
 
 </Project>

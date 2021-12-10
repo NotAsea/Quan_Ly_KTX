@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
         Title="Quản Lý ký túc xá" Height="550" Width="820"
-        Background="LightGray"
+        Background="#E6E6FA"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterScreen"
           >
@@ -22,20 +22,20 @@
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Chào mừng đến với Kí túc xá KMA" Grid.Column="1" FontFamily="Serif" HorizontalAlignment="Center" 
-                       FontSize="40" VerticalAlignment="Center" FontStyle="Oblique" TextWrapping="NoWrap" TextBlock.Foreground="BlueViolet"
+                       FontSize="28" VerticalAlignment="Center" FontStyle="Oblique" TextWrapping="NoWrap" TextBlock.Foreground="BlueViolet"
                        FontWeight="DemiBold" />
 
-                <Image Grid.Column="0" Source="/Resource/logo.jpg" Margin="0 0 10 0" Stretch="Uniform"/>
+                <Image Grid.Column="0" Source="/Resource/logo_chinh_moi.png" Margin="0,0,617,0" Stretch="UniformToFill" Grid.ColumnSpan="2" />
             </Grid>
             <StackPanel Grid.Row="1">
-                
+
                 <Grid Margin="0 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Tên đăng nhập" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="Aqua" Margin="0 0 10 0" FontSize="18">
+                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="#C0C0C0" Margin="0,0,168,0" FontSize="18" Foreground="White" >
                         <TextBox.ToolTip>
                             <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
                         </TextBox.ToolTip>
@@ -49,26 +49,29 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Mật khẩu" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <PasswordBox Grid.Column="1" x:Name="Password" Padding="10" Background="Cyan" Margin="0 0 10 0" FontSize="18" PasswordChar="*">
+                    <PasswordBox Grid.Column="1" x:Name="Password" Padding="10" Background="#C0C0C0" Margin="0,0,165,0" FontSize="18" PasswordChar="*" Foreground="White">
                         <PasswordBox.ToolTip>
                             <ToolTip>Mật khẩu không quá 30 ký tự</ToolTip>
                         </PasswordBox.ToolTip>
                     </PasswordBox>
-                    
+
 
                 </Grid>
-                <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="GreenYellow" Margin="0 20">
+                <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="#90EE90" Margin="0 20">
                     <Button.ToolTip>
                         <ToolTip>Ấn nút để đăng nhâp</ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Content="Không có tài khoản?, bấm để đăng ký" FontSize="16" FontStyle="Italic" TextBlock.Foreground="DarkMagenta" x:Name="signup" Click="signup_Click"
-                        Background="LightGray" BorderThickness="0" 
-                        />
+                <Button   x:Name="signup" Click="signup_Click" 
+                        Background="#E6E6FA"  
+                        BorderThickness="0" 
+                        >
+                    <TextBlock TextDecorations="Underline" FontSize="16" FontStyle="Italic" Foreground="DarkMagenta" Text="Không có tài khoản?, bấm để đăng ký"/>
+                </Button>
 
 
             </StackPanel>
         </Grid>
     </Border>
-    
+
 </Window>

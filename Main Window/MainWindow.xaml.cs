@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quan_Ly_KTX;
 using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -29,19 +30,27 @@ namespace Quan_Ly_KTX
            
         }
 
-        private void Loggin_Click(object sender, RoutedEventArgs e)
+        private async void Loggin_Click(object sender, RoutedEventArgs e)
         {
             String s = "";
             if (String.IsNullOrWhiteSpace(UserName.Text))  s += "Trường tên ĐN còn trống ";
             
             if (String.IsNullOrWhiteSpace(Password.Password)) s += "Trường mk còn trống";
             if (!String.IsNullOrWhiteSpace(s))  _=MessageBox.Show(s, "FormĐN");
-            var (result,ID) = LogginController.IsLoggin(UserName.Text, Password.Password);
+           Mouse.OverrideCursor= System.Windows.Input.Cursors.Wait;
+            var (result,ID) =await LogginController.IsLoggin(UserName.Text, Password.Password);
+            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
             if (result == "User")
             {
                 FormSVDS sv = new(ID);
                 this.Close();
                 sv.Show();
+            }
+            else if (result == "Admin")
+            {
+                FormAdmin ad = new();
+                this.Close();
+                ad.Show();
             }
             else MessageBox.Show(result, "FormĐN");
         }

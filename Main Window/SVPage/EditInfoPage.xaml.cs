@@ -26,24 +26,22 @@ namespace Quan_Ly_KTX.SVPage
         public EditInfoPage(InfoSV sv)
         {
             InitializeComponent();
-            Sv = sv;
-            this.DataContext = Sv;
-
+            this.DataContext = sv;
+            Sv = new();
         }
 
-        private void EditName_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void EditMsv_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            var s = msv.Text;
+            Sv.MSV = s;
         }
 
         private void EditGT_Click(object sender, RoutedEventArgs e)
         {
-
+            
+          
         }
 
         private void EditNS_Click(object sender, RoutedEventArgs e)
@@ -53,17 +51,20 @@ namespace Quan_Ly_KTX.SVPage
 
         private void EditNh_Click(object sender, RoutedEventArgs e)
         {
-
+            var s = int.Parse(nh.Text);
+            Sv.Nh = s;
         }
 
         private void EditMp_Click(object sender, RoutedEventArgs e)
         {
-
+            var s= int.Parse(mp.Text);
+            Sv.MaPhong = s;
         }
 
         private void SaveEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var s = "";
+       //     var re= MessageBox.Show("các trường sau chueaane bị thay đổi,  )
         }
     }
 }

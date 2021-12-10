@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -20,9 +20,22 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
     /// </summary>
     public partial class QLSV : Page
     {
+        private CollectionViewSource SVList;
         public QLSV()
         {
             InitializeComponent();
+            SVList = (CollectionViewSource)FindResource(nameof(SVList));
+            SVList.Source = QLSVController.LayToanBoSv();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

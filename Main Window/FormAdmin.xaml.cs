@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Quan_Ly_KTX.Main_Window.AdminPage;
 
 namespace Quan_Ly_KTX.Main_Window
 {
@@ -26,7 +27,7 @@ namespace Quan_Ly_KTX.Main_Window
 
         private void XemDsSV_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content= new Frame() { Content= new QLSV()};
         }
 
         private void XemDSP_Click(object sender, RoutedEventArgs e)
