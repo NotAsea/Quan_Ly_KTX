@@ -49,7 +49,7 @@ namespace Quan_Ly_KTX
 
         private void AddInfo_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new Frame() { Content = new AddInfoPage(this.ID) };
+            MainContent.Content = new Frame() { Content = new AddInfoPage(this.ID, this) };
         }
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)

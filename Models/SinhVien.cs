@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Quan_Ly_KTX.Models
 {
@@ -10,20 +11,24 @@ namespace Quan_Ly_KTX.Models
             HoaDons = new HashSet<HoaDon>();
             Đkdvcns = new HashSet<Đkdvcn>();
         }
-
+        [ConcurrencyCheck]
         public string Msv { get; set; } = null!;
         public string Hoten { get; set; } = null!;
         public string? GioiTinh { get; set; }
         public DateTime? NgaySinh { get; set; }
+        [ConcurrencyCheck]
         public int NamHoc { get; set; }
         public string MaHe { get; set; } = null!;
-        public int IdUser { get; set; }
+        [ConcurrencyCheck]
         public int MaPhong { get; set; }
+        
+        public int? IdUser { get; set; }
 
-        public virtual UserNguoiDung IdUserNavigation { get; set; } = null!;
+        public virtual UserNguoiDung? IdUserNavigation { get; set; }
         public virtual He MaHeNavigation { get; set; } = null!;
-        public virtual Phong MaPhongNavigation { get; set; } = null!;
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual ICollection<Đkdvcn> Đkdvcns { get; set; }
+       
+      
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -17,11 +18,21 @@ namespace Quan_Ly_KTX.Controller
             context.SinhViens.Add(sv.ToSV());
             context.SaveChanges();
         }
-        public static void UpdateInfoSV (InfoSV sv)
+
+        public static void UpdateInfoSV(InfoSV sv)
         {
+
             using KTX_KMAContext context = new();
+
             context.SinhViens.Update(sv.ToSV());
-            context.SaveChanges();
+            try {
+                context.SaveChanges();
+            }
+         catch  (DbUpdateConcurrencyException ex)
+           {
+                ex.Entries.Single().Reload();
+                context.SaveChanges();
+            }
         }
     }
 }

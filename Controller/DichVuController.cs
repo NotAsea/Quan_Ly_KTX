@@ -19,10 +19,10 @@ namespace Quan_Ly_KTX.Controller
             }
             return ds;
         }
-        public static void ĐangKyDV(ICollection<Đkdvcn> dk)
+        public static void ĐangKyDV(Đkdvcn[] dk)
         {
             using KTX_KMAContext context = new();
-            foreach(var d in dk)  context.Đkdvcns.Add(d);
+             context.Đkdvcns.AddRange(dk);
             context.SaveChanges();
         }
        

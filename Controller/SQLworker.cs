@@ -14,19 +14,8 @@ namespace Quan_Ly_KTX.Controller
         public static InfoSV? LaySV( int id)
         {
             KTX_KMAContext context = new();
-            var result = context.SinhViens.Join(context.Phongs, a => a.MaPhong,
-                b => b.MaPhong, (c, d) => new
-                {
-                    c.IdUser,
-                    c.Msv,
-                    c.Hoten,
-                    c.GioiTinh,
-                    c.NgaySinh,
-                    c.NamHoc,
-                    d.MaPhong,
-                  
-                    c.MaHe
-                }).Join(context.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
+            var result = context.SinhViens.Join(context.Hes, a => a.MaHe,
+                b => b.MaHe, (c, d) => new
                 {
                     c.IdUser,
                     c.Msv,
@@ -35,10 +24,9 @@ namespace Quan_Ly_KTX.Controller
                     c.NgaySinh,
                     c.NamHoc,
                     c.MaPhong,
-                   
-                    d.MaHe,
-                    d.TenHe
-                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe)).FirstOrDefault();
+                  
+                    d.MaHe, d.TenHe
+                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe, (int)s.IdUser)).FirstOrDefault();
             context.Dispose();
             return result;
         }
@@ -56,7 +44,7 @@ namespace Quan_Ly_KTX.Controller
             int maphong ;
             using(KTX_KMAContext context = new())
             {
-                maphong = context.Phongs.Where(p => p.MaHe == he).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt)).Select(x => x.MaPhong).FirstOrDefault();
+                maphong = context.Phongs.Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt)).Select(x => x.MaPhong).FirstOrDefault();
             }
             return maphong;
         }
@@ -76,5 +64,6 @@ namespace Quan_Ly_KTX.Controller
             
             return ds;
         }
+      
     }
 }

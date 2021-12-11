@@ -41,7 +41,7 @@ namespace Quan_Ly_KTX.SVPage
         {
 
             var row = dvList.SelectedItem as DichVu ;
-               dkList.Add(new dvDK(row!.MaDv, row.TenDv, row.GiaDv ));
+               dkList.Add(new dvDK(row!.MaDv, row!.TenDv, row.GiaDv ));
             dichvuDK.ItemsSource = null;
             dichvuDK.ItemsSource = dkList;
             var d = new dvDK(row.MaDv, msv);
@@ -55,7 +55,7 @@ namespace Quan_Ly_KTX.SVPage
           
             try
             {
-                DichVuController.ĐangKyDV(listToAdd);
+                DichVuController.ĐangKyDV(listToAdd.ToArray());
                 MessageBox.Show("Đăng ký dịch vụ thành công","Đăng ký dịch vụ");
                 dichvuDK.ItemsSource = null;
             }catch(Exception ex)

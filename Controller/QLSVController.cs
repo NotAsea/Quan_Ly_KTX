@@ -11,10 +11,10 @@ namespace Quan_Ly_KTX.Controller
     {
         public static ICollection<InfoSV> LayToanBoSv()
         {
-            List<InfoSV> list = new List<InfoSV>();
+            List<InfoSV> list = new();
             using (KTX_KMAContext context = new()) {
-                list = context.SinhViens.Join(context.Phongs, a => a.MaPhong,
-               b => b.MaPhong, (c, d) => new
+                list = context.SinhViens.Join(context.Hes, a => a.MaHe,
+               b => b.MaHe, (c, d) => new
                {
                    c.IdUser,
                    c.Msv,
@@ -22,23 +22,13 @@ namespace Quan_Ly_KTX.Controller
                    c.GioiTinh,
                    c.NgaySinh,
                    c.NamHoc,
-                   d.MaPhong,
-
-                   c.MaHe
-               }).Join(context.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
-               {
-                   c.IdUser,
-                   c.Msv,
-                   c.Hoten,
-                   c.GioiTinh,
-                   c.NgaySinh,
-                   c.NamHoc,
-                   c.MaPhong,
+                    c.MaPhong,
 
                    d.MaHe,
                    d.TenHe
-               }).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe)).ToList();
+               }).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe,(int) s.IdUser)).ToList();
             }
+
           
             return list;
         }

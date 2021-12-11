@@ -11,7 +11,7 @@ namespace Quan_Ly_KTX.View
     public   class InfoSV
     {
         
-        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe)
+        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe , int id)
         {
             MSV = sVID;
             HoTen = hoTen;
@@ -20,10 +20,10 @@ namespace Quan_Ly_KTX.View
             Nh = nh;
             MaPhong = maPhong;
             TenHe = tenHe;
-           
+            ID = id;
         }
         public InfoSV() { }
-
+        public int ID { get; set; }
         public string MSV { get; set; }
         public string HoTen { get; set; }
         public string GT { get; set; }
@@ -48,11 +48,12 @@ namespace Quan_Ly_KTX.View
             SinhVien sv = new();
             sv.Msv = MSV;
             sv.NamHoc = Nh;
-            sv.MaHe = SQLworker.timMH(this);
+            sv.MaHe = TenHe;
             sv.Hoten = HoTen;
             sv.GioiTinh = GT;
             sv.MaPhong = MaPhong;
             sv.NgaySinh = NS;
+            sv.IdUser = ID;
             return sv;
 
         }

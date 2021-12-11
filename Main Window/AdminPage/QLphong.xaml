@@ -1,4 +1,4 @@
-﻿<Page x:Class="Quan_Ly_KTX.Main_Window.AdminPage.QLSV"
+﻿<Page x:Class="Quan_Ly_KTX.Main_Window.AdminPage.QLphong"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,32 +6,30 @@
       xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1000"
-      Title="QLSV"
-      Background="Bisque"
-      >
+      Title="QLphong"
+      Background="Bisque">
+
     <Page.Resources>
-        <CollectionViewSource x:Key="SVList"/>
+        <CollectionViewSource x:Key="PList"/>
     </Page.Resources>
     <StackPanel>
         <TextBlock Text="Danh sách sinh viên" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
-       
+
         <Grid>
-            <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid ItemsSource="{Binding Source={StaticResource PList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
+                      HorizontalAlignment="Center">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MSV}" IsReadOnly="True" Width="130"  />
-                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" IsReadOnly="True" Width="160"/>
-                    <DataGridTextColumn Header="Giới tính" Binding="{Binding GT}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Năm sinh" Binding="{Binding NS, StringFormat=d}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Năm học" Binding="{Binding Nh}" IsReadOnly="True" Width="130"/>
-                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding MaPhong}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Hệ" Binding="{Binding TenHe}" IsReadOnly="True" Width="90"/>
+                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding Maphong}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Loại phòng" Binding="{Binding loaiphong}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Tình trạng phòng" Binding="{Binding ttphong}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Hệ" Binding="{Binding tenhe}" IsReadOnly="True"/>
+                
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="btnEdit" Click="btnEdit_Click" Content="Edit" FontSize="18"  Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                                <Button x:Name="Edit" Click="Edit_Click" Content="Edit" FontSize="18"  Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
                             </DataTemplate>
-                            
+
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn>
@@ -42,10 +40,9 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-                
+
             </DataGrid>
 
         </Grid>
     </StackPanel>
-    
 </Page>

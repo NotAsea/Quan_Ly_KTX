@@ -32,22 +32,24 @@ namespace Quan_Ly_KTX.Main_Window
 
         private void XemDSP_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new QLphong() };
         }
 
         private void XemDSDV_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new QLDV() };
         }
 
         private void XemDSHD_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContent.Content = new Frame() { Content = new QLHD()};
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow m = new();
+            m.Show();
+            this.Close();
         }
     }
 }

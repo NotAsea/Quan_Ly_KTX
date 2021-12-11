@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
+
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
-    /// Interaction logic for QLSV.xaml
+    /// Interaction logic for QLphong.xaml
     /// </summary>
-    public partial class QLSV : Page
+    public partial class QLphong : Page
     {
-        private CollectionViewSource SVList;
-        public QLSV()
+        public QLphong()
         {
             InitializeComponent();
-            SVList = (CollectionViewSource)FindResource(nameof(SVList));
-            SVList.Source = QLSVController.LayToanBoSv();
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
@@ -38,7 +30,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
 
         }

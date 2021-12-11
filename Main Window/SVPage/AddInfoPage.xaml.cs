@@ -23,10 +23,12 @@ namespace Quan_Ly_KTX.SVPage
     public partial class AddInfoPage : Page
     {
         public int ID { get; set; }
-        public AddInfoPage(int ID)
+        private FormSVDS s;
+        public AddInfoPage(int ID, FormSVDS sv)
         {
             InitializeComponent();
-            this.ID = ID; 
+            this.ID = ID;
+            this.s = sv;
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
@@ -48,18 +50,21 @@ namespace Quan_Ly_KTX.SVPage
             else
             {
                 var hechon = he.SelectedItem as ComboBoxItem;
-                var tenhe = hechon!.Content.ToString();
+                var tenhe = hechon.Name;
                 var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
                 InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
-                    , SQLworker.XepPhong(tenhe, gt),tenhe );
-              // try {      
+                    , SQLworker.XepPhong(tenhe, gt),tenhe , ID);
+              try{      
                     AddInfoSVController.addInfo(sv);
-                    _ = MessageBox.Show("thêm thông tin thành công", "Thêm thông tin");
-                    Application.Current.Shutdown();
+                    _ = MessageBox.Show("thêm thông tin thành công ", "Thêm thông tin");
+                    s.Hide();
                     FormSVDS f = new(this.ID);
                     f.Show();
-           //    }
-          //      catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
+                    
+                   
+                   
+              }
+                catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
 
             }
 
@@ -76,6 +81,11 @@ namespace Quan_Ly_KTX.SVPage
             msv.Text = "";
             namhoc.Text = "";
             ns.Text = "";
+        }
+
+        private void he_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

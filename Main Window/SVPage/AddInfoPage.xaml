@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="3*"/>
 
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Họ tên"  FontSize="20" Padding="2" Grid.Column="0" Margin="82,0,15,0"/>
+            <TextBlock Text="Họ tên"  FontSize="20" Padding="2" Grid.Column="0" Margin="65,0,15,0" HorizontalAlignment="Left"/>
             <TextBox x:Name="Namee" Grid.Column="1" Padding="2" FontSize="20" Margin="200,0,99,0" TextChanged="Namee_TextChanged"/>
         </Grid>
         <Grid Margin="0 5">
@@ -52,12 +52,12 @@
 
             </Grid.ColumnDefinitions>
             <TextBlock Text="Hệ" FontSize="20" HorizontalAlignment="Center" Padding="2" Grid.Column="0" Width="109"/>
-            <ComboBox x:Name="he" Grid.Column="1" Margin="200,0,99,0" FontSize="20">
-                <ComboBoxItem IsSelected="True" FontSize="20">
-                    Dân sự
+            <ComboBox x:Name="he" Grid.Column="1" Margin="200,0,99,0" FontSize="20" SelectionChanged="he_SelectionChanged">
+                <ComboBoxItem IsSelected="True" FontSize="20" Name="DS" Content=" Dân sự">
+                   
                 </ComboBoxItem>
-                <ComboBoxItem FontSize="20">
-                    Quân sự
+                <ComboBoxItem FontSize="20" Name="QS" Content="Quân sự">
+                    
                 </ComboBoxItem>
             </ComboBox>
         </Grid>

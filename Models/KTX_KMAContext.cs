@@ -29,7 +29,7 @@ namespace Quan_Ly_KTX.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
             }
         }
@@ -141,9 +141,6 @@ namespace Quan_Ly_KTX.Models
 
                 entity.ToTable("SinhVien");
 
-                entity.HasIndex(e => e.IdUser, "UQ__SinhVien__D7B4671FDDF914FD")
-                    .IsUnique();
-
                 entity.Property(e => e.Msv)
                     .HasMaxLength(15)
                     .IsUnicode(false)
@@ -156,9 +153,7 @@ namespace Quan_Ly_KTX.Models
 
                 entity.Property(e => e.Hoten).HasMaxLength(75);
 
-                entity.Property(e => e.IdUser)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ID_user");
+                entity.Property(e => e.IdUser).HasColumnName("ID_user");
 
                 entity.Property(e => e.MaHe)
                     .HasMaxLength(10)
@@ -168,22 +163,15 @@ namespace Quan_Ly_KTX.Models
                 entity.Property(e => e.NgaySinh).HasColumnType("date");
 
                 entity.HasOne(d => d.IdUserNavigation)
-                    .WithOne(p => p.SinhVien)
-                    .HasForeignKey<SinhVien>(d => d.IdUser)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("SV_USer");
+                    .WithMany(p => p.SinhViens)
+                    .HasForeignKey(d => d.IdUser)
+                    .HasConstraintName("FK__SinhVien__ID_use__6E01572D");
 
                 entity.HasOne(d => d.MaHeNavigation)
                     .WithMany(p => p.SinhViens)
                     .HasForeignKey(d => d.MaHe)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("SV_MaHe");
-
-                entity.HasOne(d => d.MaPhongNavigation)
-                    .WithMany(p => p.SinhViens)
-                    .HasForeignKey(d => d.MaPhong)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("feee");
             });
 
             modelBuilder.Entity<UserNguoiDung>(entity =>
@@ -206,6 +194,7 @@ namespace Quan_Ly_KTX.Models
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserNguoiDungs)
                     .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("User_Role");
             });
 

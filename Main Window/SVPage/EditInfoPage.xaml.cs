@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
 
@@ -22,21 +23,26 @@ namespace Quan_Ly_KTX.SVPage
     /// </summary>
     public partial class EditInfoPage : Page
     {
-        public InfoSV Sv { get; set; }
+        private InfoSV Sv;
+        private int ID;
         public EditInfoPage(InfoSV sv)
         {
             InitializeComponent();
             this.DataContext = sv;
+            ID = sv.ID;
             Sv = new();
         }
 
-        
+
         private void EditMsv_Click(object sender, RoutedEventArgs e)
         {
-            
+
             var s = msv.Text;
             Sv.MSV = s;
+            MessageBox.Show($"bạn vừa sửa giá trị mới là {s}", "thông báo");
         }
+    
+    
 
         private void EditGT_Click(object sender, RoutedEventArgs e)
         {
@@ -53,18 +59,23 @@ namespace Quan_Ly_KTX.SVPage
         {
             var s = int.Parse(nh.Text);
             Sv.Nh = s;
+            MessageBox.Show($"bạn vừa sửa giá trị mới là {s}", "thông báo");
         }
 
         private void EditMp_Click(object sender, RoutedEventArgs e)
         {
             var s= int.Parse(mp.Text);
             Sv.MaPhong = s;
-        }
+        MessageBox.Show($"bạn vừa sửa giá trị mới là {s}", "thông báo");
+    }
 
         private void SaveEdit_Click(object sender, RoutedEventArgs e)
         {
-            var s = "";
-       //     var re= MessageBox.Show("các trường sau chueaane bị thay đổi,  )
+                AddInfoSVController.UpdateInfoSV(Sv);
+                MessageBox.Show("Cập nhập thành công", "Form thông báo");
+            Sv = new();
+            this.DataContext = SQLworker.LaySV(ID);
+            
         }
     }
 }
