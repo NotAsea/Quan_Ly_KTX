@@ -13,25 +13,24 @@ namespace Quan_Ly_KTX.Controller
         public static ICollection<Infodichvu> LayDv()
         {
             List<Infodichvu> ds = new();
-            using(KTX_KMAContext context=new())
-            {
-                ds = context.DichVus.Select(x=> new Infodichvu(x.MaDv,x.TenDv, x.GiaDv)).ToList();
-            }
+           
+            
+                ds = SQLConnection.Instance.DichVus.Select(x=> new Infodichvu(x.MaDv,x.TenDv, x.GiaDv)).ToList();
+            
             return ds;
         }
         public static ICollection<InfoHD> LayDSHoaDon()
         {
             List<InfoHD> dshd = new();
-            using (KTX_KMAContext context= new())
-            {
-                dshd = context.HoaDons.Join(context.Đkdvcns, a => a.MaDk, b => b.MaDk, (c, d) => new
+
+                dshd = SQLConnection.Instance.HoaDons.Join(SQLConnection.Instance.Đkdvcns, a => a.MaDk, b => b.MaDk, (c, d) => new
                 {
                     c.MaHd,
                     c.Msv,
                     c.GiaHd,
                     d.MaDk,
                     d.MaDv
-                }).Join(context.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+                }).Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
                 {
                     c.MaHd,
                     c.Msv,
@@ -39,7 +38,7 @@ namespace Quan_Ly_KTX.Controller
                     c.MaDk,
                     d.MaDv,
                     d.TenDv
-                }).Join(context.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
+                }).Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
                 {
                     c.MaHd,
                     c.GiaHd,
@@ -49,8 +48,18 @@ namespace Quan_Ly_KTX.Controller
                     d.Msv,
                     d.Hoten
                 }).Select(a => new InfoHD(a.MaHd, a.Msv, a.MaDv, a.Hoten, a.TenDv, a.GiaHd, a.MaDk)).ToList();
-            }
+            
             return dshd;
+        }
+        public static void ThemDV(Infodichvu dv)
+        {
+            SQLConnection.Instance.DichVus.Add(dv.ToDv());
+            SQLConnection.Instance.SaveChanges();
+        }
+        public static void CapnhapDv(Infodichvu dv)
+        {
+            SQLConnection.Instance.DichVus.Update(dv.ToDv());
+            SQLConnection.Instance.SaveChanges();
         }
     }
 }

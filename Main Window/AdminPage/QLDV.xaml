@@ -13,10 +13,14 @@
     </Page.Resources>
     <StackPanel>
         <TextBlock Text="Danh sách Dịch vụ" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
-        <Button Content="Têm dịch vụ" FontSize="20" FontStyle="Normal" Foreground="BlueViolet" x:Name="Add" Click="Add_Click" HorizontalAlignment="Right" Margin="0 0 50 0" Background="LawnGreen"/>
+        <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center" >
+            <TextBox x:Name="ElementtoFind" Width="300" Background="LightGreen" FontSize="18"  />
+            <Button x:Name="Find" Click="Find_Click" Content="Tìm Kiếm " Background="CadetBlue" Margin="20 0" Padding="2" FontSize="18" FontFamily="Calibri"/>
+            <Button x:Name="AddNew" Click="AddNew_Click" Content="Thêm mới" Background="#C0C0C0" FontFamily="Calibri" FontSize="18"/>
+        </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource DVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial" Width="Auto"
-                      HorizontalAlignment="Center">
+                      HorizontalAlignment="Center" x:Name="dsdv">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã Dịch vụ" Binding="{Binding MaDv}" IsReadOnly="True" Width="150"/>
                     <DataGridTextColumn Header="Tên Dịch vụ" Binding="{Binding TenDv}" IsReadOnly="True" Width="180"/>
@@ -33,7 +37,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="Red" Foreground="Azure"  Width="50" Margin="20 0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

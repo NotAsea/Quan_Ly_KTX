@@ -13,8 +13,8 @@ namespace Quan_Ly_KTX.Controller
     {
         public static InfoSV? LaySV( int id)
         {
-            KTX_KMAContext context = new();
-            var result = context.SinhViens.Join(context.Hes, a => a.MaHe,
+            
+            var result = SQLConnection.Instance.SinhViens.Join(SQLConnection.Instance.Hes, a => a.MaHe,
                 b => b.MaHe, (c, d) => new
                 {
                     c.IdUser,
@@ -26,17 +26,15 @@ namespace Quan_Ly_KTX.Controller
                     c.MaPhong,
                   
                     d.MaHe, d.TenHe
-                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe, (int)s.IdUser)).FirstOrDefault();
-            context.Dispose();
+                }).Where(s => s.IdUser == id).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe, (int)s.IdUser)).AsNoTracking().FirstOrDefault();
+            
             return result;
         }
-        public static String timMH(InfoSV sv)
+        public static String timMH(string tenhe)
         {
             var kq="";
-            using(KTX_KMAContext context = new())
-            {
-                kq = context.Hes.Where(x => x.TenHe == sv.TenHe).Select(x => x.MaHe).FirstOrDefault();
-            }
+           kq = SQLConnection.Instance.Hes.Where(x => x.TenHe == tenhe).Select(x => x.MaHe).AsNoTracking().FirstOrDefault();
+            
             return kq;
         }
         public static int XepPhong(String he, String gt)
@@ -44,26 +42,12 @@ namespace Quan_Ly_KTX.Controller
             int maphong ;
             using(KTX_KMAContext context = new())
             {
-                maphong = context.Phongs.Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt)).Select(x => x.MaPhong).FirstOrDefault();
+                maphong = context.Phongs.Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt))
+                    .Select(x => x.MaPhong).FirstOrDefault();
             }
             return maphong;
         }
-        public static ICollection<Phongs> layphong()
-        {
-
-            KTX_KMAContext context = new();
-
-            var ds = context.Phongs.Join(context.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
-            {
-                c.MaPhong,
-                c.LoaiPhong,
-                c.TinhTrangPhong,
-                d.MaHe,
-                d.TenHe
-            }).Select(x => new Phongs(x.TinhTrangPhong, x.LoaiPhong, x.MaPhong, x.TenHe)).ToList();
-            
-            return ds;
-        }
+        
       
     }
 }

@@ -13,13 +13,13 @@ namespace Quan_Ly_KTX.Controller
     {  
         public static async  Task<(String, int)> IsLoggin(String username, String password)
         {
-
-            KTX_KMAContext context = new();
-            var UserExist =  await context.UserNguoiDungs.Join(context.VaiTros, a => a.RoleId, b => b.RoleId, (c, d) => new
+       
+           
+            var UserExist =  await SQLConnection.Instance.UserNguoiDungs.Join(SQLConnection.Instance.VaiTros, a => a.RoleId, b => b.RoleId, (c, d) => new
             {
                 c.IdUser, c.Username, c.MatKhau, d.RoleId, d.RoleName
-            }) .Where(s=> s.Username==username).Where(p=>p.MatKhau==password).Select(s => new { s.RoleName, s.IdUser }).FirstOrDefaultAsync();
-            context.Dispose();
+            }) .Where(s=> s.Username==username).Where(p=>p.MatKhau==password).Select(s => new { s.RoleName, s.IdUser }).AsNoTracking().FirstOrDefaultAsync();
+            
             return UserExist != null ? (UserExist.RoleName, UserExist.IdUser) : ("Không có tài khoản",-1);
           
         }

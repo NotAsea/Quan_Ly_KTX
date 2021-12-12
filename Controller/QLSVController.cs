@@ -12,8 +12,8 @@ namespace Quan_Ly_KTX.Controller
         public static ICollection<InfoSV> LayToanBoSv()
         {
             List<InfoSV> list = new();
-            using (KTX_KMAContext context = new()) {
-                list = context.SinhViens.Join(context.Hes, a => a.MaHe,
+          
+                list = SQLConnection.Instance.SinhViens.Join(SQLConnection.Instance.Hes, a => a.MaHe,
                b => b.MaHe, (c, d) => new
                {
                    c.IdUser,
@@ -27,10 +27,25 @@ namespace Quan_Ly_KTX.Controller
                    d.MaHe,
                    d.TenHe
                }).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe,(int) s.IdUser)).ToList();
-            }
+            
 
           
             return list;
+        }
+        public static bool XoaSV(InfoSV sv)
+        {
+            bool flag = false;
+             
+                try
+                {
+                SQLConnection.Instance.SinhViens.Remove(sv.ToSV());
+                SQLConnection.Instance.SaveChanges();
+                    flag = true;
+                }
+                catch(Exception ) { flag = false;  }
+            
+            return flag;
+
         }
     }
 }

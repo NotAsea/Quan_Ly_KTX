@@ -48,7 +48,7 @@ namespace Quan_Ly_KTX.View
             SinhVien sv = new();
             sv.Msv = MSV;
             sv.NamHoc = Nh;
-            sv.MaHe = TenHe;
+            sv.MaHe = SQLworker.timMH(TenHe);
             sv.Hoten = HoTen;
             sv.GioiTinh = GT;
             sv.MaPhong = MaPhong;

@@ -30,7 +30,7 @@ namespace Quan_Ly_KTX.SVPage
             InitializeComponent();
             this.DataContext = sv;
             ID = sv.ID;
-            Sv = new();
+            Sv = sv;
         }
 
 
@@ -73,9 +73,9 @@ namespace Quan_Ly_KTX.SVPage
         {
                 AddInfoSVController.UpdateInfoSV(Sv);
                 MessageBox.Show("Cập nhập thành công", "Form thông báo");
-            Sv = new();
+           // Sv = new();
             this.DataContext = SQLworker.LaySV(ID);
-            
+
         }
     }
 }

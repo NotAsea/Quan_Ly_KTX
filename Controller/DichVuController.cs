@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.Models;
-
+using Quan_Ly_KTX.View;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -13,18 +13,28 @@ namespace Quan_Ly_KTX.Controller
         public static  ICollection<DichVu> LayDsDV()
         {
             List<DichVu> ds = new();
-            using(KTX_KMAContext context= new())
-            {
-                ds = context.DichVus.ToList();
-            }
+            
+                ds = SQLConnection.Instance.DichVus .ToList();
+            
             return ds;
         }
         public static void ĐangKyDV(Đkdvcn[] dk)
         {
-            using KTX_KMAContext context = new();
-             context.Đkdvcns.AddRange(dk);
-            context.SaveChanges();
+
+            SQLConnection.Instance.Đkdvcns.AddRange(dk);
+            SQLConnection.Instance.SaveChanges();
         }
-       
+       public static bool XoaDv(Infodichvu dv)
+        {
+            bool flag = false;
+            try
+            {
+                SQLConnection.Instance.DichVus.Remove(dv.ToDv());
+                SQLConnection.Instance.SaveChanges();
+                flag = true;
+            }
+            catch (Exception) { }
+            return flag;
+        }
     }
 }

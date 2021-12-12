@@ -22,22 +22,43 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
     public partial class QLHD : Page
     {
         private CollectionViewSource HDList;
+        private ICollection<InfoHD> ds;
         public QLHD()
         {
             InitializeComponent();
-            HDList = (CollectionViewSource) FindResource(nameof(HDList));
-            HDList.Source = QLDVController.LayDSHoaDon();
+            HDList = (CollectionViewSource)FindResource(nameof(HDList));
+            ds = QLDVController.LayDSHoaDon();
+            HDList.Source = ds;
 
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
 
+
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            var item = ElementtoFind.Text;
+            if (!String.IsNullOrWhiteSpace(item))
+            {
+              var   number = new String(item.Where(Char.IsDigit).ToArray());
+
+                HDList.Source = number.Length switch
+                {
+                    int x when x == item.Length => ds.Where(x => x.Msv.Contains( item) || x.Hoten.Contains(item) ||  x.Tendv.Contains(item)  ),
+                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x=> x.Mdv == int.Parse(item)|| x.GiaHd == int.Parse(item) || x.MaHd == int.Parse(item)) ,
+                    
+                };
+                if (HDList.Source is null) ElementtoFind.Text = "không có  bản ghi mời nhập lại";
+            }
+            else HDList.Source = ds;
         }
     }
 }

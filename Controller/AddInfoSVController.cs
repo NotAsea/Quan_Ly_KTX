@@ -9,30 +9,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
-    public  static class AddInfoSVController
+    public static class AddInfoSVController
     {
-       
+
         public static void addInfo(InfoSV sv)
         {
-            using KTX_KMAContext context = new();
-            context.SinhViens.Add(sv.ToSV());
-            context.SaveChanges();
+
+            SQLConnection.Instance.SinhViens.Add(sv.ToSV());
+            SQLConnection.Instance.SaveChanges();
         }
 
         public static void UpdateInfoSV(InfoSV sv)
         {
+            SQLConnection.Instance.SinhViens.Update(sv.ToSV());
+            SQLConnection.Instance.SaveChanges();
 
-            using KTX_KMAContext context = new();
 
-            context.SinhViens.Update(sv.ToSV());
-            try {
-                context.SaveChanges();
-            }
-         catch  (DbUpdateConcurrencyException ex)
-           {
-                ex.Entries.Single().Reload();
-                context.SaveChanges();
-            }
         }
+
     }
 }

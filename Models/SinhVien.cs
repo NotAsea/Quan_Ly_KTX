@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Quan_Ly_KTX.Models
 {
+   
     public partial class SinhVien
     {
         public SinhVien()
@@ -11,17 +13,21 @@ namespace Quan_Ly_KTX.Models
             HoaDons = new HashSet<HoaDon>();
             Đkdvcns = new HashSet<Đkdvcn>();
         }
-        [ConcurrencyCheck]
-        public string Msv { get; set; } = null!;
-        public string Hoten { get; set; } = null!;
-        public string? GioiTinh { get; set; }
-        public DateTime? NgaySinh { get; set; }
-        [ConcurrencyCheck]
-        public int NamHoc { get; set; }
-        public string MaHe { get; set; } = null!;
-        [ConcurrencyCheck]
-        public int MaPhong { get; set; }
         
+        public string Msv { get; set; } = null!;
+      
+        public string Hoten { get; set; } = null!;
+    
+        public string? GioiTinh { get; set; }
+     
+        public DateTime? NgaySinh { get; set; }
+       
+        public int NamHoc { get; set; }
+
+        public string MaHe { get; set; } = null!;
+     
+        public int MaPhong { get; set; }
+      
         public int? IdUser { get; set; }
 
         public virtual UserNguoiDung? IdUserNavigation { get; set; }

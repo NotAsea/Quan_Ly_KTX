@@ -14,10 +14,14 @@
     </Page.Resources>
     <StackPanel>
         <TextBlock Text="Danh sách sinh viên" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
-       
+        <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center" >
+            <TextBox x:Name="ElementtoFind" Width="300" Background="LightGreen" FontSize="18"  />
+            <Button x:Name="Find" Click="Find_Click" Content="Tìm Kiếm " Background="CadetBlue" Margin="20 0" Padding="2" FontSize="18" FontFamily="Calibri"/>
+          
+        </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged">
+                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged" x:Name="dssv">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MSV}" IsReadOnly="True" Width="130"  />
                     <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" IsReadOnly="True" Width="160"/>

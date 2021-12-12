@@ -40,7 +40,7 @@
                     <Button x:Name="XemDsSV"  Width="300" Click="XemDsSV_Click" Background="#A0522D"  Margin="100 0 20 0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resource/Icon/view_icon.png" Margin="0 0 10 0"/>
-                            <TextBlock Text="Quản lý danh sách sinh viên" FontSize="20" Foreground="Azure"/>
+                            <TextBlock Text="Quản lý danh sách sinh viên" FontSize="20" Foreground="Azure" />
                         </StackPanel>
                     </Button>
                     <Button x:Name="XemDSP"   Width="200" Click="XemDSP_Click" Background="#A0522D" Margin="30 0 20 0">

@@ -13,9 +13,8 @@ namespace Quan_Ly_KTX.Controller
         public static ICollection<HistoryDv> layLsSV( String msv)
         {
             List<HistoryDv> ds;
-            using (KTX_KMAContext context = new())
-            {
-                ds = context.Đkdvcns.Join(context.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+            
+                ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
                 {
                     c.Msv,
                     c.MaDk,
@@ -23,7 +22,7 @@ namespace Quan_Ly_KTX.Controller
                     d.GiaDv,
                     d.TenDv
                 }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).ToList();
-            }
+            
             return ds;
         }
       
