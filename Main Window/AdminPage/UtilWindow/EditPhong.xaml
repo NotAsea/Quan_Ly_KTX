@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow"
         mc:Ignorable="d"
-        Title="EditPhong" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+         Title="Sửa Phòng" Height="300" Width="450"
+        Background="Aquamarine"
+        WindowStartupLocation="CenterScreen"
+        >
+    <StackPanel>
+        <Grid Margin="10 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="173*"/>
+                <ColumnDefinition Width="257*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Mã Phòng" Grid.Column="0" Grid.Row="0" FontSize="18" Margin="10,10,10,10"/>
+            <TextBlock Text="Hệ" Grid.Column="0" Grid.Row="1" FontSize="18" Margin="10,10,10,10"/>
+            <TextBlock Text="Loại Phòng" Grid.Column="0" Grid.Row="2" FontSize="18" Margin="10,10,10,10"/>
+            <TextBlock Text="Tình trạng phòng" Grid.Column="0" Grid.Row="3" FontSize="18" Margin="10,10,10,10"/>
+            <TextBox x:Name="mp" Grid.Column="1" Grid.Row="0" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2"  Text="{Binding Maphong}"/>
+            <TextBox x:Name="tenhe" Grid.Column="1" Grid.Row="1" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2" Text="{Binding tenhe}" />
+            <TextBox x:Name="lp" Grid.Column="1" Grid.Row="2" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2" Text="{Binding loaiphong}"/>
+            <TextBox x:Name="ttp" Grid.Column="1" Grid.Row="3" FontSize="18" Background="FloralWhite" Text="{Binding ttphong}"/>
+        </Grid>
+        <Button x:Name="Submit" Click="Submit_Click" Content="Xác Nhận" FontSize="20" Background="Brown"  Width="100" Foreground="Aqua" Margin="0 20"/>
+    </StackPanel>
 </Window>

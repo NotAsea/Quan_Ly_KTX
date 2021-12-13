@@ -21,13 +21,13 @@ namespace Quan_Ly_KTX.View
             this.tenhe = tenhe;
             mahe = mah;
         }
-        public Phong ToPhong(phongs p)
+        public Phong ToPhong()
         {
             Phong ph = new();
-            ph.MaPhong = p.Maphong;
-            ph.MaHe = p.mahe;
-            ph.TinhTrangPhong = p.ttphong;
-            ph.LoaiPhong = p.loaiphong;
+            ph.MaPhong = Maphong;
+            ph.MaHe = mahe;
+            ph.TinhTrangPhong = ttphong;
+            ph.LoaiPhong = loaiphong;
             return ph;
         }
     }

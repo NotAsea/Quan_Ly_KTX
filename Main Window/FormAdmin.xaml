@@ -28,7 +28,7 @@
                           TextBlock.Foreground="BlueViolet" FontFamily="Cascadia Code SemiBold"
                            />
                     <TextBlock />
-                    <TextBlock x:Name="inra" Text="Màn hình quản lý ký túc xá KMA"  FontSize="20"  Margin="30 0 0 0"/>
+                    <TextBlock x:Name="inra" Text="Màn hình quản lý ký túc xá KMA, Chào admin"  FontSize="25"  Margin="30 0 0 0"/>
                 </StackPanel>
  </Grid>
             <Grid Height="601">
@@ -37,7 +37,7 @@
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10 10" Background="#F5FFFA">
-                    <Button x:Name="XemDsSV"  Width="300" Click="XemDsSV_Click" Background="#A0522D"  Margin="100 0 20 0">
+                    <Button x:Name="XemDsSV"  Width="300" Click="XemDsSV_Click" Background="#A0522D"  Margin="50 0 20 0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resource/Icon/view_icon.png" Margin="0 0 10 0"/>
                             <TextBlock Text="Quản lý danh sách sinh viên" FontSize="20" Foreground="Azure" />
@@ -55,15 +55,23 @@
                             <TextBlock Text="Quản lý dịch vụ" FontSize="20" Foreground="Azure"/>
                         </StackPanel>
                     </Button>
+                 <!--
                     <Button x:Name="xemDSHD" Width="200" Click="XemDSHD_Click"  Background="#A0522D"  Margin="30 0 20 0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resource/Icon/dk_icon.png" Margin="0 0 10 0"/>
                             <TextBlock Text="Quản lý hóa đơn" FontSize="20" Foreground="Azure"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="Logout"  Width="200" Click="Logout_Click" Background="#A0522D" Margin="30 0 20 0">
+                    -->
+                    <Button x:Name="xemDSSvĐky" Width="300" Click="xemDSSvĐky_Click"  Background="#A0522D"  Margin="30 0 20 0" >
+                        <StackPanel Orientation="Horizontal" Width="Auto">
+                            <Image Source="/Resource/Icon/dk_icon.png" Margin="0 0 10 0"/>
+                            <TextBlock Text="Quản lý Dịch vụ đăng ký" FontSize="20" Foreground="Azure" Width="Auto"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="Logout"  Width="200" Click="Logout_Click" Background="#A0522D" Margin="20 0 20 0">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resource/Icon/signout_button.png" Margin="0 0 20 0"/>
+                            <Image Source="/Resource/Icon/signout_button.png" Margin="0 0 10 0"/>
                             <TextBlock Text="Đăng xuất" FontSize="20" Foreground="Azure"/>
                         </StackPanel>
                     </Button>

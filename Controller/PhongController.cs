@@ -24,5 +24,41 @@ namespace Quan_Ly_KTX.Controller
             
             return ds;
         }
+        public static bool ThemPhong(phongs p)
+        {
+            bool flag = false;
+            try
+            {
+                SQLConnection.Instance.Phongs.Add(p.ToPhong());
+                SQLConnection.Instance.SaveChanges();
+                flag = true;
+            }
+            catch (Exception) { }
+            return flag;
+        }
+        public static bool XoaPhong(phongs p)
+        {
+            bool flag = false;
+            try
+            {
+                SQLConnection.Instance.Phongs.Remove(p.ToPhong());
+                SQLConnection.Instance.SaveChanges();
+                flag = true;
+            }
+            catch (Exception) { }
+            return flag;
+        }
+        public static bool SuaPhong(phongs p)
+        {
+            bool flag = false;
+            try
+            {
+                SQLConnection.Instance.Phongs.Update(p.ToPhong());
+                SQLConnection.Instance.SaveChanges();
+                flag = true;
+            }
+            catch (Exception) { }
+            return flag;
+        }
     }
 }

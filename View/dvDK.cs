@@ -8,6 +8,7 @@ namespace Quan_Ly_KTX.View
 {
     public class dvDK
     {
+        public string tensv { get; set; }
         public int Madk { get; set; }
         public string tendv { get; set; }   
         public int giadv { get; set; }
@@ -24,9 +25,20 @@ namespace Quan_Ly_KTX.View
             Madk = Mdk;
             this.msv = msv;
         }
-      public Đkdvcn todk()
+
+        public dvDK(string tensv, int madk, string tendv, int giadv, string msv)
+        {
+            this.tensv = tensv;
+            Madk = madk;
+            this.tendv = tendv;
+            this.giadv = giadv;
+            this.msv = msv;
+        }
+
+        public Đkdvcn todk()
         {
             Đkdvcn dk = new();
+            dk.MaDk = Madk;
             dk.MaDv = Madk;
             dk.Msv = msv;
             return dk;

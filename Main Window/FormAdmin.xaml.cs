@@ -51,5 +51,10 @@ namespace Quan_Ly_KTX.Main_Window
             m.Show();
             this.Close();
         }
+
+        private void xemDSSvĐky_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new Frame() { Content = new QLDVDKY() };
+        }
     }
 }

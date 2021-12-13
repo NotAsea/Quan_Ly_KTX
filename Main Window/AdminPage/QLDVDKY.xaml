@@ -1,0 +1,53 @@
+﻿<Page x:Class="Quan_Ly_KTX.Main_Window.AdminPage.QLDVDKY"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage"
+      mc:Ignorable="d" 
+       d:DesignHeight="450" d:DesignWidth="1000"
+      Title="QLDV"
+      Background="Bisque">
+    <Page.Resources>
+        <CollectionViewSource x:Key="DVDKList"/>
+    </Page.Resources>
+    <StackPanel>
+        <TextBlock Text="Danh sách Dịch vụ đã Đăng ký" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
+        <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center" >
+            <TextBox x:Name="ElementtoFind" Width="300" Background="LightGreen" FontSize="18"  />
+            <Button x:Name="Find" Click="Find_Click" Content="Tìm Kiếm " Background="CadetBlue" Margin="20 0" Padding="2" FontSize="18" FontFamily="Calibri"/>
+         
+        </StackPanel>
+        <Grid>
+            <DataGrid ItemsSource="{Binding Source={StaticResource DVDKList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial" Width="Auto"
+                      HorizontalAlignment="Center" x:Name="dsdvdk">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding Madk}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Tên Dịch vụ" Binding="{Binding tendv}" IsReadOnly="True" Width="180"/>
+                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding msv}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding tensv}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Giá dịch vụ" Binding="{Binding giadv}" IsReadOnly="True" Width="100"/>
+                   <!--
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="BtnEdit" Click="BtnEdit_Click" Content="Edit" FontSize="18"  Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    -->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="Red" Foreground="Azure"  Width="50" Margin="20 0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Grid>
+    </StackPanel>
+</Page>
