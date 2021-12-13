@@ -1,6 +1,6 @@
 # Quan_Ly_KTX
 ## QUAN TRỌNG
-### NẾU PULL HOẶC CLONE VỀ LUÔN NHỚ VÀO KTX_KMAContext ĐỔI CONNECTIONSTRING VỀ GIÁ TRỊ CỦA SQLSERVER BỌN MÀY
+### NẾU PULL HOẶC CLONE VỀ LUÔN NHỚ VÀO KTX_KMAContext HÀM OnConfigure ĐỔI CONNECTIONSTRING VỀ GIÁ TRỊ CỦA SQLSERVER BỌN MÀY
 ## Đây là CI/CD để làm việc
 
   Muốn clone thì:
