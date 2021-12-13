@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
+using System.Globalization;
+
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -71,7 +73,8 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
                 DateTime? d = null;
                 try
                 {
-                    d = DateTime.Parse(item);
+                    
+                    d = DateTime.Parse(item );
                 }
                 catch (Exception) { }
                 if (d == null) { number = new String(item.Where(Char.IsDigit).ToArray()); }
