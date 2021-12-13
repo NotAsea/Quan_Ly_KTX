@@ -41,7 +41,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
+                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="Red" Width="50" Margin="20 0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

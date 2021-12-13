@@ -45,6 +45,7 @@ namespace Quan_Ly_KTX.SVPage
             dichvuDK.ItemsSource = null;
             dichvuDK.ItemsSource = dkList;
             var d = new dvDK(row.MaDv, msv);
+            
            var r= d.todk();
             listToAdd.Add(r);
 
@@ -53,6 +54,7 @@ namespace Quan_Ly_KTX.SVPage
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
           
+
             try
             {
                 DichVuController.ĐangKyDV(listToAdd.ToArray());

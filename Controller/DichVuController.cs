@@ -36,5 +36,6 @@ namespace Quan_Ly_KTX.Controller
             catch (Exception) { }
             return flag;
         }
+      //  public static 
     }
 }

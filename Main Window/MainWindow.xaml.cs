@@ -40,7 +40,7 @@ namespace Quan_Ly_KTX
            Mouse.OverrideCursor= System.Windows.Input.Cursors.Wait;
             var (result,ID) =await LogginController.IsLoggin(UserName.Text, Password.Password);
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
-            if (result == "User")
+            if (result == "User" )
             {
                 FormSVDS sv = new(ID);
                 this.Close();
@@ -52,8 +52,9 @@ namespace Quan_Ly_KTX
                 this.Close();
                 ad.Show();
             }
-            else MessageBox.Show(result, "FormĐN");
-        }
+            else  MessageBox.Show(result, "FormĐN");
+           
+               }
 
         private void signup_Click(object sender, RoutedEventArgs e)
         {

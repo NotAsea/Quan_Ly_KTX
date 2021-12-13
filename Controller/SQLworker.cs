@@ -47,7 +47,11 @@ namespace Quan_Ly_KTX.Controller
             }
             return maphong;
         }
-        
+      public static int TimMdv (String tdv)
+        {
+            var kq = SQLConnection.Instance.DichVus.Where(x => x.TenDv.Contains(tdv)).Select(x=> x.MaDv).FirstOrDefault();
+            return kq;
+        }
       
     }
 }
