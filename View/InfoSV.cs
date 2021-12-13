@@ -48,7 +48,12 @@ namespace Quan_Ly_KTX.View
             SinhVien sv = new();
             sv.Msv = MSV;
             sv.NamHoc = Nh;
-            sv.MaHe = SQLworker.timMH(TenHe);
+            sv.MaHe = TenHe switch
+            {
+                "Quân Sự" =>"QS",
+                "Dân Sự"=> "DS",
+                _=> "DS",
+            };
             sv.Hoten = HoTen;
             sv.GioiTinh = GT;
             sv.MaPhong = MaPhong;

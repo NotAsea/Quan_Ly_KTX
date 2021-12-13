@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
-        Title="Form Đăng ký" Height="550" Width="820"
+        Title="Form Đăng ký" Height="500" Width="620"
         Background="#E6E6FA"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterOwner"

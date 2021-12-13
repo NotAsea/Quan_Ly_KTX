@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
 using Quan_Ly_KTX.View;
 
@@ -15,7 +16,7 @@ namespace Quan_Ly_KTX.Controller
             List<Infodichvu> ds = new();
            
             
-                ds = SQLConnection.Instance.DichVus.Select(x=> new Infodichvu(x.MaDv,x.TenDv, x.GiaDv)).ToList();
+                ds = SQLConnection.Instance.DichVus.Select(x=> new Infodichvu(x.MaDv,x.TenDv, x.GiaDv)).AsNoTracking().ToList();
             
             return ds;
         }
@@ -47,7 +48,7 @@ namespace Quan_Ly_KTX.Controller
                     c.TenDv,
                     d.Msv,
                     d.Hoten
-                }).Select(a => new InfoHD(a.MaHd, a.Msv, a.MaDv, a.Hoten, a.TenDv, a.GiaHd, a.MaDk)).ToList();
+                }).Select(a => new InfoHD(a.MaHd, a.Msv, a.MaDv, a.Hoten, a.TenDv, a.GiaHd, a.MaDk)).AsNoTracking().ToList();
             
             return dshd;
         }

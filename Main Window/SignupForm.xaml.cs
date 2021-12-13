@@ -39,8 +39,10 @@ namespace Quan_Ly_KTX
             }
             else
             {
-                SiginupController.addUser(Username.Text, Password.Password);
-                _ = MessageBox.Show("Đăng nhập thành công", "Form đăng nhập");
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+                Task.WaitAny(  SiginupController.addUser(Username.Text, Password.Password));
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+                _ = MessageBox.Show("Đăng Ký  thành công", "Form đăng ký");
             }
 
         }

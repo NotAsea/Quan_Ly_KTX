@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -21,7 +22,7 @@ namespace Quan_Ly_KTX.Controller
                     d.MaDv,
                     d.GiaDv,
                     d.TenDv
-                }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).ToList();
+                }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).AsNoTracking().ToList();
             
             return ds;
         }
@@ -43,7 +44,7 @@ namespace Quan_Ly_KTX.Controller
                 c.TenDv,
                 d.Msv,
                 d.Hoten
-            }).Select(x => new dvDK(x.Hoten, x.MaDk, x.TenDv, x.GiaDv, x.Msv)).ToList();
+            }).Select(x => new dvDK(x.Hoten, x.MaDk, x.TenDv, x.GiaDv, x.Msv)).AsNoTracking().ToList();
             return ds;
         }
       public static bool XoaDvDk(dvDK dv)

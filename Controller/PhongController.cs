@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Quan_Ly_KTX.Controller
 {
     public static  class PhongController
@@ -20,7 +22,7 @@ namespace Quan_Ly_KTX.Controller
                     c.LoaiPhong,
                     d.MaHe,
                     d.TenHe
-                }).Select(x => new phongs(x.TinhTrangPhong, x.LoaiPhong, x.MaPhong, x.TenHe, x.MaHe)).ToList();
+                }).Select(x => new phongs(x.TinhTrangPhong, x.LoaiPhong, x.MaPhong, x.TenHe, x.MaHe)).AsNoTracking().ToList();
             
             return ds;
         }

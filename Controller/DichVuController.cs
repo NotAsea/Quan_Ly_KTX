@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
 using Quan_Ly_KTX.View;
 
@@ -14,7 +15,7 @@ namespace Quan_Ly_KTX.Controller
         {
             List<DichVu> ds = new();
             
-                ds = SQLConnection.Instance.DichVus .ToList();
+                ds = SQLConnection.Instance.DichVus.AsNoTracking().ToList();
             
             return ds;
         }

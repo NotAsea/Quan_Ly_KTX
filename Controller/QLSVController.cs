@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
 using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.Controller
@@ -26,7 +27,7 @@ namespace Quan_Ly_KTX.Controller
 
                    d.MaHe,
                    d.TenHe
-               }).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe,(int) s.IdUser)).ToList();
+               }).Select(s => new InfoSV(s.Msv, s.Hoten, s.GioiTinh, s.NgaySinh, s.NamHoc, s.MaPhong, s.TenHe,(int) s.IdUser)).AsNoTracking().ToList();
             
 
           
