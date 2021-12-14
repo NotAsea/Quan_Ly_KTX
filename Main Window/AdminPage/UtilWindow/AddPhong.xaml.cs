@@ -42,9 +42,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
                     "Dân Sự" => "DS",
                     _=> "DS",
                 }) ;
-          _=    PhongController.ThemPhong(ph);
+          _=    PhongController.Controller.ThemPhong(ph);
                 MessageBox.Show("Thêm thành công", "thông báo");
                 onSucess(this, new EventArgs());
+                PhongController.Controller.FreeController();
                 this.Hide();
             }
         }

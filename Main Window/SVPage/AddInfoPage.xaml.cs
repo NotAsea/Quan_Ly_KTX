@@ -55,7 +55,7 @@ namespace Quan_Ly_KTX.SVPage
                 InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
                     , SQLworker.XepPhong(tenhe, gt),tenhe , ID);
               try{      
-                    AddInfoSVController.addInfo(sv);
+                    QLSVController.Controller.addInfo(sv);
                     _ = MessageBox.Show("thêm thông tin thành công ", "Thêm thông tin");
                     s.Hide();
                     FormSVDS f = new(this.ID);

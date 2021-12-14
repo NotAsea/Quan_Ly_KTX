@@ -32,7 +32,7 @@ namespace Quan_Ly_KTX.SVPage
         {
             InitializeComponent();
             DVsource = (CollectionViewSource)FindResource(nameof(DVsource));
-            DVsource.Source = DichVuController.LayDsDV();
+            DVsource.Source = QLDVController.Controller.LayDsDV();
             msv = s;
 
         }
@@ -57,7 +57,7 @@ namespace Quan_Ly_KTX.SVPage
 
             try
             {
-                DichVuController.ĐangKyDV(listToAdd.ToArray());
+                QLDVController.Controller.ĐangKyDV(listToAdd.ToArray());
                 MessageBox.Show("Đăng ký dịch vụ thành công","Đăng ký dịch vụ");
                 dichvuDK.ItemsSource = null;
             }catch(Exception ex)

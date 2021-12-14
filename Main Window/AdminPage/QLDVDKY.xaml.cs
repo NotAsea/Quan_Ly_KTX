@@ -28,7 +28,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
                 DVDKList = (CollectionViewSource)FindResource(nameof(DVDKList));
-            ds = LichSuDK.LayDsDK();
+            ds = LichSuDK.Controller.LayDsDK();
                 DVDKList.Source = ds;
             }
 
@@ -58,11 +58,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var row = dsdvdk.SelectedItem as dvDK;
-            var kq = LichSuDK.XoaDvDk(row);
+            var kq = LichSuDK.Controller.XoaDvDk(row);
             if (kq)
             {
                 MessageBox.Show("Đã xóa ", "thông báo");
-                ds = LichSuDK.LayDsDK();
+                ds = LichSuDK.Controller.LayDsDK();
                 DVDKList.Source = ds;
             }
             else MessageBox.Show("Đã có lỗi xảy ra", "thông báo");

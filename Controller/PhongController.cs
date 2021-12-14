@@ -9,9 +9,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
-    public static  class PhongController
+    public sealed  class PhongController
     {
-        public static ICollection<phongs> LayDsPhong()
+        private PhongController() { }
+        private static PhongController controller = null;
+        public static PhongController Controller
+        {
+            get
+            {
+                if (controller is null) controller = new();
+                return controller;
+            }
+        }
+        public void FreeController()
+        {
+            SQLConnection.FreeScope();
+            controller = null;
+        }
+        public  ICollection<phongs> LayDsPhong()
         {
             List<phongs> ds = new();
           
@@ -26,7 +41,7 @@ namespace Quan_Ly_KTX.Controller
             
             return ds;
         }
-        public static bool ThemPhong(phongs p)
+        public  bool ThemPhong(phongs p)
         {
             bool flag = false;
             try
@@ -38,7 +53,7 @@ namespace Quan_Ly_KTX.Controller
             catch (Exception) { }
             return flag;
         }
-        public static bool XoaPhong(phongs p)
+        public  bool XoaPhong(phongs p)
         {
             bool flag = false;
             try
@@ -50,7 +65,7 @@ namespace Quan_Ly_KTX.Controller
             catch (Exception) { }
             return flag;
         }
-        public static bool SuaPhong(phongs p)
+        public bool SuaPhong(phongs p)
         {
             bool flag = false;
             try

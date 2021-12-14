@@ -41,11 +41,12 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
                 "Dân Sự" => "DS",
                 _ => "DS",
             };
-            var kq = PhongController.SuaPhong(p);
+            var kq = PhongController.Controller.SuaPhong(p);
             if (kq)
             {
                 MessageBox.Show("Sửa thành công", "thông báo");
                 onSucess(this, new EventArgs());
+                PhongController.Controller.FreeController();
                 this.Hide();
             }
             else { MessageBox.Show("Sửa thất bại", "thông báo"); }

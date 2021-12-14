@@ -36,9 +36,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
             else {
 
                 Infodichvu dv = new(int.Parse(mdv.Text),tdv.Text, int.Parse(gdv.Text) );
-                QLDVController.ThemDV(dv);
+                QLDVController.Controller.ThemDV(dv);
                 MessageBox.Show("Thêm thành công", "thông báo");
                 onSucess(this, new EventArgs());
+                QLDVController.Controller.FreeController();
                 this.Hide();
             }
         }

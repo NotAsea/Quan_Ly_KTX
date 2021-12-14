@@ -30,7 +30,7 @@ namespace Quan_Ly_KTX.Main_Window.SVPage
         {
             InitializeComponent();
             LsDangKy= (CollectionViewSource)FindResource(nameof(LsDangKy));
-            ds= LichSuDK.layLsSV(msv);
+            ds= LichSuDK.Controller.layLsSV(msv);
             LsDangKy.Source = ds;
             var tongcong = new tongcong(ds.Sum(x => x.giadv));
             Totalrow.DataContext = tongcong;

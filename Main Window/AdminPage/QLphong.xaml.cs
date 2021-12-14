@@ -28,7 +28,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             PList = (CollectionViewSource)FindResource(nameof(PList));
-            ds = PhongController.LayDsPhong();
+            ds = PhongController.Controller.LayDsPhong();
             PList.Source = ds;
 
         }
@@ -36,11 +36,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var row = dsp.SelectedItem as phongs;
-            var kq = PhongController.XoaPhong(row);
+            var kq = PhongController.Controller.XoaPhong(row);
             if (kq)
             {
                 MessageBox.Show("Đã xóa ", "thông báo");
-                ds = PhongController.LayDsPhong();
+                ds = PhongController.Controller.LayDsPhong();
                 PList.Source = ds;
             }
             else MessageBox.Show("Đã có lỗi xảy ra", "thông báo");
@@ -54,7 +54,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             ep.Show();
             ep.onSucess += (s, e) =>
             {
-                ds = PhongController.LayDsPhong();
+                ds = PhongController.Controller.LayDsPhong();
                 PList.Source = ds;
             };
         }
@@ -84,7 +84,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             ap.Show();
             ap.onSucess += (s, e) =>
              {
-                 ds = PhongController.LayDsPhong();
+                 ds = PhongController.Controller.LayDsPhong();
                  PList.Source = ds;
              };
         }

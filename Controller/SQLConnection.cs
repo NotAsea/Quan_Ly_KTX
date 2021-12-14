@@ -22,6 +22,7 @@ namespace Quan_Ly_KTX.Controller
                 return instance;
             }
         }
+        public static void FreeScope() => instance = null;
 
     }
 }

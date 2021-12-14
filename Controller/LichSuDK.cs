@@ -9,9 +9,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
-    public static class LichSuDK
+    public sealed class LichSuDK
     {
-        public static ICollection<HistoryDv> layLsSV( String msv)
+        private LichSuDK() { }
+        private static LichSuDK controller = null;
+        public static LichSuDK Controller
+        {
+            get
+            {
+                if (controller is null) controller = new();
+                return controller;
+            }
+        }
+        public void FreeController()
+        {
+            SQLConnection.FreeScope();
+            controller = null;
+        }
+
+        public  ICollection<HistoryDv> layLsSV( String msv)
         {
             List<HistoryDv> ds;
             
@@ -22,11 +38,11 @@ namespace Quan_Ly_KTX.Controller
                     d.MaDv,
                     d.GiaDv,
                     d.TenDv
-                }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).AsNoTracking().ToList();
+                }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).ToList();
             
             return ds;
         }
-        public static ICollection<dvDK> LayDsDK()
+        public  ICollection<dvDK> LayDsDK()
         {
            
            var ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
@@ -44,10 +60,10 @@ namespace Quan_Ly_KTX.Controller
                 c.TenDv,
                 d.Msv,
                 d.Hoten
-            }).Select(x => new dvDK(x.Hoten, x.MaDk, x.TenDv, x.GiaDv, x.Msv)).AsNoTracking().ToList();
+            }).Select(x => new dvDK(x.Hoten, x.MaDk, x.TenDv, x.GiaDv, x.Msv)).ToList();
             return ds;
         }
-      public static bool XoaDvDk(dvDK dv)
+      public  bool XoaDvDk(dvDK dv)
         {
             bool flag = false;
             try {
