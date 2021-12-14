@@ -9,7 +9,22 @@ namespace Quan_Ly_KTX.Controller
 {
     public sealed class HaoDonController
     {
-        public static ICollection<InfoHD> LayDSHoaDon()
+        private HaoDonController() { }
+        private static HaoDonController controller = null;
+        public static HaoDonController Controller
+        {
+            get
+            {
+                if (controller is null) controller = new();
+                return controller;
+            }
+        }
+        public void FreeController()
+        {
+            SQLConnection.FreeScope();
+            controller = null;
+        }
+        public  ICollection<InfoHD> LayDSHoaDon()
         {
             List<InfoHD> dshd = new();
 
