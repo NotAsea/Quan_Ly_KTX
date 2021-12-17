@@ -75,6 +75,7 @@ namespace Quan_Ly_KTX.SVPage
                 MessageBox.Show("Cập nhập thành công", "Form thông báo");
            // Sv = new();
             this.DataContext = QLSVController.Controller.LaySV(ID);
+            QLSVController.Controller.FreeController();
 
         }
     }

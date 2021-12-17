@@ -27,7 +27,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             HDList = (CollectionViewSource)FindResource(nameof(HDList));
-            ds = HaoDonController.LayDSHoaDon();
+            ds = HaoDonController.Controller.LayDSHoaDon();
             HDList.Source = ds;
 
         }
