@@ -29,8 +29,8 @@ namespace Quan_Ly_KTX.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //đây là url của m, lúc m định push thì cmt cái này lại đỡ nhầm vs t
-              // optionsBuilder.UseSqlServer("Data Source=DESKTOP-J5215DU\\LANANH;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
+                //đây là url của m lúc m định push thì cmt cái này lại đỡ nhầm vs t
+               // optionsBuilder.UseSqlServer("Data Source=DESKTOP-J5215DU\\LANANH;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
             }
         }
 
