@@ -33,9 +33,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
             sv.MaPhong = int.Parse(mp.Text);
             try
             {
-                AddInfoSVController.UpdateInfoSV(sv);
+                QLSVController.Controller.UpdateInfoSV(sv);
                 MessageBox.Show("Cập nhập thành công", "thông báo");
                 onClosed(this, new EventArgs());
+                QLSVController.Controller.FreeController();
                 this.Hide();
                 
             }

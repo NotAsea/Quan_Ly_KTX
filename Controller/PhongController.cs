@@ -5,11 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.View;
 using Quan_Ly_KTX.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Quan_Ly_KTX.Controller
 {
-    public static  class PhongController
+    public sealed  class PhongController
     {
-        public static ICollection<phongs> LayDsPhong()
+        private PhongController() { }
+        private static PhongController controller = null;
+        public static PhongController Controller
+        {
+            get
+            {
+                if (controller is null) controller = new();
+                return controller;
+            }
+        }
+        public void FreeController()
+        {
+            SQLConnection.FreeScope();
+            controller = null;
+        }
+        public  ICollection<phongs> LayDsPhong()
         {
             List<phongs> ds = new();
           
@@ -20,11 +37,11 @@ namespace Quan_Ly_KTX.Controller
                     c.LoaiPhong,
                     d.MaHe,
                     d.TenHe
-                }).Select(x => new phongs(x.TinhTrangPhong, x.LoaiPhong, x.MaPhong, x.TenHe, x.MaHe)).ToList();
+                }).Select(x => new phongs(x.TinhTrangPhong, x.LoaiPhong, x.MaPhong, x.TenHe, x.MaHe)).AsNoTracking().ToList();
             
             return ds;
         }
-        public static bool ThemPhong(phongs p)
+        public  bool ThemPhong(phongs p)
         {
             bool flag = false;
             try
@@ -36,7 +53,7 @@ namespace Quan_Ly_KTX.Controller
             catch (Exception) { }
             return flag;
         }
-        public static bool XoaPhong(phongs p)
+        public  bool XoaPhong(phongs p)
         {
             bool flag = false;
             try
@@ -48,7 +65,7 @@ namespace Quan_Ly_KTX.Controller
             catch (Exception) { }
             return flag;
         }
-        public static bool SuaPhong(phongs p)
+        public bool SuaPhong(phongs p)
         {
             bool flag = false;
             try

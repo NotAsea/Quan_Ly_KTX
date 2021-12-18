@@ -5,36 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX"
         mc:Ignorable="d"
-        Title="Form Đăng ký" Height="550" Width="820"
+        Title="Form Đăng ký" Height="550" Width="620"
         Background="#E6E6FA"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterOwner"
         >
     <Border Padding="10">
-        <StackPanel>
-            <Image Height="150" Width="150" Source="/Resource/logo.jpg"/>
+        <StackPanel Margin="10 10">
+            <Image Height="126" Width="200" Source="/Resource/logo_chinh_moi.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
             <TextBlock Text="Đăng ký"  FontSize=" 30" HorizontalAlignment="Center" FontWeight="Bold"/>
             <TextBlock Text="Nhập các thông tin để đăng ký" FontSize="14" FontStyle="Italic" HorizontalAlignment="Center"/>
             <Grid Margin="0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Tên đăng nhập" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" FontSize="18" Foreground="Black">
+                <TextBlock Text="Tên đăng nhập" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="158"/>
+                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" FontSize="18" Foreground="Black">
                     <TextBox.ToolTip>
-                        <ToolTip>Tên đăng nhập không dài quá 50 ký tự </ToolTip>
+                        <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
                     </TextBox.ToolTip>
                 </TextBox>
-       
+
             </Grid>
             <Grid Margin="0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <PasswordBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="8,0,12,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black">
+                <TextBlock Text="Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="151"/>
+                <PasswordBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black">
                     <PasswordBox.ToolTip>
                         <ToolTip>Mật khẩu không dài quá 50 ký tự và có đủ chữ số</ToolTip>
                     </PasswordBox.ToolTip>
@@ -44,12 +44,10 @@
             <Grid Margin="0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Nhập lại Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18"/>
-                <PasswordBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="10 0 10 0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black">
-                   
-                </PasswordBox>
+                <TextBlock Text="Nhập lại Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="153"/>
+                <PasswordBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black"/>
 
             </Grid>
 

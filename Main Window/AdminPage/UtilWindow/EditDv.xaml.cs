@@ -35,9 +35,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
             dv.TenDv = tdv.Text;
             try
             {
-                QLDVController.CapnhapDv(dv);
+                QLDVController.Controller.CapnhapDv(dv);
                 MessageBox.Show("Cập nhập thành công", "thông báo");
                 OnUpdated(this, new EventArgs());
+                QLDVController.Controller.FreeController();
                 this.Hide();
             }
             catch (Exception) { MessageBox.Show("Cập nhập thất bại", "thông báo"); }

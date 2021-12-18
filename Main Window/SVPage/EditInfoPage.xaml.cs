@@ -71,10 +71,11 @@ namespace Quan_Ly_KTX.SVPage
 
         private void SaveEdit_Click(object sender, RoutedEventArgs e)
         {
-                AddInfoSVController.UpdateInfoSV(Sv);
+                QLSVController.Controller.UpdateInfoSV(Sv);
                 MessageBox.Show("Cập nhập thành công", "Form thông báo");
            // Sv = new();
-            this.DataContext = SQLworker.LaySV(ID);
+            this.DataContext = QLSVController.Controller.LaySV(ID);
+            QLSVController.Controller.FreeController();
 
         }
     }

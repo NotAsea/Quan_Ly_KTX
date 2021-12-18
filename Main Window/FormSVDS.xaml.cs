@@ -29,7 +29,7 @@ namespace Quan_Ly_KTX
         {
             InitializeComponent();
             ID= id;
-            SV = SQLworker.LaySV(ID);
+            SV = QLSVController.Controller.LaySV(ID);
            
             if (SV != null)
             {
@@ -73,6 +73,10 @@ namespace Quan_Ly_KTX
         {
             MainWindow m = new();
             m.Show();
+            
+            QLSVController.Controller.FreeController();
+            QLDVController.Controller.FreeController();
+            LichSuDK.Controller.FreeController();
             this.Close();
         }
     }

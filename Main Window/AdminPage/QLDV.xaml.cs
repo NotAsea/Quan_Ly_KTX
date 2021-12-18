@@ -28,14 +28,14 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             DVList = (CollectionViewSource)FindResource(nameof(DVList));
-            ds= QLDVController.LayDv();
+            ds= QLDVController.Controller.LayDv();
             DVList.Source = ds;
         }
 
        
         private void OnSucess_handle( object sender, EventArgs e)
         {
-            ds = QLDVController.LayDv();
+            ds = QLDVController.Controller.LayDv();
             DVList.Source = ds;
         }
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -50,11 +50,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var row = dsdv.SelectedItem as Infodichvu;
-            var kq = DichVuController.XoaDv(row);
+            var kq = QLDVController.Controller.XoaDv(row);
             if (kq)
             {
                 MessageBox.Show("Đã xóa ", "thông báo");
-                ds = QLDVController.LayDv();
+                ds = QLDVController.Controller.LayDv();
                 DVList.Source = ds;
             }
             else MessageBox.Show("Đã có lỗi xảy ra", "thông báo");

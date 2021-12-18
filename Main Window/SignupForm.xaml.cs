@@ -25,7 +25,7 @@ namespace Quan_Ly_KTX
             InitializeComponent();
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        private async void Submit_Click(object sender, RoutedEventArgs e)
         {
             String mss = "";
             if (String.IsNullOrEmpty(Username.Text)) mss += "Tên đăng nhập đang trống, ";
@@ -39,8 +39,11 @@ namespace Quan_Ly_KTX
             }
             else
             {
-                SiginupController.addUser(Username.Text, Password.Password);
-                _ = MessageBox.Show("Đăng nhập thành công", "Form đăng nhập");
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+                _= await SiginupController.addUser(Username.Text, Password.Password);
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+                _ =  MessageBox.Show("Đăng Ký  thành công", "Form đăng ký");
+                this.Hide();
             }
 
         }

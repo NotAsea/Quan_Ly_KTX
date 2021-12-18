@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Quan_Ly_KTX.Main_Window.AdminPage;
-
+using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX.Main_Window
 {
     /// <summary>
@@ -27,26 +27,38 @@ namespace Quan_Ly_KTX.Main_Window
 
         private void XemDsSV_Click(object sender, RoutedEventArgs e)
         {
+            FreeEverytin();
             MainContent.Content= new Frame() { Content= new QLSV()};
+        }
+        private void FreeEverytin()
+        {
+            QLDVController.Controller.FreeController();
+            QLSVController.Controller.FreeController();
+            PhongController.Controller.FreeController();
+            LichSuDK.Controller.FreeController();
         }
 
         private void XemDSP_Click(object sender, RoutedEventArgs e)
         {
+            FreeEverytin();
             MainContent.Content = new Frame() { Content = new QLphong() };
         }
 
         private void XemDSDV_Click(object sender, RoutedEventArgs e)
         {
+            FreeEverytin();
             MainContent.Content = new Frame() { Content = new QLDV() };
         }
 
         private void XemDSHD_Click(object sender, RoutedEventArgs e)
         {
+            FreeEverytin();
             MainContent.Content = new Frame() { Content = new QLHD()};
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            FreeEverytin();
             MainWindow m = new();
             m.Show();
             this.Close();

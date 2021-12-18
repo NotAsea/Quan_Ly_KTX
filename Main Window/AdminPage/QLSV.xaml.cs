@@ -30,7 +30,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             SVList = (CollectionViewSource)FindResource(nameof(SVList));
-            ds= QLSVController.LayToanBoSv();
+            ds= QLSVController.Controller.LayToanBoSv();
             SVList.Source = ds;
         }
 
@@ -43,15 +43,15 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         }
         private void ResponseHandler(object sender, EventArgs e)
         {
-            ds = QLSVController.LayToanBoSv();
+            ds = QLSVController.Controller.LayToanBoSv();
             SVList.Source = ds;
         }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var row = dssv.SelectedItem as InfoSV;
-            var kq = QLSVController.XoaSV(row);
+            var kq = QLSVController.Controller.XoaSV(row);
             if (kq) {
-                MessageBox.Show("Đã xóa Sinh viên", "thông báo"); 
+                MessageBox.Show("Đã xóa Sinh viên", "yhông báo"); 
                 ds = QLSVController.LayToanBoSv(); 
                 SVList.Source = ds; 
             }

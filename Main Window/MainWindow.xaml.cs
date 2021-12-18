@@ -45,12 +45,15 @@ namespace Quan_Ly_KTX
                 FormSVDS sv = new(ID);
                 this.Close();
                 sv.Show();
+                SQLConnection.FreeScope();
             }
             else if (result == "Admin")
             {
                 FormAdmin ad = new();
                 this.Close();
                 ad.Show();
+                SQLConnection.FreeScope();
+
             }
             else  MessageBox.Show(result, "FormĐN");
            
