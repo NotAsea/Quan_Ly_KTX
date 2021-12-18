@@ -51,7 +51,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             var row = dssv.SelectedItem as InfoSV;
             var kq = QLSVController.XoaSV(row);
             if (kq) {
-                MessageBox.Show("Đã xóa Sinh viên", "yhông báo"); 
+                MessageBox.Show("Đã xóa Sinh viên", "thông báo"); 
                 ds = QLSVController.LayToanBoSv(); 
                 SVList.Source = ds; 
             }
