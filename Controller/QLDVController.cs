@@ -46,14 +46,15 @@ namespace Quan_Ly_KTX.Controller
             SQLConnection.Instance.DichVus.Update(dv.ToDv());
             SQLConnection.Instance.SaveChanges();
         }
-        public ICollection<DichVu> LayDsDV()
+        public ICollection<DichVu> LayDsDVDeDK(string msv)
         {
             List<DichVu> ds = new();
-
+            var dv_DaDK = LichSuDK.Controller.LayMdvDaDangKyCuaSv(msv);
             ds = SQLConnection.Instance.DichVus.ToList();
-
-            return ds;
+            LichSuDK.Controller.FreeController();
+            return   ds.Where(d=> !dv_DaDK.Any(x=> x == d.MaDv)).ToList() ;
         }
+       
         public void ĐangKyDV(Đkdvcn[] dk)
         {
 

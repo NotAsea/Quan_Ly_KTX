@@ -27,25 +27,25 @@ namespace Quan_Ly_KTX.Controller
             controller = null;
         }
 
-        public  ICollection<HistoryDv> layLsSV( String msv)
+        public ICollection<HistoryDv> layLsSV(String msv)
         {
             List<HistoryDv> ds;
-            
-                ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
-                {
-                    c.Msv,
-                    c.MaDk,
-                    d.MaDv,
-                    d.GiaDv,
-                    d.TenDv
-                }).Where(c => c.Msv == msv).Select(a => new HistoryDv( a.MaDk,a.TenDv, a.GiaDv)).ToList();
-            
+
+            ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+            {
+                c.Msv,
+                c.MaDk,
+                d.MaDv,
+                d.GiaDv,
+                d.TenDv
+            }).Where(c => c.Msv == msv).Select(a => new HistoryDv(a.MaDk, a.TenDv, a.GiaDv)).ToList();
+
             return ds;
         }
-        public  ICollection<dvDK> LayDsDK()
+        public ICollection<dvDK> LayDsDK()
         {
-           
-           var ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+
+            var ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
             {
                 c.MaDk,
                 c.Msv,
@@ -63,14 +63,33 @@ namespace Quan_Ly_KTX.Controller
             }).Select(x => new dvDK(x.Hoten, x.MaDk, x.TenDv, x.GiaDv, x.Msv)).ToList();
             return ds;
         }
-      public  bool XoaDvDk(dvDK dv)
+        public ICollection<int> LayMdvDaDangKyCuaSv(string msv)
+        {
+
+            var ds = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+            {
+                c.MaDk,
+                c.Msv,
+                d.MaDv
+
+            }).Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
+            {
+                c.MaDk,
+                 c.MaDv,
+                  d.Msv
+
+            }).Where(d => d.Msv.Contains(msv)).Select(x => x.MaDv).ToList();
+            return ds;
+        }
+        public bool XoaDvDk(dvDK dv)
         {
             bool flag = false;
-            try {
+            try
+            {
                 SQLConnection.Instance.Đkdvcns.Remove(dv.ToModdv());
                 SQLConnection.Instance.SaveChanges();
                 flag = true;
-                   }
+            }
             catch (Exception) { }
             return flag;
         }

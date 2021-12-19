@@ -11,28 +11,29 @@ namespace Quan_Ly_KTX.Controller
 {
     internal static class SQLworker
     {
-        
+
         public static int XepPhong(String he, String gt)
         {
-            int maphong ;
-            using(KTX_KMAContext context = new())
+            int maphong;
+            using (KTX_KMAContext context = new())
             {
                 maphong = context.Phongs.AsNoTracking().Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt))
                     .Select(x => x.MaPhong).FirstOrDefault();
             }
             return maphong;
         }
-      public static int TimMdv (String tdv)
+        public static int TimMdv(String tdv)
         {
-            var kq = SQLConnection.Instance.DichVus.AsNoTracking().Where(x => x.TenDv.Contains(tdv)).Select(x=> x.MaDv).FirstOrDefault();
+            var kq = SQLConnection.Instance.DichVus.AsNoTracking().Where(x => x.TenDv.Contains(tdv)).Select(x => x.MaDv).FirstOrDefault();
             return kq;
         }
         public static List<tongcong> LayDSMP(string he, string gt, int mp)
         {
             var ds = SQLConnection.Instance.Phongs.AsNoTracking().Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt))
-                .Where(p=> p.MaPhong !=mp)
+                .Where(p => p.MaPhong != mp)
                      .Select(x => new tongcong(x.MaPhong)).ToList();
             return ds;
-          }
+        }
+     
     }
 }

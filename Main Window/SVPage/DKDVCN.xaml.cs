@@ -32,7 +32,7 @@ namespace Quan_Ly_KTX.SVPage
         {
             InitializeComponent();
             DVsource = (CollectionViewSource)FindResource(nameof(DVsource));
-            DVsource.Source = QLDVController.Controller.LayDsDV();
+            DVsource.Source = QLDVController.Controller.LayDsDVDeDK(s);
             msv = s;
 
         }
