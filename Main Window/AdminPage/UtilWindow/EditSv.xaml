@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow"
         mc:Ignorable="d"
         Title="Chỉnh sửa thông tin sinh viên" Height="450" Width="500"
-        Background="Azure">
+        Background="Azure"
+        Icon="/Resource/logo_icon.ico">
     <StackPanel>
     <Grid Margin="10 20">
         <Grid.ColumnDefinitions>

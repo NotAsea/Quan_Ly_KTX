@@ -60,5 +60,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             }
             else HDList.Source = ds;
         }
+
+        private void AddBill_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

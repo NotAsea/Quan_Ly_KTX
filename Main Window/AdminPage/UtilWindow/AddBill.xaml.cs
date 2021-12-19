@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 {
     /// <summary>
-    /// Interaction logic for AddDvDk.xaml
+    /// Interaction logic for AddBill.xaml
     /// </summary>
-    public partial class AddDvDk : Window
+    public partial class AddBill : Window
     {
-        public AddDvDk()
+        public AddBill()
         {
             InitializeComponent();
         }

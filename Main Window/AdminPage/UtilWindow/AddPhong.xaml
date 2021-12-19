@@ -8,6 +8,7 @@
           Title="Thêm Phòng" Height="300" Width="450"
         Background="Aquamarine"
         WindowStartupLocation="CenterScreen"
+        Icon="/Resource/logo_icon.ico"
         >
     <StackPanel>
         <Grid Margin="10 10">
