@@ -78,5 +78,10 @@ namespace Quan_Ly_KTX.SVPage
             QLSVController.Controller.FreeController();
 
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

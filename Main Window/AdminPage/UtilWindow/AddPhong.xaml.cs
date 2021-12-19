@@ -29,19 +29,26 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             var check = "";
-            if (String.IsNullOrWhiteSpace(mp.Text)) check += "Mã phòng đang trống \t";
-            if (String.IsNullOrWhiteSpace(tenhe.Text)) check += "Hệ đang trống \t";
-            if (String.IsNullOrWhiteSpace(ttp.Text)) check += "Tình trạng phòng  đang trống \t";
-            if (String.IsNullOrWhiteSpace(lp.Text)) check += "Loại phòng  đang trống \t";
+            if (String.IsNullOrWhiteSpace(mp.Text)) check += "Mã phòng đang trống ";
+         
+          
             if (check.Length > 0) MessageBox.Show($"{check}", "thông báo");
             else
             {
-                phongs ph = new(ttp.Text, lp.Text, int.Parse(mp.Text), tenhe.Text, tenhe.Text switch
+                var hechon = he.SelectedItem as ComboBoxItem;
+                var mahe = hechon.Name;
+                var lphongchon = loaiphong.SelectedItem as ComboBoxItem;
+                var lp = lphongchon.Name;
+                var ttchon = ttphong.SelectedItem as ComboBoxItem;
+                var ttp = ttchon.Name;
+
+
+                phongs ph = new(ttp, lp, int.Parse(mp.Text), mahe switch
                 {
-                    "Quân Sự" => "QS",
-                    "Dân Sự" => "DS",
-                    _=> "DS",
-                }) ;
+                    "QS"  => "Quân Sự",
+                    "DS" => "Dân Sự",
+                    _ => "Dân Sự",
+                }, mahe ) ;
           _=    PhongController.Controller.ThemPhong(ph);
                 MessageBox.Show("Thêm thành công", "thông báo");
                 onSucess(this, new EventArgs());

@@ -27,6 +27,12 @@ namespace Quan_Ly_KTX.Controller
             var kq = SQLConnection.Instance.DichVus.AsNoTracking().Where(x => x.TenDv.Contains(tdv)).Select(x=> x.MaDv).FirstOrDefault();
             return kq;
         }
-      
+        public static List<tongcong> LayDSMP(string he, string gt, int mp)
+        {
+            var ds = SQLConnection.Instance.Phongs.AsNoTracking().Where(p => p.MaHe.Equals(he)).Where(p => p.TinhTrangPhong.Equals("Còn")).Where(p => p.LoaiPhong.Equals(gt))
+                .Where(p=> p.MaPhong !=mp)
+                     .Select(x => new tongcong(x.MaPhong)).ToList();
+            return ds;
+          }
     }
 }

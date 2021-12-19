@@ -10,7 +10,8 @@
         WindowStartupLocation="CenterScreen"
         Icon="/Resource/logo_icon.ico"
         >
-    <Grid>
+    <StackPanel>
+        <TextBlock Text="Nhập hóa đơn phòng" FontSize="30" HorizontalAlignment="Center" Margin="0,10,0,10" />
         
-    </Grid>
+    </StackPanel>
 </Window>

@@ -27,9 +27,19 @@
             <TextBlock Text="Loại Phòng" Grid.Column="0" Grid.Row="2" FontSize="18" Margin="10,10,10,10"/>
             <TextBlock Text="Tình trạng phòng" Grid.Column="0" Grid.Row="3" FontSize="18" Margin="10,10,10,10"/>
             <TextBox x:Name="mp" Grid.Column="1" Grid.Row="0" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2" />
-            <TextBox x:Name="tenhe" Grid.Column="1" Grid.Row="1" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2" />
-            <TextBox x:Name="lp" Grid.Column="1" Grid.Row="2" FontSize="18" Background="FloralWhite" Margin="0,0,0,44" Grid.RowSpan="2" />
-            <TextBox x:Name="ttp" Grid.Column="1" Grid.Row="3" FontSize="18" Background="FloralWhite" />
+            <ComboBox x:Name="he"  Margin="0,0,0,0" FontSize="20"  Grid.Column="1" Grid.Row="1" Background="FloralWhite">
+                <ComboBoxItem IsSelected="True" FontSize="20" Name="DS" Content=" Dân sự" Background="FloralWhite"/>
+                <ComboBoxItem FontSize="20" Name="QS" Content="Quân sự" Background="FloralWhite"/>
+            </ComboBox>
+            <ComboBox x:Name="loaiphong"  Margin="0,0,0,0" FontSize="20"  Grid.Column="1" Grid.Row="2" Background="FloralWhite">
+                <ComboBoxItem IsSelected="True" FontSize="20" Name="Nam" Content=" Nam "/>
+                <ComboBoxItem FontSize="20" Name="Nữ" Content="Nữ"/>
+            </ComboBox>
+            <ComboBox x:Name="ttphong"  Margin="0,0,0,0" FontSize="20"  Grid.Column="1" Grid.Row="3" Background="FloralWhite">
+                <ComboBoxItem IsSelected="True" FontSize="20" Name="Còn" Content=" Còn"/>
+                <ComboBoxItem FontSize="20" Name="Hết" Content="Hết"/>
+            </ComboBox>
+            
         </Grid>
         <Button x:Name="Submit" Click="Submit_Click" Content="Xác Nhận" FontSize="20" Background="Brown"  Width="100" Foreground="Aqua" Margin="0 20"/>
     </StackPanel>

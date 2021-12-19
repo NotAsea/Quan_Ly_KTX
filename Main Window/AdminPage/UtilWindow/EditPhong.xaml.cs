@@ -31,15 +31,15 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            p.ttphong= ttp.Text;
-            p.loaiphong = lp.Text;
-            p.tenhe = tenhe.Text;
+            p.ttphong= ((ComboBoxItem)ttphong.SelectedItem).Name ;
+            p.loaiphong = ((ComboBoxItem)loaiphong.SelectedItem).Name;
+            p.mahe = ((ComboBoxItem)he.SelectedItem).Name;
             p.Maphong = int.Parse(mp.Text);
-            p.mahe = p.tenhe switch
+            p.tenhe = p.mahe switch
             {
-                "Quân Sự" => "QS",
-                "Dân Sự" => "DS",
-                _ => "DS",
+                "QS" => "Quân Sự",
+                "DS" => "Dân Sự",
+                _ => "Dân Sự",
             };
             var kq = PhongController.Controller.SuaPhong(p);
             if (kq)

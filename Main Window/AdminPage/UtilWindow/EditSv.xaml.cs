@@ -26,11 +26,14 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
         {
             InitializeComponent();
             sv = s;
+            sv.LayDsMp();
             this.DataContext = sv;
         }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            sv.MaPhong = int.Parse(mp.Text);
+            var mp = MaPhong.SelectedItem as tongcong;
+
+            sv.MaPhong = mp.total;
             try
             {
                 QLSVController.Controller.UpdateInfoSV(sv);
@@ -40,7 +43,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
                 this.Hide();
                 
             }
-            catch(Exception er) { MessageBox.Show("Cập nhập thất bại", "thông báo"); }
+            catch(Exception) { MessageBox.Show("Cập nhập thất bại", "thông báo"); }
         }
     }
 }

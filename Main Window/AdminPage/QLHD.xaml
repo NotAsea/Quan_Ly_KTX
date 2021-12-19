@@ -21,7 +21,7 @@
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource HDList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged">
+                      HorizontalAlignment="Center" Width="Auto" >
                 <DataGrid.Columns>
                     
                     <DataGridTextColumn Header="Mã Hóa Đơn" Binding="{Binding MaHd}" IsReadOnly="True" Width="150"/>

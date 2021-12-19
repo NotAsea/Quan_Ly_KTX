@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.Controller;
-
+using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.View
 {
     public   class InfoSV
@@ -31,18 +31,18 @@ namespace Quan_Ly_KTX.View
         public int Nh { get; set; }
         public int MaPhong { get; set; }
         public string  TenHe { get; set; }
-        
-
-     //   public InfoSV toInfoSV( int IdUser, string Hoten, string GioiTinh, DateTime NgaySinh 
-          //  , int NamHoc, int MaPhong,  string tenhe, string ttPhong  ) =>  
-         //   new InfoSV(IdUser, Hoten, GioiTinh, NgaySinh, NamHoc, MaPhong, tenhe, ttPhong );
-        public List<InfoSV> dsSV;
-        public List<InfoSV>  taoDS ( params InfoSV[]? info)
+        public List<tongcong> DsMp { get; set; }  
+       public void LayDsMp()
         {
-            dsSV = new List<InfoSV>();
-            foreach (var item in info) dsSV.Add(item);
-            return dsSV;
+            DsMp = SQLworker.LayDSMP(TenHe switch
+            {
+                "Quân Sự" => "QS",
+                "Dân Sự" => "DS",
+                _ => "DS",
+            }, GT, MaPhong);
         }
+     
+        
         public SinhVien ToSV()
         {
             SinhVien sv = new();

@@ -35,8 +35,10 @@
             <TextBlock x:Name="gt" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="2" Padding="2" Text="{Binding GT}"/>
             <TextBlock x:Name="ns" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="3" Padding="2" Text="{Binding NS}" />
                 <TextBlock x:Name="nh" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="4" Padding="2" Text="{Binding Nh}"/>
-            <TextBox x:Name="mp" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="5" Padding="2" Text="{Binding MaPhong}"/>
-                    <TextBlock x:Name="he" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="6" Padding="2" Text="{Binding TenHe}"/>
+            <ComboBox x:Name="MaPhong"  Margin="0,0,0,0" FontSize="20"  Grid.Column="1" Grid.Row="5" Background="LightGreen" ItemsSource="{Binding  DsMp }" DisplayMemberPath="total"  SelectedValuePath="total">
+               
+            </ComboBox>
+            <TextBlock x:Name="he" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="6" Padding="2" Text="{Binding TenHe}"/>
         </Grid>
         <Button Content="Xác nhận" x:Name="Submit" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 10"/>
         </StackPanel>

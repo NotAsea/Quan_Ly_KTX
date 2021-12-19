@@ -70,10 +70,7 @@ namespace Quan_Ly_KTX.SVPage
 
         }
 
-        private void Namee_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+       
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
@@ -83,9 +80,6 @@ namespace Quan_Ly_KTX.SVPage
             ns.Text = "";
         }
 
-        private void he_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
