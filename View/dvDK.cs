@@ -24,6 +24,7 @@ namespace Quan_Ly_KTX.View
         }
         public dvDK(int Mdv, string msv)
         {
+           
             madv = Mdv;
             this.msv = msv;
         }
@@ -37,9 +38,17 @@ namespace Quan_Ly_KTX.View
             this.msv = msv;
         }
 
-        public Đkdvcn todk()
+        public Đkdvcn ToDKdv()
         {
             Đkdvcn dk = new();
+            dk.MaDv = madv;
+            dk.Msv = msv;
+            return dk;
+        }
+        public Đkdvcn ToModdv()
+        {
+            Đkdvcn dk = new();
+            dk.MaDk = Madk;
             dk.MaDv = madv;
             dk.Msv = msv;
             return dk;

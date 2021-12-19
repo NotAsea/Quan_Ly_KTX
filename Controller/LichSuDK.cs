@@ -67,7 +67,7 @@ namespace Quan_Ly_KTX.Controller
         {
             bool flag = false;
             try {
-                SQLConnection.Instance.Đkdvcns.Remove(dv.todk());
+                SQLConnection.Instance.Đkdvcns.Remove(dv.ToModdv());
                 SQLConnection.Instance.SaveChanges();
                 flag = true;
                    }

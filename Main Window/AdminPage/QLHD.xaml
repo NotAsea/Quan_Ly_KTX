@@ -27,8 +27,8 @@
                     <DataGridTextColumn Header="Mã Hóa Đơn" Binding="{Binding MaHd}" IsReadOnly="True" Width="150"/>
                     <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding Msv}" IsReadOnly="True" Width="140"/>
                     <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding Hoten}" IsReadOnly="True" Width="200"/>
-                    <DataGridTextColumn Header="Mã dịch vụ" Binding="{Binding Mdv}" IsReadOnly="True" Width="130"/>
-                    <DataGridTextColumn Header="Tên dịch vụ" Binding="{Binding Tendv}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Dịch vụ chung" Binding="{Binding Mdv}" IsReadOnly="True" Width="130"/>
+                    <DataGridTextColumn Header="Dịch vụ riêng" Binding="{Binding Tendv}" IsReadOnly="True" Width="150"/>
                     <DataGridTextColumn Header="Giá" Binding="{Binding GiaHd}" IsReadOnly="True" Width="100"/>
 
                     <DataGridTemplateColumn>

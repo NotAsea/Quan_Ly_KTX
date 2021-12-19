@@ -46,7 +46,7 @@ namespace Quan_Ly_KTX.SVPage
             dichvuDK.ItemsSource = dkList;
             var d = new dvDK(row.MaDv, msv);
             
-           var r= d.todk();
+           var r= d.ToDKdv();
             listToAdd.Add(r);
 
         }
