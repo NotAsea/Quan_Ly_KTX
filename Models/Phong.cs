@@ -11,5 +11,6 @@ namespace Quan_Ly_KTX.Models
         public string? LoaiPhong { get; set; }
 
         public virtual He MaHeNavigation { get; set; } = null!;
+        public virtual DienNuocPhong DienNuocPhong { get; set; } = null!;
     }
 }

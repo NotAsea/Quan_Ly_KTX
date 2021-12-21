@@ -56,5 +56,9 @@ namespace Quan_Ly_KTX.Controller
 
             return dshd;
         }
+        public void ThemDienNuoc(DienNuocDS d)
+        {
+            SQLConnection.Instance.DienNuocPhongs.Add(d)
+        }
     }
 }

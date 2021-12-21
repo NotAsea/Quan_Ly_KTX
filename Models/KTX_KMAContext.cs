@@ -17,6 +17,7 @@ namespace Quan_Ly_KTX.Models
         }
 
         public virtual DbSet<DichVu> DichVus { get; set; } = null!;
+        public virtual DbSet<DienNuocPhong> DienNuocPhongs { get; set; } = null!;
         public virtual DbSet<He> Hes { get; set; } = null!;
         public virtual DbSet<HoaDon> HoaDons { get; set; } = null!;
         public virtual DbSet<Phong> Phongs { get; set; } = null!;
@@ -29,10 +30,7 @@ namespace Quan_Ly_KTX.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //đây là url của m lúc m định push thì cmt cái này lại đỡ nhầm vs t
-                // optionsBuilder.UseSqlServer("Data Source=DESKTOP-J5215DU\\LANANH;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
-                //đây là cái của t  lúc m định push thì bỏ cmt nó
-               optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
             }
         }
 
@@ -57,6 +55,22 @@ namespace Quan_Ly_KTX.Models
                 entity.Property(e => e.TenDv)
                     .HasMaxLength(15)
                     .HasColumnName("Ten_DV");
+            });
+
+            modelBuilder.Entity<DienNuocPhong>(entity =>
+            {
+                entity.HasKey(e => e.MaPhong)
+                    .HasName("PK__DienNuoc__20BD5E5B29B92346");
+
+                entity.ToTable("DienNuocPhong");
+
+                entity.Property(e => e.MaPhong).ValueGeneratedNever();
+
+                entity.HasOne(d => d.MaPhongNavigation)
+                    .WithOne(p => p.DienNuocPhong)
+                    .HasForeignKey<DienNuocPhong>(d => d.MaPhong)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__DienNuocP__MaPho__02FC7413");
             });
 
             modelBuilder.Entity<He>(entity =>

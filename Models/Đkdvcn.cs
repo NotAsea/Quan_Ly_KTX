@@ -10,7 +10,6 @@ namespace Quan_Ly_KTX.Models
             HoaDons = new HashSet<HoaDon>();
             MaDvs = new HashSet<DichVu>();
         }
-        
 
         public int MaDk { get; set; }
         public string Msv { get; set; } = null!;
