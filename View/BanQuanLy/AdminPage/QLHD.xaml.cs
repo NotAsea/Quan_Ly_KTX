@@ -27,7 +27,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             HDList = (CollectionViewSource)FindResource(nameof(HDList));
-            ds = HaoDonController.Controller.LayDSHoaDon();
+       //     ds = HaoDonController.Controller.LayDSHoaDon();
             HDList.Source = ds;
 
         }
@@ -50,12 +50,13 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             {
               var   number = new String(item.Where(Char.IsDigit).ToArray());
 
-                HDList.Source = number.Length switch
+               /* HDList.Source = number.Length switch
                 {
                     int x when x == item.Length => ds.Where(x => x.Msv.Contains( item) || x.Hoten.Contains(item) ||  x.Tendv.Contains(item)  ),
                     int y when (y == item.Length - 2 || y == 0) => ds.Where(x=> x.Mdv == int.Parse(item)|| x.GiaHd == int.Parse(item) || x.MaHd == int.Parse(item)) ,
                     
                 };
+               */
                 if (HDList.Source is null) ElementtoFind.Text = "không có  bản ghi mời nhập lại";
             }
             else HDList.Source = ds;

@@ -10,23 +10,23 @@ namespace Quan_Ly_KTX.View
 {
     public class InfoHD
     {
-        public int MaHd { get; set; }
+     
         public string Msv { get; set; }
-        public int Mdv { get; set; }
+        public int[] Mdv { get; set; }
         public string Hoten { get; set; }   
-        public string Tendv { get; set; }
-        public int GiaHd { get; set; }
-        public int Madk { get; set; }
-        public InfoHD(int maHd, string msv, int mdv, string hoten, string tendv, int giaHd, int madk)
+        public string Tendvrieng { get; set; }
+        public int Tongtien { get; set; }
+        public string Tendvchung { get; set; }
+
+        public InfoHD(string msv, int[] mdv, string hoten, string tendvrieng, int tongtien, string tendvchung)
         {
-            MaHd = maHd;
             Msv = msv;
             Mdv = mdv;
             Hoten = hoten;
-            Tendv = tendv;
-            GiaHd = giaHd;
-            Madk = madk;
+            Tendvrieng = tendvrieng;
+            Tongtien = tongtien;
+
+            Tendvchung = tendvchung;
         }
-        
     }
 }

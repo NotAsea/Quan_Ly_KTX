@@ -26,7 +26,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

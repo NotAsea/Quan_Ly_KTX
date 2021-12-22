@@ -24,7 +24,7 @@ namespace Quan_Ly_KTX.Controller
             SQLConnection.FreeScope();
             controller = null;
         }
-        public  ICollection<InfoHD> LayDSHoaDon()
+       /* public  ICollection<InfoHD> LayDSHoaDon()
         {
             List<InfoHD> dshd = new();
 
@@ -56,9 +56,11 @@ namespace Quan_Ly_KTX.Controller
 
             return dshd;
         }
+       */
         public void ThemDienNuoc(DienNuocDS d)
         {
-            SQLConnection.Instance.DienNuocPhongs.Add(d)
+            SQLConnection.Instance.DienNuocPhongs.Add(d.ToDienNuoc());
+            SQLConnection.Instance.SaveChanges();
         }
     }
 }

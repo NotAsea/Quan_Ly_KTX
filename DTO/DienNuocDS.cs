@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Quan_Ly_KTX.View;
+using Quan_Ly_KTX.Models;
 namespace Quan_Ly_KTX.View
 {
     public class DienNuocDS
@@ -22,6 +22,13 @@ namespace Quan_Ly_KTX.View
             this.sonuoc = sonuoc;
             MaPhong = maPhong;
         }
-        public Die
+        public DienNuocPhong ToDienNuoc()
+        {
+            DienNuocPhong dnp = new();
+            dnp.GiaDien = GiaDien;
+            dnp.GiaNuoc = GiaNuoc;
+            dnp.MaPhong= MaPhong;
+            return dnp;
+        }
     }
 }
