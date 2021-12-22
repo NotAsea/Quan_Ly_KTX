@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Quan_Ly_KTX.Models;
 using Quan_Ly_KTX.View;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -34,6 +32,6 @@ namespace Quan_Ly_KTX.Controller
                      .Select(x => new tongcong(x.MaPhong)).ToList();
             return ds;
         }
-     
+
     }
 }

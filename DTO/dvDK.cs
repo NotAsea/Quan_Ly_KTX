@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quan_Ly_KTX.Models;
-using Quan_Ly_KTX.Controller;
+﻿using Quan_Ly_KTX.Models;
 namespace Quan_Ly_KTX.View
 {
     public class dvDK
     {
         public string tensv { get; set; }
         public int Madk { get; set; }
-        public string tendv { get; set; }   
+        public string tendv { get; set; }
         public int giadv { get; set; }
         public string msv { get; set; }
         public int madv { get; set; }
@@ -20,11 +14,11 @@ namespace Quan_Ly_KTX.View
             Madk = madk;
             this.tendv = tendv;
             this.giadv = giadv;
-           
+
         }
         public dvDK(int Mdv, string msv)
         {
-           
+
             madv = Mdv;
             this.msv = msv;
         }

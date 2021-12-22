@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.Controller;
 
 namespace Quan_Ly_KTX.SVPage
 {
@@ -38,7 +27,7 @@ namespace Quan_Ly_KTX.SVPage
             if (String.IsNullOrEmpty(msv.Text)) check += "Mã sinh viên đang để trống, ";
             if ((bool)!gtnam.IsChecked && (bool)!gtnu.IsChecked) check += "Giới tính chưa chọn, ";
             else if ((bool)gtnam.IsChecked && (bool)gtnu.IsChecked) check += "Giới tính không được chọn cả 2, ";
-           
+
             if (String.IsNullOrWhiteSpace(namhoc.Text)) check += "Chưa điền năm học, ";
             if (String.IsNullOrWhiteSpace(ns.Text)) check += "Chưa điền năm sinh, ";
             if (check.Length > 0)
@@ -52,25 +41,26 @@ namespace Quan_Ly_KTX.SVPage
                 var hechon = he.SelectedItem as ComboBoxItem;
                 var tenhe = hechon.Name;
                 var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
-                InfoSV sv = new(msv.Text, Namee.Text,gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
-                    , SQLworker.XepPhong(tenhe, gt),tenhe , ID);
-              try{      
+                InfoSV sv = new(msv.Text, Namee.Text, gt, DateTime.Parse(ns.Text), int.Parse(namhoc.Text)
+                    , SQLworker.XepPhong(tenhe, gt), tenhe, ID);
+                try
+                {
                     QLSVController.Controller.addInfo(sv);
                     _ = MessageBox.Show("thêm thông tin thành công ", "Thêm thông tin");
                     s.Hide();
                     FormSVDS f = new(this.ID);
                     f.Show();
-                    
-                   
-                   
-              }
-                catch (Exception ex) {  MessageBox.Show($"đã có lỗi xảy ra {ex.Message }","Thêm thông tin"); }
+
+
+
+                }
+                catch (Exception ex) { MessageBox.Show($"đã có lỗi xảy ra {ex.Message }", "Thêm thông tin"); }
 
             }
 
         }
 
-       
+
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +70,6 @@ namespace Quan_Ly_KTX.SVPage
             ns.Text = "";
         }
 
-       
+
     }
 }

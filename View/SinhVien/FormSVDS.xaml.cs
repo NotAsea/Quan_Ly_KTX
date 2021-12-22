@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window.SVPage;
+using Quan_Ly_KTX.SVPage;
+using Quan_Ly_KTX.View;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.SVPage;
-using Quan_Ly_KTX.Main_Window.SVPage;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -28,9 +17,9 @@ namespace Quan_Ly_KTX
         public FormSVDS(int id)
         {
             InitializeComponent();
-            ID= id;
+            ID = id;
             SV = QLSVController.Controller.LaySV(ID);
-           
+
             if (SV != null)
             {
                 AddInfo.Visibility = Visibility.Collapsed;
@@ -38,8 +27,8 @@ namespace Quan_Ly_KTX
             }
             else
             {
-                EditInfo.Visibility=Visibility.Collapsed;
-                HistoryDV.Visibility=Visibility.Collapsed;
+                EditInfo.Visibility = Visibility.Collapsed;
+                HistoryDV.Visibility = Visibility.Collapsed;
                 inra.Visibility = Visibility.Hidden;
                 SignDV.Visibility = Visibility.Collapsed;
 
@@ -57,7 +46,7 @@ namespace Quan_Ly_KTX
             MainContent.Content = new Frame() { Content = new EditInfoPage(SV) };
         }
 
-    
+
 
         private void SignDV_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +62,7 @@ namespace Quan_Ly_KTX
         {
             MainWindow m = new();
             m.Show();
-            
+
             QLSVController.Controller.FreeController();
             QLDVController.Controller.FreeController();
             LichSuDK.Controller.FreeController();

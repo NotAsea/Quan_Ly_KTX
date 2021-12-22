@@ -1,21 +1,12 @@
-﻿using System;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
+using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
-using System.Globalization;
 
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
@@ -30,7 +21,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             SVList = (CollectionViewSource)FindResource(nameof(SVList));
-            ds= QLSVController.Controller.LayToanBoSv();
+            ds = QLSVController.Controller.LayToanBoSv();
             SVList.Source = ds;
         }
 
@@ -50,10 +41,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             var row = dssv.SelectedItem as InfoSV;
             var kq = QLSVController.Controller.XoaSV(row);
-            if (kq) {
-                MessageBox.Show("Đã xóa Sinh viên", "thhông báo"); 
-                ds = QLSVController.Controller.LayToanBoSv(); 
-                SVList.Source = ds; 
+            if (kq)
+            {
+                MessageBox.Show("Đã xóa Sinh viên", "thhông báo");
+                ds = QLSVController.Controller.LayToanBoSv();
+                SVList.Source = ds;
             }
             else MessageBox.Show("Đã có lỗi xảy ra", "thông báo");
 
@@ -73,8 +65,8 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
                 DateTime? d = null;
                 try
                 {
-                    
-                    d = DateTime.Parse(item );
+
+                    d = DateTime.Parse(item);
                 }
                 catch (Exception) { }
                 if (d == null) { number = new String(item.Where(Char.IsDigit).ToArray()); }
@@ -88,7 +80,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
                 if (SVList.Source is null) ElementtoFind.Text = "không có  bản ghi mời nhập lại";
             }
             else SVList.Source = ds;
-            
+
         }
     }
 }

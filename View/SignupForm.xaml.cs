@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
 
 namespace Quan_Ly_KTX
 {
@@ -40,9 +30,9 @@ namespace Quan_Ly_KTX
             else
             {
                 Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-                _= await SiginupController.addUser(Username.Text, Password.Password);
+                _ = await SiginupController.addUser(Username.Text, Password.Password);
                 Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
-                _ =  MessageBox.Show("Đăng Ký  thành công", "Form đăng ký");
+                _ = MessageBox.Show("Đăng Ký  thành công", "Form đăng ký");
                 this.Hide();
             }
 

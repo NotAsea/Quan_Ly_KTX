@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Quan_Ly_KTX.Models
+﻿namespace Quan_Ly_KTX.Models
 {
     public partial class Phong
     {

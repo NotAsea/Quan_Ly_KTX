@@ -1,17 +1,13 @@
-﻿using Quan_Ly_KTX.Models;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.View
 {
-    public   class InfoSV
+    public class InfoSV
     {
-        
-        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe , int id)
+
+        public InfoSV(string sVID, string hoTen, string gT, DateTime? nS, int nh, int maPhong, string tenHe, int id)
         {
             MSV = sVID;
             HoTen = hoTen;
@@ -30,9 +26,9 @@ namespace Quan_Ly_KTX.View
         public DateTime? NS { get; set; }
         public int Nh { get; set; }
         public int MaPhong { get; set; }
-        public string  TenHe { get; set; }
-        public List<tongcong> DsMp { get; set; }  
-       public void LayDsMp()
+        public string TenHe { get; set; }
+        public List<tongcong> DsMp { get; set; }
+        public void LayDsMp()
         {
             DsMp = SQLworker.LayDSMP(TenHe switch
             {
@@ -41,8 +37,8 @@ namespace Quan_Ly_KTX.View
                 _ => "DS",
             }, GT, MaPhong);
         }
-     
-        
+
+
         public SinhVien ToSV()
         {
             SinhVien sv = new();
@@ -50,9 +46,9 @@ namespace Quan_Ly_KTX.View
             sv.NamHoc = Nh;
             sv.MaHe = TenHe switch
             {
-                "Quân Sự" =>"QS",
-                "Dân Sự"=> "DS",
-                _=> "DS",
+                "Quân Sự" => "QS",
+                "Dân Sự" => "DS",
+                _ => "DS",
             };
             sv.Hoten = HoTen;
             sv.GioiTinh = GT;
@@ -62,8 +58,8 @@ namespace Quan_Ly_KTX.View
             return sv;
 
         }
-        
 
-        
+
+
     }
 }

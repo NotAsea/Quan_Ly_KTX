@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -75,8 +71,8 @@ namespace Quan_Ly_KTX.Controller
             }).Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
             {
                 c.MaDk,
-                 c.MaDv,
-                  d.Msv
+                c.MaDv,
+                d.Msv
 
             }).Where(d => d.Msv.Contains(msv)).Select(x => x.MaDv).ToList();
             return ds;

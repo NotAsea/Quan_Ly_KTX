@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quan_Ly_KTX.View
+﻿namespace Quan_Ly_KTX.View
 {
-  public record tongcong(int total);
-    
+    public record tongcong(int total);
+
 }

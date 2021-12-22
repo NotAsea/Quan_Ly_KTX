@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Quan_Ly_KTX.Models;
+using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Quan_Ly_KTX.Models;
-using Quan_Ly_KTX.View;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -29,19 +26,19 @@ namespace Quan_Ly_KTX.Controller
         public ICollection<Infodichvu> LayDv()
         {
             List<Infodichvu> ds = new();
-           
-            
-                ds = SQLConnection.Instance.DichVus.Select(x=> new Infodichvu(x.MaDv,x.TenDv, x.GiaDv)).ToList();
-            
+
+
+            ds = SQLConnection.Instance.DichVus.Select(x => new Infodichvu(x.MaDv, x.TenDv, x.GiaDv)).ToList();
+
             return ds;
         }
-       
+
         public void ThemDV(Infodichvu dv)
         {
             SQLConnection.Instance.DichVus.Add(dv.ToDv());
             SQLConnection.Instance.SaveChanges();
         }
-        public  void CapnhapDv(Infodichvu dv)
+        public void CapnhapDv(Infodichvu dv)
         {
             SQLConnection.Instance.DichVus.Update(dv.ToDv());
             SQLConnection.Instance.SaveChanges();
@@ -52,16 +49,16 @@ namespace Quan_Ly_KTX.Controller
             var dv_DaDK = LichSuDK.Controller.LayMdvDaDangKyCuaSv(msv);
             ds = SQLConnection.Instance.DichVus.ToList();
             LichSuDK.Controller.FreeController();
-            return   ds.Where(d=> !dv_DaDK.Any(x=> x == d.MaDv)).ToList() ;
+            return ds.Where(d => !dv_DaDK.Any(x => x == d.MaDv)).ToList();
         }
-       
+
         public void ĐangKyDV(Đkdvcn[] dk)
         {
 
             SQLConnection.Instance.Đkdvcns.AddRange(dk);
             SQLConnection.Instance.SaveChanges();
         }
-        public  bool XoaDv(Infodichvu dv)
+        public bool XoaDv(Infodichvu dv)
         {
             bool flag = false;
             try

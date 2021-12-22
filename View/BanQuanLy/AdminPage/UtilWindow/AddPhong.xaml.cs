@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 {
     /// <summary>
@@ -30,8 +20,8 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
         {
             var check = "";
             if (String.IsNullOrWhiteSpace(mp.Text)) check += "Mã phòng đang trống ";
-         
-          
+
+
             if (check.Length > 0) MessageBox.Show($"{check}", "thông báo");
             else
             {
@@ -45,11 +35,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 
                 phongs ph = new(ttp, lp, int.Parse(mp.Text), mahe switch
                 {
-                    "QS"  => "Quân Sự",
+                    "QS" => "Quân Sự",
                     "DS" => "Dân Sự",
                     _ => "Dân Sự",
-                }, mahe ) ;
-          _=    PhongController.Controller.ThemPhong(ph);
+                }, mahe);
+                _ = PhongController.Controller.ThemPhong(ph);
                 MessageBox.Show("Thêm thành công", "thông báo");
                 onSucess(this, new EventArgs());
                 PhongController.Controller.FreeController();

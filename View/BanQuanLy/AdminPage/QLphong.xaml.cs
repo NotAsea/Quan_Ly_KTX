@@ -1,20 +1,12 @@
-﻿using System;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
+using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -50,7 +42,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
 
             var row = dsp.SelectedItem as phongs;
-           EditPhong ep = new(row);
+            EditPhong ep = new(row);
             ep.Show();
             ep.onSucess += (s, e) =>
             {
