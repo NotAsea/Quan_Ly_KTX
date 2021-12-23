@@ -17,20 +17,20 @@
         <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center" >
             <TextBox x:Name="ElementtoFind" Width="300" Background="LightGreen" FontSize="18"  />
             <Button x:Name="Find" Click="Find_Click" Content="Tìm Kiếm " Background="CadetBlue" Margin="20 0" Padding="2" FontSize="18" FontFamily="Calibri"/>
-            <Button x:Name="AddBill" Click="AddBill_Click" Content="Nhập hóa đơn" Background="DarkSalmon" Padding="2" FontSize="18" FontFamily="Calibri"/>
+            <Button x:Name="ThemHD" Click="ThemHD_Click" Content="Nhập hóa đơn" Background="DarkSalmon" Padding="2" FontSize="18" FontFamily="Calibri"/>
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource HDList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
                       HorizontalAlignment="Center" Width="Auto" >
                 <DataGrid.Columns>
                     
-                    <DataGridTextColumn Header="Mã Hóa Đơn" Binding="{Binding MaHd}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding Msv}" IsReadOnly="True" Width="140"/>
-                    <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding Hoten}" IsReadOnly="True" Width="200"/>
-                    <DataGridTextColumn Header="Dịch vụ chung" Binding="{Binding Mdv}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Dịch vụ riêng" Binding="{Binding Tendv}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Tổng tiền" Binding="{Binding GiaHd}" IsReadOnly="True" Width="100"/>
-
+                    <DataGridTextColumn Header="Mã Phòng" Binding="{Binding Maphong}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MaSv}" IsReadOnly="True" Width="140"/>
+                    <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding TenSV}" IsReadOnly="True" Width="200"/>
+                    <DataGridTextColumn Header="Dịch vụ chung" Binding="{Binding DichVuChung}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Dịch vụ riêng" Binding="{Binding Dichvurieng}" IsReadOnly="True" Width="150"/>
+                    <DataGridTextColumn Header="Tổng tiền" Binding="{Binding TongTien}" IsReadOnly="True" Width="100"/>
+<!--
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -46,6 +46,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    -->
                 </DataGrid.Columns>
 
             </DataGrid>

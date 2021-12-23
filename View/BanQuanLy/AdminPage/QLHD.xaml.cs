@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
+using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -27,21 +28,11 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             HDList = (CollectionViewSource)FindResource(nameof(HDList));
-       //     ds = HaoDonController.Controller.LayDSHoaDon();
+          ds = HaoDonController.Controller.LayDSHoaDon();
             HDList.Source = ds;
 
         }
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-
-        private void Remove_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Find_Click(object sender, RoutedEventArgs e)
         {
@@ -50,21 +41,27 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             {
               var   number = new String(item.Where(Char.IsDigit).ToArray());
 
-               /* HDList.Source = number.Length switch
+               HDList.Source = number.Length switch
                 {
-                    int x when x == item.Length => ds.Where(x => x.Msv.Contains( item) || x.Hoten.Contains(item) ||  x.Tendv.Contains(item)  ),
-                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x=> x.Mdv == int.Parse(item)|| x.GiaHd == int.Parse(item) || x.MaHd == int.Parse(item)) ,
+                    int x when x == item.Length => ds.Where(x => x.MaSv.Contains( item) || x.TenSV.Contains(item) ||  x.DichVuChung.Contains(item)|| x.Dichvurieng.Contains(item)  ),
+                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x=> x.TongTien == int.Parse(item)) ,
                     
                 };
-               */
+               
                 if (HDList.Source is null) ElementtoFind.Text = "không có  bản ghi mời nhập lại";
             }
             else HDList.Source = ds;
         }
 
-        private void AddBill_Click(object sender, RoutedEventArgs e)
+        private void ThemHD_Click(object sender, RoutedEventArgs e)
         {
-
+            AddBill ab = new();
+            ab.Show();
+            ab.OnAdded += (sender, e) =>
+            {
+                ds = HaoDonController.Controller.LayDSHoaDon();
+                HDList.Source = ds;
+            };
         }
     }
 }

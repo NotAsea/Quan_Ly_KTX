@@ -5,28 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Quan_Ly_KTX.Models;
 using Quan_Ly_KTX.Controller;
-
+using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.View
 {
     public class InfoHD
     {
-     
-        public string Msv { get; set; }
-        public int[] Mdv { get; set; }
-        public string Hoten { get; set; }   
-        public string Tendvrieng { get; set; }
-        public int Tongtien { get; set; }
-        public string Tendvchung { get; set; }
+        
+        public string TenSV { get; set; }
+        public int Maphong { get; set; }
+        public string MaSv { get; set; }
+        public string DichVuChung => "Điện, Nước";
+        public string Dichvurieng { get; set; }
+        public int TongTien { get; set; }
 
-        public InfoHD(string msv, int[] mdv, string hoten, string tendvrieng, int tongtien, string tendvchung)
+        public InfoHD(string tenSV, int maphong, string maSv, string dichvurieng, int tongTien)
         {
-            Msv = msv;
-            Mdv = mdv;
-            Hoten = hoten;
-            Tendvrieng = tendvrieng;
-            Tongtien = tongtien;
-
-            Tendvchung = tendvchung;
+            TenSV = tenSV;
+            Maphong = maphong;
+            MaSv = maSv;
+            Dichvurieng = dichvurieng;
+            TongTien = tongTien;
         }
     }
 }

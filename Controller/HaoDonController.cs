@@ -24,39 +24,61 @@ namespace Quan_Ly_KTX.Controller
             SQLConnection.FreeScope();
             controller = null;
         }
-       /* public  ICollection<InfoHD> LayDSHoaDon()
+        public ICollection<InfoHD> LayDSHoaDon()
         {
-            List<InfoHD> dshd = new();
-
-            dshd = SQLConnection.Instance.HoaDons.Join(SQLConnection.Instance.Đkdvcns, a => a.MaDk, b => b.MaDk, (c, d) => new
+            var dshd = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
             {
-                c.MaHd,
-                c.Msv,
-                c.GiaHd,
-                d.MaDk,
-                d.MaDv
-            }).Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
-            {
-                c.MaHd,
-                c.Msv,
-                c.GiaHd,
-                c.MaDk,
-                d.MaDv,
-                d.TenDv
-            }).Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
-            {
-                c.MaHd,
-                c.GiaHd,
                 c.MaDk,
                 c.MaDv,
-                c.TenDv,
                 d.Msv,
-                d.Hoten
-            }).Select(a => new InfoHD(a.MaHd, a.Msv, a.MaDv, a.Hoten, a.TenDv, a.GiaHd, a.MaDk)).ToList();
-
-            return dshd;
+                d.Hoten,
+                d.MaHe
+            }).Join(SQLConnection.Instance.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
+            {
+                c.MaDv,
+                c.Msv,
+                c.Hoten,
+                d.MaHe
+            }).Join(SQLConnection.Instance.Phongs, a => a.MaHe, b => b.MaHe, (c, d) => new
+            {
+                c.MaDv,
+                c.Hoten,
+                c.Msv,
+                d.MaHe,
+                d.MaPhong
+            }).Join(SQLConnection.Instance.DienNuocPhongs, a => a.MaPhong, b => b.MaPhong, (c, d) => new
+            {
+                c.Msv,
+                c.Hoten,
+                c.MaDv,
+                d.MaPhong,
+                d.GiaNuoc,
+                d.GiaDien
+            }).Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
+            {
+                c.Msv,
+                c.Hoten,
+                c.GiaNuoc,
+                c.GiaDien,
+                c.MaPhong,
+                d.MaDv,
+                d.TenDv,
+                d.GiaDv
+            }).Where(x => x.GiaDien != 0 || x.GiaNuoc != 0)
+            .GroupBy(c => new { Msv = c.Msv, tensv = c.Hoten, Maphong = c.MaPhong })
+            .Select(x => new
+            {
+                MaSv = x.Key.Msv,
+                Maphong = x.Key.Maphong,
+                HoTen = x.Key.tensv,
+                TongTien = x.Sum(g => g.GiaDien + g.GiaNuoc + g.GiaDv),
+                DichVurieng = x.Select(x => x.TenDv).Aggregate((c, d) => c + "," + d)
+            })
+            .Select(x => new InfoHD(x.HoTen, x.Maphong, x.MaSv, x.DichVurieng, x.TongTien))
+            .ToList();
+              return dshd;
         }
-       */
+
         public void ThemDienNuoc(DienNuocDS d)
         {
             SQLConnection.Instance.DienNuocPhongs.Add(d.ToDienNuoc());

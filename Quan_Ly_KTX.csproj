@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Resource\Icon\dich_vu_icon.png" />
     <None Remove="Resource\Icon\dk_icon.png" />
+    <None Remove="Resource\Icon\HoaDon_icon.png" />
     <None Remove="Resource\Icon\list_icon.png" />
     <None Remove="Resource\logo_chinh_moi.png" />
     <None Remove="Resource\Main_Icon_new.png" />
@@ -25,6 +26,7 @@
 
   <ItemGroup>
     <Resource Include="Resource\Icon\history_button.png" />
+    <Resource Include="Resource\Icon\HoaDon_icon.png" />
     <Resource Include="Resource\Icon\list_icon.png" />
     <Resource Include="Resource\Icon\register_button.png" />
     <Resource Include="Resource\Icon\signout_button.png" />
@@ -32,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+ <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
@@ -40,6 +43,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="ShowMeTheXAML.MSBuild" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
