@@ -64,19 +64,16 @@ namespace Quan_Ly_KTX.Controller
                 d.MaDv,
                 d.TenDv,
                 d.GiaDv
-            }).Where(x => x.GiaDien != 0 || x.GiaNuoc != 0)
-            .GroupBy(c => new { Msv = c.Msv, tensv = c.Hoten, Maphong = c.MaPhong })
-            .Select(x => new
-            {
-                MaSv = x.Key.Msv,
-                Maphong = x.Key.Maphong,
-                HoTen = x.Key.tensv,
-                TongTien = x.Sum(g => g.GiaDien + g.GiaNuoc + g.GiaDv),
-                DichVurieng = x.Select(x => x.TenDv).Aggregate((c, d) => c + "," + d)
             })
-            .Select(x => new InfoHD(x.HoTen, x.Maphong, x.MaSv, x.DichVurieng, x.TongTien))
-            .ToList();
-              return dshd;
+              .Where(x => x.GiaDien != 0 || x.GiaNuoc != 0)
+             .GroupBy(c => new { c.Msv, c.Hoten, c.MaPhong }, (x, y) => new {
+                 Msv = x.Msv,
+                 TenSV = x.Hoten,
+                 Maphong = x.MaPhong,
+                 Tongtien = y.Sum(y => y.GiaDien + y.GiaDv + y.GiaNuoc),
+                 Dichvurieng = string.Join(",", y.Select(y => y.TenDv))
+             }).Select(x => new InfoHD(x.TenSV, x.Maphong, x.Msv, x.Dichvurieng, x.Tongtien)).ToList();
+            return dshd;
         }
 
         public void ThemDienNuoc(DienNuocDS d)
