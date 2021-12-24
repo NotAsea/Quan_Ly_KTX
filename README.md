@@ -15,7 +15,7 @@
   dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0.0
   dotnet add package Microsoft.EntityFrameworkCore --version 6.0.0 
   dotnet build
-  dotnet ef database scaffold "" Microsoft.EntityFrameworkCore.SqlServer -o Models 
+  dotnet ef dbcontext scaffold "" Microsoft.EntityFrameworkCore.SqlServer -o Models 
   ```
   Muốn push hay pull về thì:  
  ```cmd
