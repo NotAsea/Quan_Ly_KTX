@@ -21,7 +21,9 @@
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource HDList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" >
+                      HorizontalAlignment="Center" Width="Auto" ScrollViewer.CanContentScroll="True"         
+                              ScrollViewer.IsDeferredScrollingEnabled="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" >
                 <DataGrid.Columns>
                     
                     <DataGridTextColumn Header="Mã Phòng" Binding="{Binding Maphong}" IsReadOnly="True" Width="150"/>

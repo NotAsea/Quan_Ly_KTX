@@ -21,15 +21,17 @@
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource SVList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged" x:Name="dssv">
+                      HorizontalAlignment="Center" Width="Auto" SelectionChanged="DataGrid_SelectionChanged" x:Name="dssv"  ScrollViewer.CanContentScroll="True"         
+                              ScrollViewer.IsDeferredScrollingEnabled="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MSV}" IsReadOnly="True" Width="130"  />
-                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" IsReadOnly="True" Width="160"/>
-                    <DataGridTextColumn Header="Giới tính" Binding="{Binding GT}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Năm sinh" Binding="{Binding NS,ConverterCulture=fr-FR, StringFormat=d}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Năm học" Binding="{Binding Nh}" IsReadOnly="True" Width="130"/>
-                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding MaPhong}" IsReadOnly="True" Width="100"/>
-                    <DataGridTextColumn Header="Hệ" Binding="{Binding TenHe}" IsReadOnly="True" Width="90"/>
+                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MSV}" IsReadOnly="True" Width="Auto"  />
+                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Giới tính" Binding="{Binding GT}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Năm sinh" Binding="{Binding NS,ConverterCulture=fr-FR, StringFormat=d}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Năm học" Binding="{Binding Nh}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding MaPhong}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Hệ" Binding="{Binding TenHe}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

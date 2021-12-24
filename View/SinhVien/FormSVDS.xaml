@@ -43,7 +43,7 @@
                 <!--Menu bên trái-->
                 <Rectangle Grid.Column="0" Fill="#F5FFFA" Height="600"/>
                 <StackPanel Grid.Column="0" Margin="0,20,0,20">
-                    <Button x:Name="AddInfo" Click="AddInfo_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
+                    <Button x:Name="AddInfo" Click="AddInfo_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20" Height="40">
                         <Grid HorizontalAlignment="Left" Width="229">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50*"/>
@@ -51,11 +51,11 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/button_add_icon.png" Width="24" Margin="0,1,0,2" Grid.Column="0"  HorizontalAlignment="Left"/>
 
-                            <TextBlock FontSize="20" Grid.Column="1">Thêm thông tin</TextBlock>
+                            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black">Thêm thông tin</TextBlock>
 
                         </Grid>
                     </Button>
-                    <Button x:Name="EditInfo" Click="EditInfo_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
+                    <Button x:Name="EditInfo" Click="EditInfo_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20" Height="40">
                         <Grid Width="224">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="47*"/>
@@ -63,12 +63,12 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/edit_button_icon.png" Width="24" Margin="0,1,0,2" Grid.Column="0" HorizontalAlignment="Left" />
 
-                            <TextBlock FontSize="20" Grid.Column="1">Chỉnh sửa thông tin</TextBlock>
+                            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black">Chỉnh sửa thông tin</TextBlock>
 
                         </Grid>
                     </Button>
 
-                    <Button x:Name="SignDV" Click="SignDV_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
+                    <Button x:Name="SignDV" Click="SignDV_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20" Height="40">
                         <Grid Width="222">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="17*"/>
@@ -76,11 +76,11 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/register_button.png" Width="24" Margin="0,1,0,2" Grid.Column="0" HorizontalAlignment="Left"/>
 
-                            <TextBlock FontSize="20" Grid.Column="1" Height="27" VerticalAlignment="Top">Đăng ký Dịch vụ</TextBlock>
+                            <TextBlock FontSize="20" Grid.Column="1" Height="27" VerticalAlignment="Top" Foreground="Black">Đăng ký Dịch vụ</TextBlock>
 
                         </Grid>
                     </Button>
-                    <Button x:Name="HistoryDV" Click="HistoryDV_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20">
+                    <Button x:Name="HistoryDV" Click="HistoryDV_Click" BorderThickness="0" Background="BurlyWood"  Padding="5" Margin="0 20" Height="40">
                         <Grid Width="279">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="76*"/>
@@ -88,19 +88,19 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/history_button.png" Width="24" Margin="0,1,0,2" HorizontalAlignment="Center"/>
 
-                            <TextBlock FontSize="20" Grid.ColumnSpan="2" Margin="80,0,-30,0">Xem dịch vụ đã đăng ký</TextBlock>
+                            <TextBlock FontSize="20" Grid.ColumnSpan="2" Margin="80,0,-30,0" Foreground="Black">Xem dịch vụ đã đăng ký</TextBlock>
 
                         </Grid>
                         
                     </Button>
-                    <Button x:Name="Loginout" Click="Loginout_Click" BorderThickness="0" Background="BurlyWood" Padding="2" Margin="0 20">
+                    <Button x:Name="Loginout" Click="Loginout_Click" BorderThickness="0" Background="BurlyWood" Padding="2" Margin="0 20" Height="40">
                         <Grid Width="220">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="27*"/>
                                 <ColumnDefinition Width="83*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/signout_button.png" Width="24" HorizontalAlignment="Left" Grid.Column="0" Margin="0,1,0,2"/>
-                            <TextBlock Text="Đăng xuất" Grid.Column="1"  FontSize="20"/>
+                            <TextBlock Text="Đăng xuất" Grid.Column="1"  FontSize="20" Foreground="Black" />
 
                         </Grid>
                     </Button>

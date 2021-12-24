@@ -51,7 +51,7 @@
 
             </Grid>
 
-            <Button x:Name="Submit" Content="Xác nhận" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 20" FontFamily="Time New Roman" 
+            <Button x:Name="Submit" Content="Xác nhận" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 20" FontFamily="Time New Roman"  Foreground="Black"
                  FontSize="20" Background="#90EE90"/>
 
         </StackPanel>

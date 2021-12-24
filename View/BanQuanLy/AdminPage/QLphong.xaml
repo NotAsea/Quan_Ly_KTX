@@ -21,12 +21,14 @@
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource PList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" x:Name="dsp" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                      HorizontalAlignment="Center" Width="Auto" x:Name="dsp" ScrollViewer.CanContentScroll="True"         
+                              ScrollViewer.IsDeferredScrollingEnabled="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding Maphong}" IsReadOnly="True" Width="130"/>
-                    <DataGridTextColumn Header="Loại phòng" Binding="{Binding loaiphong}" IsReadOnly="True" Width="120"/>
+                    <DataGridTextColumn Header="Mã phòng" Binding="{Binding Maphong}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Loại phòng" Binding="{Binding loaiphong}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Tình trạng phòng" Binding="{Binding ttphong}" IsReadOnly="True" Width="Auto"/>
-                    <DataGridTextColumn Header="Hệ" Binding="{Binding tenhe}" IsReadOnly="True" Width="100"/>
+                    <DataGridTextColumn Header="Hệ" Binding="{Binding tenhe}" IsReadOnly="True" Width="Auto"/>
                 
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

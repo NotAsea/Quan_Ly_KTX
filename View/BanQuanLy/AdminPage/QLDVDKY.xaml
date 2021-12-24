@@ -20,13 +20,15 @@
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource DVDKList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial" Width="Auto"
-                      HorizontalAlignment="Center" x:Name="dsdvdk">
+                      HorizontalAlignment="Center" x:Name="dsdvdk" ScrollViewer.CanContentScroll="True"         
+                              ScrollViewer.IsDeferredScrollingEnabled="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding Madk}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Tên Dịch vụ" Binding="{Binding tendv}" IsReadOnly="True" Width="180"/>
-                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding msv}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding tensv}" IsReadOnly="True" Width="150"/>
-                    <DataGridTextColumn Header="Giá dịch vụ" Binding="{Binding giadv}" IsReadOnly="True" Width="100"/>
+                    <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding Madk}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Tên Dịch vụ" Binding="{Binding tendv}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding msv}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding tensv}" IsReadOnly="True" Width="Auto"/>
+                    <DataGridTextColumn Header="Giá dịch vụ" Binding="{Binding giadv}" IsReadOnly="True" Width="Auto"/>
                    <!--
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

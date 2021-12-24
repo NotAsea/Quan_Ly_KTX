@@ -57,12 +57,12 @@
 
 
                 </Grid>
-                <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="#90EE90" Margin="0 20">
+                <Button Grid.Column="0" Content="Đăng nhập" Width="200" Padding="10" FontSize="20" x:Name="Loggin" Click="Loggin_Click" Background="#90EE90" Margin="0 20" Height="50" Foreground="Black">
                     <Button.ToolTip>
                         <ToolTip>Ấn nút để đăng nhâp</ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button   x:Name="signup" Click="signup_Click" 
+                <Button   x:Name="signup" Click="signup_Click"  Style="{DynamicResource MaterialDesignToolForegroundButton}"
                         Background="#E6E6FA"  
                         BorderThickness="0" 
                         >

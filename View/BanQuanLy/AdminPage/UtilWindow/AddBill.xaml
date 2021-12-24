@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow"
         mc:Ignorable="d"
         Title="Nhập Hóa đơn" Height="400" Width="450"
-        Background="Aquamarine"
+          Background="{DynamicResource MaterialDesignPaper}"
         WindowStartupLocation="CenterScreen"
         Icon="/Resource/logo_icon.ico"
         >

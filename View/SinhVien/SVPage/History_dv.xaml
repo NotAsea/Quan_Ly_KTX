@@ -13,13 +13,13 @@
     <StackPanel>
         <TextBlock Text="Lịch sử đăng ký của bạn" FontSize="40" Foreground="White" HorizontalAlignment="Center"/>
         
-        <Grid>
+        <Grid Margin="0 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <DataGrid x:Name="LsInra" AutoGenerateColumns="False" FontFamily="Cascadia Code SemiLight" FontSize="18" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"
-                     ItemsSource="{Binding Source= {StaticResource LsDangKy}}"  HorizontalAlignment="Center" Width="500"  Grid.Row="0"
+                     ItemsSource="{Binding Source= {StaticResource LsDangKy}}"  HorizontalAlignment="Center" Width="500"  Grid.Row="0" 
                       >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding stt}" IsReadOnly="True"/>

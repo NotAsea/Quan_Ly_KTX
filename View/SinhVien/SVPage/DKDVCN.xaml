@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="1000"
       Title="DKDVCN"
-      Background="LightCyan"  >
+      Background="AliceBlue"  >
     <Page.Resources>
         <CollectionViewSource x:Key="DVsource" />
         <!--   <CollectionViewSource x:Key="DvInra" Source="{Binding DichVu, Source={StaticResource DVsource}}"/>-->
@@ -20,7 +20,7 @@
           
             <DataGrid Padding="2" Margin="190,0,0,0" AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
                       CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      ItemsSource="{Binding Source={StaticResource DVsource}}" 
+                      ItemsSource="{Binding Source={StaticResource DVsource}}"  Background="#d3d3d3"
                       CanUserResizeColumns="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MaDv}" Header="Mã Dịch Vụ" IsReadOnly="True" Width="150" FontSize="20"/>
@@ -33,7 +33,7 @@
         </Grid>
         <Grid Margin="0 40 0 10">
             <DataGrid x:Name="dichvuDK" AutoGenerateColumns="False"  VerticalAlignment="Stretch" HorizontalAlignment="Center" CanUserAddRows="False"
-                      CanUserDeleteRows="False" CanUserResizeColumns="False" FontSize="20" >
+                      CanUserDeleteRows="False" CanUserResizeColumns="False" FontSize="20" Background="#d3d3d3" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Tên dịch vụ bạn đã đăng ký" Binding="{Binding tendv}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Giá dịch vụ" Binding="{Binding giadv}" IsReadOnly="True"/>
@@ -41,7 +41,7 @@
             </DataGrid>
         </Grid>
         <Button x:Name="Submit" Click="Submit_Click" Padding="2"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Xác nhận" 
-                FontSize="20" Background="Chartreuse"/>
+                FontSize="20" Background="BurlyWood" Foreground="Black" />
     </StackPanel>
 
 </Page>
