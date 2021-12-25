@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow"
         mc:Ignorable="d"
-        Title="Chỉnh sửa thông tin sinh viên" Height="450" Width="500"
-        Background="Azure"
+        Title="Chỉnh sửa thông tin sinh viên" Height="500" Width="500"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Icon="/Resource/logo_icon.ico">
     <StackPanel>
     <Grid Margin="10 20">
@@ -15,7 +20,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -30,15 +35,15 @@
             <TextBlock Text="Năm học" FontSize="18"  Grid.Column="0" Grid.Row="4"  Margin="0 10"/>
             <TextBlock Text="Mã Phòng" FontSize="18"  Grid.Column="0" Grid.Row="5"  Margin="0 10"/>
             <TextBlock Text="Hệ" FontSize="18"  Grid.Column="0" Grid.Row="6"  Margin="0 10"/>
-            <TextBlock x:Name="msv" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="0" Padding="2" Text="{Binding MSV }"/>
-            <TextBlock x:Name="hoten" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="1" Padding="2" Text="{Binding HoTen}"/>
-            <TextBlock x:Name="gt" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="2" Padding="2" Text="{Binding GT}"/>
-            <TextBlock x:Name="ns" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="3" Padding="2" Text="{Binding NS}" />
-                <TextBlock x:Name="nh" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="4" Padding="2" Text="{Binding Nh}"/>
-            <ComboBox x:Name="MaPhong"  Margin="0,0,0,0" FontSize="20"  Grid.Column="1" Grid.Row="5" Background="LightGreen" ItemsSource="{Binding  DsMp }" DisplayMemberPath="total"  SelectedValuePath="total">
+            <TextBlock x:Name="msv" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="0" Padding="2" Text="{Binding MSV }" Margin="0 10"/>
+            <TextBlock x:Name="hoten" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="1" Padding="2" Text="{Binding HoTen}" Margin="0 10"/>
+            <TextBlock x:Name="gt" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="2" Padding="2" Text="{Binding GT}" Margin="0 10"/>
+            <TextBlock x:Name="ns" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="3" Padding="2" Text="{Binding NS, ConverterCulture=fr-FR, StringFormat=d}" Margin="0 10"/>
+            <TextBlock x:Name="nh" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="4" Padding="2" Text="{Binding Nh}" Margin="0 10"/>
+            <ComboBox x:Name="MaPhong"   FontSize="20"  Grid.Column="1" Grid.Row="5" Background="LightGreen" ItemsSource="{Binding  DsMp }" DisplayMemberPath="total"  SelectedValuePath="total" Margin="0 10">
                
             </ComboBox>
-            <TextBlock x:Name="he" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="6" Padding="2" Text="{Binding TenHe}"/>
+            <TextBlock x:Name="he" Background="LightGreen" FontSize="18" Grid.Column="1" Grid.Row="6" Padding="2" Text="{Binding TenHe}" Margin="0 10 0 10"/>
         </Grid>
         <Button Content="Xác nhận" x:Name="Submit" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 10"/>
         </StackPanel>

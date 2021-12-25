@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Quan_Ly_KTX.Models
 {
@@ -28,7 +30,7 @@ namespace Quan_Ly_KTX.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
+                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q5MH825\\HAILUONG;Initial Catalog=KTX_KMA;Persist Security Info=True;User ID=sa;Password=123");
             }
         }
 
@@ -186,6 +188,12 @@ namespace Quan_Ly_KTX.Models
                     .HasForeignKey(d => d.MaHe)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("SV_MaHe");
+
+                entity.HasOne(d => d.MaPhongNavigation)
+                    .WithMany(p => p.SinhViens)
+                    .HasForeignKey(d => d.MaPhong)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("eee");
             });
 
             modelBuilder.Entity<UserNguoiDung>(entity =>

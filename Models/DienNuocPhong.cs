@@ -1,4 +1,7 @@
-﻿namespace Quan_Ly_KTX.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace Quan_Ly_KTX.Models
 {
     public partial class DienNuocPhong
     {

@@ -32,9 +32,16 @@ namespace Quan_Ly_KTX.Controller
                      .Select(x => new tongcong(x.MaPhong)).ToList();
             return ds;
         }
-        public static int LaySoLuong (int maphong)
+        public static int LaySoLuong(int maphong)
         {
             return SQLConnection.Instance.SinhViens.AsNoTracking().Count(x => x.MaPhong == maphong);
         }
+        public static List<MaPhongList> LayDSMPtoanbo(List<int> loc)
+        {
+            var context = SQLConnection.Instance;
+            return context.Phongs.AsNoTracking().Where(x=> x.MaHe != "QS" && !loc.Contains(x.MaPhong)).Select(x=> new MaPhongList(x.MaPhong)).ToList();
+
+
+         }
     }
 }

@@ -20,22 +20,26 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
     /// </summary>
     public partial class AddBill : Window
     {
-        public AddBill()
+      
+        public AddBill(List<int> a)
         {
             InitializeComponent();
+            MaPhongList mpl = new(a);
+            mpl.LayDSMaPhong();
+            this.DataContext = mpl;
         }
         public event EventHandler OnAdded;
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             var check = "";
-            if (String.IsNullOrWhiteSpace(maphong.Text)) check += "Mã phòng đang trống \t";
+          
             if (String.IsNullOrWhiteSpace(dien.Text)) check += "Số điện đang trống \t";
             if (String.IsNullOrWhiteSpace(nuoc.Text)) check += "Số nước vụ đang trống \t";
             if (check.Length > 0) MessageBox.Show($"{check}", "thông báo");
             else
             {
-
-                DienNuocDS hd = new(int.Parse(dien.Text), int.Parse(nuoc.Text), int.Parse(maphong.Text));
+                var map = maphong.SelectedItem as MaPhongList;
+                DienNuocDS hd = new(int.Parse(dien.Text), int.Parse(nuoc.Text), map.mp);
                 HaoDonController.Controller.ThemDienNuoc(hd);
                 MessageBox.Show("Thêm thành công", "thông báo");
                 OnAdded(this, new EventArgs());

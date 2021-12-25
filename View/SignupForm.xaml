@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Form Đăng ký" Height="550" Width="620"
         Background="#E6E6FA"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+              TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterOwner"
         >
@@ -21,7 +26,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Tên đăng nhập" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="158"/>
-                <TextBox x:Name="Username" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" FontSize="18" Foreground="Black">
+                <TextBox x:Name="Username" Background="#C0C0C0" Padding="2" Margin="71,0,62,0" Grid.Column="1" FontSize="18" Foreground="Black">
                     <TextBox.ToolTip>
                         <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
                     </TextBox.ToolTip>
@@ -34,7 +39,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="151"/>
-                <PasswordBox x:Name="Password" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black">
+                <PasswordBox x:Name="Password" Background="#C0C0C0" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black">
                     <PasswordBox.ToolTip>
                         <ToolTip>Mật khẩu không dài quá 50 ký tự và có đủ chữ số</ToolTip>
                     </PasswordBox.ToolTip>
@@ -47,7 +52,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Nhập lại Mật khẩu" HorizontalAlignment="Center" Padding="2" FontSize="18" Width="153"/>
-                <PasswordBox x:Name="RePassword" Background="LightSkyBlue" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black"/>
+                <PasswordBox x:Name="RePassword" Background="#C0C0C0" Padding="2" Margin="71,0,62,0" Grid.Column="1" PasswordChar="*" FontSize="18" Foreground="Black"/>
 
             </Grid>
 

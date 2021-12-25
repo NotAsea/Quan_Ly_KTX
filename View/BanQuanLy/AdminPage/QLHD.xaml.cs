@@ -55,7 +55,8 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
 
         private void ThemHD_Click(object sender, RoutedEventArgs e)
         {
-            AddBill ab = new();
+            var loc = ds.Select(x => x.Maphong).ToList();
+            AddBill ab = new(loc);
             ab.Show();
             ab.OnAdded += (sender, e) =>
             {

@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow"
         mc:Ignorable="d"
           Title="Thêm Phòng" Height="300" Width="450"
-        Background="Aquamarine"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
         Icon="/Resource/logo_icon.ico"
         >
@@ -41,6 +46,6 @@
             </ComboBox>
             
         </Grid>
-        <Button x:Name="Submit" Click="Submit_Click" Content="Xác Nhận" FontSize="20" Background="Brown"  Width="100" Foreground="Aqua" Margin="0 20"/>
+        <Button x:Name="Submit" Click="Submit_Click" Content="Xác Nhận" FontSize="20" Background="Brown"  Width="200" Foreground="Aqua" Margin="0 20"/>
     </StackPanel>
 </Window>

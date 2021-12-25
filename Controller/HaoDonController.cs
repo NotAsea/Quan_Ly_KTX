@@ -26,53 +26,43 @@ namespace Quan_Ly_KTX.Controller
         }
         public ICollection<InfoHD> LayDSHoaDon()
         {
-            var dshd = SQLConnection.Instance.Đkdvcns.Join(SQLConnection.Instance.SinhViens, a => a.Msv, b => b.Msv, (c, d) => new
-            {
-                c.MaDk,
-                c.MaDv,
-                d.Msv,
-                d.Hoten,
-                d.MaHe
-            }).Join(SQLConnection.Instance.Hes, a => a.MaHe, b => b.MaHe, (c, d) => new
-            {
-                c.MaDv,
-                c.Msv,
-                c.Hoten,
-                d.MaHe
-            }).Join(SQLConnection.Instance.Phongs, a => a.MaHe, b => b.MaHe, (c, d) => new
-            {
-                c.MaDv,
-                c.Hoten,
-                c.Msv,
-                d.MaHe,
-                d.MaPhong
-            }).Join(SQLConnection.Instance.DienNuocPhongs, a => a.MaPhong, b => b.MaPhong, (c, d) => new
-            {
-                c.Msv,
-                c.Hoten,
-                c.MaDv,
+            var context = SQLConnection.Instance;
+            var dshd = context.Phongs.Join(context.DienNuocPhongs, x => x.MaPhong, y => y.MaPhong, (c, d) => new {
+                c.MaHe,
+                c.LoaiPhong,
                 d.MaPhong,
+                d.GiaDien,
                 d.GiaNuoc,
-                d.GiaDien
-            }).Join(SQLConnection.Instance.DichVus, a => a.MaDv, b => b.MaDv, (c, d) => new
-            {
-                c.Msv,
-                c.Hoten,
-                c.GiaNuoc,
-                c.GiaDien,
-                c.MaPhong,
-                d.MaDv,
-                d.TenDv,
-                d.GiaDv
-            })
-              .Where(x => x.GiaDien != 0 || x.GiaNuoc != 0)
-             .GroupBy(c => new { c.Msv, c.Hoten, c.MaPhong }, (x, y) => new {
-                 Msv = x.Msv,
-                 TenSV = x.Hoten,
-                 Maphong = x.MaPhong,
-                 Tongtien = y.Sum(y => y.GiaDien + y.GiaDv + y.GiaNuoc),
-                 Dichvurieng = string.Join(",", y.Select(y => y.TenDv))
-             }).Select(x => new InfoHD(x.TenSV, x.Maphong, x.Msv, x.Dichvurieng, x.Tongtien)).ToList();
+                dienuoc = d.GiaDien + d.GiaNuoc
+            }).Where(x => x.GiaDien != 0 && !x.LoaiPhong.Equals("QS"))
+              .Join(context.SinhViens, x => x.MaPhong, y => y.MaPhong, (c, d) => new {
+                  c.MaPhong,
+                  c.dienuoc,
+                  d.MaHe,
+                  d.Msv,
+                  d.Hoten
+              })
+       .Join(context.Đkdvcns, x => x.Msv, y => y.Msv, (c, d) => new {
+           c.MaPhong,
+           c.dienuoc,
+           c.Hoten,
+           d.Msv,
+           d.MaDv
+       }).Join(context.DichVus, x => x.MaDv, y => y.MaDv, (c, d) => new {
+           c.Msv,
+           c.MaPhong,
+           c.Hoten,
+           c.dienuoc,
+           d.MaDv,
+           d.TenDv,
+           d.GiaDv
+       }).GroupBy(x => new { x.Hoten, x.Msv, x.MaPhong }, (x, y) => new {
+           x.Hoten,
+           x.MaPhong,
+           x.Msv,
+           Tongtien = y.Sum(y => y.dienuoc + y.GiaDv),
+           DichVuRieng = String.Join(",", y.Select(y => y.TenDv)).TrimEnd(',')
+       }).Select(x => new InfoHD(x.Hoten, x.MaPhong, x.Msv, x.DichVuRieng, x.Tongtien)).ToList();
             return dshd;
         }
 

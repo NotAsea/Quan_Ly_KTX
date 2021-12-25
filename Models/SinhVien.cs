@@ -22,6 +22,7 @@ namespace Quan_Ly_KTX.Models
 
         public virtual UserNguoiDung? IdUserNavigation { get; set; }
         public virtual He MaHeNavigation { get; set; } = null!;
+        public virtual Phong MaPhongNavigation { get; set; } = null!;
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual ICollection<Đkdvcn> Đkdvcns { get; set; }
     }

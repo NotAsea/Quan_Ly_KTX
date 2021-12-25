@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="Quản Lý ký túc xá" Height="550" Width="820"
         Background="#E6E6FA"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+              TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Icon="/Resource/logo_icon.ico"
         WindowStartupLocation="CenterScreen"
+       
           >
     <Border Padding="10">
         <Grid>
@@ -35,7 +41,7 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Tên đăng nhập" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="#C0C0C0" Margin="0,0,168,0" FontSize="18" Foreground="black" >
+                    <TextBox Grid.Column="1" x:Name="UserName" Padding="10" Background="#C0C0C0" Margin="100,0,68,0" FontSize="18" Foreground="black" >
                         <TextBox.ToolTip>
                             <ToolTip>Tên đăng nhập không dài quá 50 ký tự</ToolTip>
                         </TextBox.ToolTip>
@@ -49,7 +55,7 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Mật khẩu" FontSize="20" Padding="10" HorizontalAlignment="Center"/>
-                    <PasswordBox Grid.Column="1" x:Name="Password" Padding="10" Background="#C0C0C0" Margin="0,0,165,0" FontSize="18" PasswordChar="*" Foreground="Black">
+                    <PasswordBox Grid.Column="1" x:Name="Password" Padding="10" Background="#C0C0C0" Margin="100,0,68,0" FontSize="18" PasswordChar="*" Foreground="Black">
                         <PasswordBox.ToolTip>
                             <ToolTip>Mật khẩu không quá 30 ký tự</ToolTip>
                         </PasswordBox.ToolTip>
