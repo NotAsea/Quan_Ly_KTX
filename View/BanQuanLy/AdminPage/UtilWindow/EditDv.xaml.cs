@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
+﻿using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.View;
+using System;
+using System.Windows;
 namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 {
     /// <summary>
@@ -21,10 +10,10 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
     public partial class EditDv : Window
     {
         private Infodichvu dv;
-        public EditDv( Infodichvu d)
+        public EditDv(Infodichvu d)
         {
             InitializeComponent();
-            dv=d;
+            dv = d;
             this.DataContext = d;
         }
         public event EventHandler OnUpdated;
@@ -42,7 +31,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
                 this.Hide();
             }
             catch (Exception) { MessageBox.Show("Cập nhập thất bại", "thông báo"); }
-            
+
         }
     }
 }

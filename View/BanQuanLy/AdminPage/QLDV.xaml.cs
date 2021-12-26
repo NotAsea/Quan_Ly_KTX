@@ -1,20 +1,12 @@
-﻿using System;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
+using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
-using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -28,12 +20,12 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
         {
             InitializeComponent();
             DVList = (CollectionViewSource)FindResource(nameof(DVList));
-            ds= QLDVController.Controller.LayDv();
+            ds = QLDVController.Controller.LayDv();
             DVList.Source = ds;
         }
 
-       
-        private void OnSucess_handle( object sender, EventArgs e)
+
+        private void OnSucess_handle(object sender, EventArgs e)
         {
             ds = QLDVController.Controller.LayDv();
             DVList.Source = ds;
@@ -77,7 +69,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             }
             else DVList.Source = ds;
         }
-    
+
 
         private void AddNew_Click(object sender, RoutedEventArgs e)
         {

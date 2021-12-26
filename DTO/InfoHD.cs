@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quan_Ly_KTX.Models;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
+﻿using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX.View
 {
     public class InfoHD
@@ -17,11 +10,15 @@ namespace Quan_Ly_KTX.View
         public string DichVuChung => "Điện, Nước";
         public string Dichvurieng { get; set; }
         public int TongTien { get; set; }
-        public float TienRieng { get {
-                
-                if (TongTien != 0)    TongTien /= SQLworker.LaySoLuong(Maphong) ==0 ?TongTien : SQLworker.LaySoLuong(Maphong); 
-                return TongTien; } 
-        } 
+        public float TienRieng
+        {
+            get
+            {
+
+                if (TongTien != 0) TongTien /= SQLworker.LaySoLuong(Maphong) == 0 ? TongTien : SQLworker.LaySoLuong(Maphong);
+                return TongTien;
+            }
+        }
         public InfoHD(string tenSV, int maphong, string maSv, string dichvurieng, int tongTien)
         {
             TenSV = tenSV;

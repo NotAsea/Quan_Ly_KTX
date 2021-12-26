@@ -39,9 +39,9 @@ namespace Quan_Ly_KTX.Controller
         public static List<MaPhongList> LayDSMPtoanbo(List<int> loc)
         {
             var context = SQLConnection.Instance;
-            return context.Phongs.AsNoTracking().Where(x=> x.MaHe != "QS" && !loc.Contains(x.MaPhong)).Select(x=> new MaPhongList(x.MaPhong)).ToList();
+            return context.Phongs.AsNoTracking().Where(x => x.MaHe != "QS" && !loc.Contains(x.MaPhong)).Select(x => new MaPhongList(x.MaPhong)).ToList();
 
 
-         }
+        }
     }
 }

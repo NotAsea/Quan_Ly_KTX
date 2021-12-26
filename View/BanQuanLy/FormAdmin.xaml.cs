@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.Main_Window.AdminPage;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Main_Window.AdminPage;
-using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX.Main_Window
 {
     /// <summary>
@@ -28,7 +17,7 @@ namespace Quan_Ly_KTX.Main_Window
         private void XemDsSV_Click(object sender, RoutedEventArgs e)
         {
             FreeEverytin();
-            MainContent.Content= new Frame() { Content= new QLSV()};
+            MainContent.Content = new Frame() { Content = new QLSV() };
         }
         private void FreeEverytin()
         {
@@ -53,7 +42,7 @@ namespace Quan_Ly_KTX.Main_Window
         private void XemDSHD_Click(object sender, RoutedEventArgs e)
         {
             FreeEverytin();
-            MainContent.Content = new Frame() { Content = new QLHD()};
+            MainContent.Content = new Frame() { Content = new QLHD() };
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)

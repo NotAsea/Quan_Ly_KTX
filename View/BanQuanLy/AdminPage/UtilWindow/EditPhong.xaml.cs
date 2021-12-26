@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 {
     /// <summary>
@@ -22,7 +12,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
     {
         private phongs p;
         public event EventHandler onSucess;
-        public EditPhong( phongs p)
+        public EditPhong(phongs p)
         {
             InitializeComponent();
             this.p = p;
@@ -31,7 +21,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            p.ttphong= ((ComboBoxItem)ttphong.SelectedItem).Name ;
+            p.ttphong = ((ComboBoxItem)ttphong.SelectedItem).Name;
             p.loaiphong = ((ComboBoxItem)loaiphong.SelectedItem).Name;
             p.mahe = ((ComboBoxItem)he.SelectedItem).Name;
             p.Maphong = int.Parse(mp.Text);
@@ -50,6 +40,6 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow
                 this.Hide();
             }
             else { MessageBox.Show("Sửa thất bại", "thông báo"); }
-            }
+        }
     }
 }

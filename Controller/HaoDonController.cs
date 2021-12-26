@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quan_Ly_KTX.Controller;
 namespace Quan_Ly_KTX.Controller
 {
     public sealed class HaoDonController
@@ -27,7 +24,8 @@ namespace Quan_Ly_KTX.Controller
         public ICollection<InfoHD> LayDSHoaDon()
         {
             var context = SQLConnection.Instance;
-            var dshd = context.Phongs.Join(context.DienNuocPhongs, x => x.MaPhong, y => y.MaPhong, (c, d) => new {
+            var dshd = context.Phongs.Join(context.DienNuocPhongs, x => x.MaPhong, y => y.MaPhong, (c, d) => new
+            {
                 c.MaHe,
                 c.LoaiPhong,
                 d.MaPhong,
@@ -35,20 +33,23 @@ namespace Quan_Ly_KTX.Controller
                 d.GiaNuoc,
                 dienuoc = d.GiaDien + d.GiaNuoc
             }).Where(x => x.GiaDien != 0 && !x.LoaiPhong.Equals("QS"))
-              .Join(context.SinhViens, x => x.MaPhong, y => y.MaPhong, (c, d) => new {
+              .Join(context.SinhViens, x => x.MaPhong, y => y.MaPhong, (c, d) => new
+              {
                   c.MaPhong,
                   c.dienuoc,
                   d.MaHe,
                   d.Msv,
                   d.Hoten
               })
-       .Join(context.Đkdvcns, x => x.Msv, y => y.Msv, (c, d) => new {
+       .Join(context.Đkdvcns, x => x.Msv, y => y.Msv, (c, d) => new
+       {
            c.MaPhong,
            c.dienuoc,
            c.Hoten,
            d.Msv,
            d.MaDv
-       }).Join(context.DichVus, x => x.MaDv, y => y.MaDv, (c, d) => new {
+       }).Join(context.DichVus, x => x.MaDv, y => y.MaDv, (c, d) => new
+       {
            c.Msv,
            c.MaPhong,
            c.Hoten,
@@ -56,7 +57,8 @@ namespace Quan_Ly_KTX.Controller
            d.MaDv,
            d.TenDv,
            d.GiaDv
-       }).GroupBy(x => new { x.Hoten, x.Msv, x.MaPhong }, (x, y) => new {
+       }).GroupBy(x => new { x.Hoten, x.Msv, x.MaPhong }, (x, y) => new
+       {
            x.Hoten,
            x.MaPhong,
            x.Msv,

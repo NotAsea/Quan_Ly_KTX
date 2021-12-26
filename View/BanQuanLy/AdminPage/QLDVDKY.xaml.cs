@@ -1,20 +1,11 @@
-﻿using System;
+﻿using Quan_Ly_KTX.Controller;
+using Quan_Ly_KTX.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.Main_Window.AdminPage.UtilWindow;
-using Quan_Ly_KTX.View;
 namespace Quan_Ly_KTX.Main_Window.AdminPage
 {
     /// <summary>
@@ -24,13 +15,13 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
     {
         private CollectionViewSource DVDKList;
         private ICollection<dvDK> ds;
-            public QLDVDKY()
+        public QLDVDKY()
         {
             InitializeComponent();
-                DVDKList = (CollectionViewSource)FindResource(nameof(DVDKList));
+            DVDKList = (CollectionViewSource)FindResource(nameof(DVDKList));
             ds = LichSuDK.Controller.LayDsDK();
-                DVDKList.Source = ds;
-            }
+            DVDKList.Source = ds;
+        }
 
         private void Find_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +33,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
                 DVDKList.Source = number.Length switch
                 {
                     int x when x == item.Length => ds.Where(x => x.giadv == int.Parse(item)),
-                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x => x.tendv.Contains(item)|| x.tensv.Contains(item) || x.msv.Contains(item)),
+                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x => x.tendv.Contains(item) || x.tensv.Contains(item) || x.msv.Contains(item)),
                     _ => null,
                 };
                 if (DVDKList.Source is null) ElementtoFind.Text = "không có  bản ghi mời nhập lại";
