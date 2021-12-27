@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.AdminPage"
       mc:Ignorable="d" 
-       d:DesignHeight="450" d:DesignWidth="1000"
+       d:DesignHeight="400" d:DesignWidth="1000"
       Title="QLDV"
       Background="Bisque">
     <Page.Resources>
@@ -22,7 +22,7 @@
             <DataGrid ItemsSource="{Binding Source={StaticResource DVDKList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  FontSize="18" FontFamily="Arial" Width="Auto"
                       HorizontalAlignment="Center" x:Name="dsdvdk" ScrollViewer.CanContentScroll="True"         
                               ScrollViewer.IsDeferredScrollingEnabled="True" 
-                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" >
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" Height="370" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding Madk}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Tên Dịch vụ" Binding="{Binding tendv}" IsReadOnly="True" Width="Auto"/>

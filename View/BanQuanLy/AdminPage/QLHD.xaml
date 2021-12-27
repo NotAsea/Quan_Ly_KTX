@@ -11,44 +11,31 @@
 
     <Page.Resources>
         <CollectionViewSource x:Key="HDList"/>
+        <FrameworkElement x:Key="ProxyElement" DataContext="{Binding}"/>
     </Page.Resources>
     <StackPanel>
         <TextBlock Text="Danh sách Hóa đơn" FontSize="30" FontWeight="Bold" Foreground="DarkMagenta" HorizontalAlignment="Center" Margin="0 10"/>
         <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center" >
+            <RadioButton GroupName="HdHe" Name="DS" Margin="0 0 20 0" FontSize="18" Checked="DS_Checked">Dân Sự</RadioButton>
+            <RadioButton GroupName="HdHe" Name="QS" Margin=" 10 0 70 0" FontSize="18" Checked="QS_Checked">Quân Sự</RadioButton>
             <TextBox x:Name="ElementtoFind" Width="300" Background="LightGreen" FontSize="18"  />
             <Button x:Name="Find" Click="Find_Click" Content="Tìm Kiếm " Background="CadetBlue" Margin="20 0" Padding="2" FontSize="18" FontFamily="Calibri"/>
             <Button x:Name="ThemHD" Click="ThemHD_Click" Content="Nhập hóa đơn" Background="DarkSalmon" Padding="2" FontSize="18" FontFamily="Calibri"/>
         </StackPanel>
         <Grid>
             <DataGrid ItemsSource="{Binding Source={StaticResource HDList}}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" FontSize="18" FontFamily="Arial"
-                      HorizontalAlignment="Center" Width="Auto" ScrollViewer.CanContentScroll="True"         
+                      HorizontalAlignment="Center" Width="Auto" ScrollViewer.CanContentScroll="True"  x:Name="bang"
                               ScrollViewer.IsDeferredScrollingEnabled="True" 
                               ScrollViewer.VerticalScrollBarVisibility="Visible" Height="360" >
                 <DataGrid.Columns>
-                    
+
                     <DataGridTextColumn Header="Mã Phòng" Binding="{Binding Maphong}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MaSv}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Tên sinh viên" Binding="{Binding TenSV}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Dịch vụ chung" Binding="{Binding DichVuChung}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Dịch vụ riêng" Binding="{Binding Dichvurieng}" IsReadOnly="True" Width="Auto"/>
                     <DataGridTextColumn Header="Tổng tiền" Binding="{Binding TienRieng}" IsReadOnly="True" Width="Auto"/>
-<!--
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="Edit" Click="Edit_Click" Content="Edit" FontSize="18"  Padding="3" Background="ForestGreen" Width="50" Margin="20 0"/>
-                            </DataTemplate>
 
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="Remove" Click="Remove_Click" Content="Xóa" FontSize="18" Padding="3" Background="Red" Width="50" Margin="20 0"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    -->
                 </DataGrid.Columns>
 
             </DataGrid>

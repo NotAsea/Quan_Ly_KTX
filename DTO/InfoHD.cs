@@ -10,22 +10,24 @@ namespace Quan_Ly_KTX.View
         public string DichVuChung => "Điện, Nước";
         public string Dichvurieng { get; set; }
         public int TongTien { get; set; }
+        private string he;
         public float TienRieng
         {
             get
             {
 
-                if (TongTien != 0) TongTien /= SQLworker.LaySoLuong(Maphong) == 0 ? TongTien : SQLworker.LaySoLuong(Maphong);
+                if (he == "DS") TongTien /= SQLworker.LaySoLuong(Maphong) == 0 ? TongTien : SQLworker.LaySoLuong(Maphong);
                 return TongTien;
             }
         }
-        public InfoHD(string tenSV, int maphong, string maSv, string dichvurieng, int tongTien)
+        public InfoHD(string tenSV, int maphong, string maSv, string dichvurieng, int tongTien, string he)
         {
             TenSV = tenSV;
             Maphong = maphong;
             MaSv = maSv;
             Dichvurieng = dichvurieng;
             TongTien = tongTien;
+            this.he = he;
         }
     }
 }

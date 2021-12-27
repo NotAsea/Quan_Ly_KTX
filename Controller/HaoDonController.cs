@@ -64,10 +64,36 @@ namespace Quan_Ly_KTX.Controller
            x.Msv,
            Tongtien = y.Sum(y => y.dienuoc + y.GiaDv),
            DichVuRieng = String.Join(",", y.Select(y => y.TenDv)).TrimEnd(',')
-       }).Select(x => new InfoHD(x.Hoten, x.MaPhong, x.Msv, x.DichVuRieng, x.Tongtien)).ToList();
+       }).Select(x => new InfoHD(x.Hoten, x.MaPhong, x.Msv, x.DichVuRieng, x.Tongtien , "DS")).ToList();
             return dshd;
         }
+        public ICollection<InfoHD> LayDSHdQuanSu()
+        {
+            var context = SQLConnection.Instance;
+            var dshd = context.SinhViens.Where(x => x.MaHe.Contains("QS")).Join(context.Đkdvcns, x => x.Msv, y => y.Msv, (c, d) => new
+            {
+                c.Hoten,
+                d.Msv,
+                d.MaDv
+            }).Join(context.DichVus, x => x.MaDv, y => y.MaDv, (c, d) => new
+            {
+                c.Msv,
 
+                c.Hoten,
+
+                d.MaDv,
+                d.TenDv,
+                d.GiaDv
+            }).GroupBy(x => new { x.Hoten, x.Msv }, (x, y) => new
+            {
+                x.Hoten,
+
+                x.Msv,
+                Tongtien = y.Sum(y => y.GiaDv),
+                DichVuRieng = String.Join(",", y.Select(y => y.TenDv)).TrimEnd(',')
+            }).Select(x => new InfoHD(x.Hoten, 0, x.Msv, x.DichVuRieng, x.Tongtien, "QS")).ToList();
+            return dshd;
+        }
         public void ThemDienNuoc(DienNuocDS d)
         {
             SQLConnection.Instance.DienNuocPhongs.Add(d.ToDienNuoc());
