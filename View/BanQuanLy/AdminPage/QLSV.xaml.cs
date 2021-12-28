@@ -22,7 +22,7 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
             InitializeComponent();
             SVList = (CollectionViewSource)FindResource(nameof(SVList));
             ds = QLSVController.Controller.LayToanBoSv();
-            SVList.Source = ds;
+            SVList.Source = ds.Where(x=> x.MaPhong  != 0 && !String.IsNullOrWhiteSpace(x.GT) && !String.IsNullOrWhiteSpace(x.MSV) && !String.IsNullOrWhiteSpace(x.TenHe) && x.NS is not null && x.Nh !=0  );
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

@@ -3,6 +3,7 @@ using Quan_Ly_KTX.Main_Window;
 using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -24,7 +25,9 @@ namespace Quan_Ly_KTX
             if (String.IsNullOrWhiteSpace(Password.Password)) s += "Trường mk còn trống";
             if (!String.IsNullOrWhiteSpace(s)) _ = MessageBox.Show(s, "FormĐN");
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-            var (result, ID) = await LogginController.IsLoggin(UserName.Text, Password.Password);
+            var username = Regex.Replace(UserName.Text.TrimStart().TrimEnd(), @"[^0-9a-zA-Z]+", "");
+            var password = Password.Password.Replace(" ", String.Empty);
+            var (result, ID) = await LogginController.IsLoggin(username, password);
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
             if (result == "User")
             {

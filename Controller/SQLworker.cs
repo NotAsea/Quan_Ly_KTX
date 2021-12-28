@@ -4,6 +4,7 @@ using Quan_Ly_KTX.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Quan_Ly_KTX.Controller
 {
@@ -42,6 +43,16 @@ namespace Quan_Ly_KTX.Controller
             return context.Phongs.AsNoTracking().Where(x => x.MaHe != "QS" && !loc.Contains(x.MaPhong)).Select(x => new MaPhongList(x.MaPhong)).ToList();
 
 
+        }
+        public static  async Task<bool> KiemtraTrung (string uname)
+        {
+            UserNguoiDung user;
+            using (KTX_KMAContext context = new())
+            {
+                user = await context.UserNguoiDungs.Where(x=> x.Username.Equals(uname)).FirstOrDefaultAsync();
+            }
+            if (user is not null) return true;
+            else return false;
         }
     }
 }
