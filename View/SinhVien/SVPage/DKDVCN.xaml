@@ -18,7 +18,7 @@
         <TextBlock Text="Chọn một dịch vụ để đăng ký" Padding="3" FontSize="18" FontStyle="Italic" Margin="0 20" HorizontalAlignment="Center" TextBlock.Foreground="Blue"/>
         <Grid >
 
-            <DataGrid Padding="2" Margin="190,0,0,0" AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
+            <DataGrid Padding="2"  AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
                       CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ItemsSource="{Binding Source={StaticResource DVsource}}"  Background="#d3d3d3"
                       CanUserResizeColumns="False"  >

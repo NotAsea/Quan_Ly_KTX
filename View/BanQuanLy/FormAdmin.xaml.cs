@@ -11,6 +11,9 @@ namespace Quan_Ly_KTX.Main_Window
     {
         public FormAdmin()
         {
+            this.WindowState = WindowState.Maximized;
+            this.MaxHeight = SystemParameters.WorkArea.Height + 12;
+            this.MaxWidth = SystemParameters.WorkArea.Width + 13;
             InitializeComponent();
         }
 
