@@ -6,12 +6,17 @@
       xmlns:local="clr-namespace:Quan_Ly_KTX.Main_Window.SVPage"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1300"
-      Title="History_dv" Background="CornflowerBlue">
+      Title="History_dv"    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="AliceBlue" 
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="{materialDesign:MaterialDesignFont}">
     <Page.Resources>
         <CollectionViewSource x:Key="LsDangKy" />
     </Page.Resources>
-    <StackPanel>
-        <TextBlock Text="Lịch sử đăng ký của bạn" FontSize="40" Foreground="White" HorizontalAlignment="Center"/>
+    <StackPanel Margin="0 20 0 0 ">
+        <TextBlock Text="Lịch sử đăng ký của bạn" FontSize="40" Foreground="Black" HorizontalAlignment="Center" FontWeight="Regular"/>
         
         <Grid Margin="0 20">
             <Grid.RowDefinitions>
@@ -19,7 +24,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <DataGrid x:Name="LsInra" AutoGenerateColumns="False" FontFamily="Cascadia Code SemiLight" FontSize="18" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"
-                     ItemsSource="{Binding Source= {StaticResource LsDangKy}}"  HorizontalAlignment="Center" Width="600"  Grid.Row="0" 
+                     ItemsSource="{Binding Source= {StaticResource LsDangKy}}"  HorizontalAlignment="Center" Width="600"  Grid.Row="0" Foreground="Black" Background="#d3d3d3"
                       >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã đăng ký" Binding="{Binding stt}" IsReadOnly="True"/>
@@ -28,7 +33,7 @@
                 </DataGrid.Columns>
              
             </DataGrid>
-            <TextBlock FontSize="18" Foreground="Black"  x:Name="Totalrow" Text="{Binding   total, StringFormat='Tổng tiền cần trả là {0}' }" Grid.Row="1" Background="Aqua" Width="600" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="18" Foreground="Black"  x:Name="Totalrow" Text="{Binding   total, StringFormat='Tổng tiền cần trả là {0}' }" Grid.Row="1" Background="#C0C0C0" Width="600" HorizontalAlignment="Center" Padding="2"/>
         </Grid>
     </StackPanel>
        

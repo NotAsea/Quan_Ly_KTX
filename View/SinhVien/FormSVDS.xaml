@@ -63,7 +63,7 @@
                             </Grid.ColumnDefinitions>
                             <Image Source="/Resource/Icon/edit_button_icon.png" Width="24" Margin="0,1,0,2" Grid.Column="0" HorizontalAlignment="Left" />
 
-                            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black">Chỉnh sửa thông tin</TextBlock>
+                            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black">Thông tin cá nhân</TextBlock>
 
                         </Grid>
                     </Button>

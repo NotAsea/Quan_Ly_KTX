@@ -7,15 +7,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="580" d:DesignWidth="1000"
       Title="EditInfoPage"
-      Background="AliceBlue">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="{materialDesign:MaterialDesignFont}">
 
     <StackPanel Margin="10 10">
         <TextBlock Text="Thông tin cá nhân của bạn" FontSize="40" HorizontalAlignment="Center"/>
-        <Grid Margin=" 40  20 0 20" >
+        <Grid Margin=" 60  20 0 20" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="67*"/>
                 <ColumnDefinition Width="196*"/>
-                <ColumnDefinition Width="207*"/>
+            
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -37,18 +42,16 @@
                      Margin="20,10,0,10" x:Name="ns" HorizontalAlignment="Left" Width="300"/>
             <TextBlock Text="Năm học" Grid.Column="0" Grid.Row="4" FontSize="20" Padding="2" Background="#90ee90" Margin="0,10,0,10"/>
             <TextBox Text="{Binding Nh}"  FontSize="20" Grid.Column="1" Grid.Row="4" Margin="20,10,0,10" x:Name="nh" HorizontalAlignment="Left" Width="300" />
-            <Button x:Name="EditNh" Click="EditNh_Click" Grid.Column="2" Grid.Row="4" BorderThickness="0" Background="BurlyWood" Content="Edit" Foreground="Black"
-                    FontSize="20" FontStyle="Italic" Margin="45,8,292,25" RenderTransformOrigin="0.743,0.861"/>
+          
             <TextBlock Text="Mã Phòng" Grid.Column="0" Grid.Row="5" FontSize="20" Padding="2" Background="#90ee90" Margin="0,10,0,10"/>
             <TextBox Text="{Binding MaPhong}"  FontSize="20" Grid.Column="1" Grid.Row="5" Margin="20,10,0,10" x:Name="mp" HorizontalAlignment="Left" Width="300">
-                
+
             </TextBox>
-            <Button x:Name="EditMp" Click="EditMp_Click" Grid.Column="2" Grid.Row="5" BorderThickness="0" Background="BurlyWood" Content="Edit"  Foreground="Black"
-                    FontSize="20" FontStyle="Italic" Margin="45,8,292,10"/>
+           
             <TextBlock Text="Hệ" Grid.Column="0" Grid.Row="6" FontSize="20" Padding="2" Background="#90ee90" Margin="0,10,0,10"/>
-            <TextBox Text="{Binding TenHe}"  FontSize="20" Grid.Column="1" Grid.Row="6" Margin="20,10,0,10" HorizontalAlignment="Left" Width="300" TextChanged="TextBox_TextChanged"  Foreground="Black"/>
+            <TextBox Text="{Binding TenHe}"  FontSize="20" Grid.Column="1" Grid.Row="6" Margin="20,10,0,10" HorizontalAlignment="Left" Width="300"   Foreground="Black"/>
 
         </Grid>
-        <Button x:Name="SaveEdit" Click="SaveEdit_Click" HorizontalAlignment="Center" Content="Bạn có chắc thay đổi?" FontSize="20" Background="BurlyWood" Width="Auto" Foreground="Black"/>
+      
     </StackPanel>
 </Page>
