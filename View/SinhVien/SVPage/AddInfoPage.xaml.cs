@@ -22,12 +22,13 @@ namespace Quan_Ly_KTX.SVPage
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            String check = ""; DateTime ngaysinh= System.DateTime.Now;
+            String check = "";
+            DateTime ngaysinh = System.DateTime.Now;
             if (String.IsNullOrWhiteSpace(Namee.Text)) check += "Tên đang để trống, ";
             if (String.IsNullOrWhiteSpace(msv.Text)) check += "Mã sinh viên đang để trống, ";
             if ((bool)!gtnam.IsChecked && (bool)!gtnu.IsChecked) check += "Giới tính chưa chọn, ";
             else if ((bool)gtnam.IsChecked && (bool)gtnu.IsChecked) check += "Giới tính không được chọn cả 2, ";
-          
+
             if (String.IsNullOrWhiteSpace(namhoc.Text)) check += "Chưa điền năm học, ";
             if (String.IsNullOrWhiteSpace(ns.Text)) check += "Chưa điền năm sinh, ";
             else try { ngaysinh = DateTime.Parse(ns.Text); } catch (Exception) { check += "Ngày sinh không đúng định dạng, "; }
@@ -40,14 +41,18 @@ namespace Quan_Ly_KTX.SVPage
             else
             {
                 var hechon = he.SelectedItem as ComboBoxItem;
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 var tenhe = hechon.Name;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
                 var gt = (bool)gtnam.IsChecked ? "Nam" : "Nữ";
-                InfoSV sv = new(msv.Text, Namee.Text, gt,ngaysinh, int.Parse(namhoc.Text)
+                InfoSV sv = new(msv.Text, Namee.Text, gt, ngaysinh, int.Parse(namhoc.Text)
                     , SQLworker.XepPhong(tenhe, gt), tenhe, ID);
                 try
                 {
                     QLSVController.Controller.addInfo(sv);
-                    _ = MessageBox.Show("thêm thông tin thành công ", "Thêm thông tin");
+                    MessageBox.Show("thêm thông tin thành công ", "Thêm thông tin");
                     s.Hide();
                     FormSVDS f = new(this.ID);
                     f.Show();

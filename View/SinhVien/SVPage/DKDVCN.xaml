@@ -4,20 +4,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quan_Ly_KTX.SVPage"
-    
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="1000"
       Title="DKDVCN"
-      Background="AliceBlue"  >
+      Background="AliceBlue"  
+      >
     <Page.Resources>
         <CollectionViewSource x:Key="DVsource" />
-
     </Page.Resources>
-    <StackPanel Margin="10 10" >
+    <StackPanel Margin="10 10">
         <TextBlock Text="Đăng ký dịch vụ" FontSize="40" HorizontalAlignment="Center"/>
         <TextBlock Text="Chọn một dịch vụ để đăng ký" Padding="3" FontSize="18" FontStyle="Italic" Margin="0 20" HorizontalAlignment="Center" TextBlock.Foreground="Blue"/>
         <Grid >
-
             <DataGrid Padding="2"  AutoGenerateColumns="False" x:Name="dvList" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="600" FontSize="20" CanUserAddRows="False" 
                       CanUserDeleteRows="False" CanUserResizeRows="False" Grid.ColumnSpan="3" MouseDoubleClick="dichvuList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ItemsSource="{Binding Source={StaticResource DVsource}}"  Background="#d3d3d3"
@@ -25,7 +23,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MaDv}" Header="Mã Dịch Vụ" IsReadOnly="True" Width="150" FontSize="20"/>
                     <DataGridTextColumn Binding="{Binding TenDv}" Header="Tên dịch vụ" IsReadOnly="True" Width="230" FontSize="20"/>
-                    <DataGridTextColumn Binding="{Binding GiaDv}" Header="Giá dịch vụ " IsReadOnly="True" Width="200" FontSize=" 20 "/>
+                    <DataGridTextColumn Binding="{Binding GiaDv}" Header="Giá dịch vụ " IsReadOnly="True" Width="200" FontSize="20"/>
                 </DataGrid.Columns>
 
             </DataGrid>

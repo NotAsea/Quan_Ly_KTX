@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resource\Icon\dich_vu_icon.png" />
     <Resource Include="Resource\Icon\dk_icon.png" />
   </ItemGroup>
