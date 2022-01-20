@@ -11,14 +11,13 @@ namespace Quan_Ly_KTX.SVPage
     public partial class EditInfoPage : Page
     {
        
-        private int ID;
+        
         public EditInfoPage(InfoSV sv)
         {
             InitializeComponent();
             this.DataContext = sv;
-            ID = sv.ID;
-         
-        }
+          
+         }
 
 
        

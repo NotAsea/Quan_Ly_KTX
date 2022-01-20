@@ -56,9 +56,6 @@ namespace Quan_Ly_KTX.SVPage
                     s.Hide();
                     FormSVDS f = new(this.ID);
                     f.Show();
-
-
-
                 }
                 catch (Exception ex) { MessageBox.Show($"đã có lỗi xảy ra {ex.Message }", "Thêm thông tin"); }
 
