@@ -34,8 +34,8 @@ namespace Quan_Ly_KTX.Main_Window.AdminPage
 
                 HDList.Source = number.Length switch
                 {
-                    int x when x == item.Length => ds.Where(x => x.MaSv.Contains(item) || x.TenSV.Contains(item) || x.DichVuChung.Contains(item) || x.Dichvurieng.Contains(item)),
-                    int y when (y == item.Length - 2 || y == 0) => ds.Where(x => x.TongTien == int.Parse(item)|| x.Maphong == int.Parse(item)),
+                    int x when x == item.Length => ds.Where(x => x.TongTien == int.Parse(item) || x.Maphong == int.Parse(item)),
+                    int y when (y == item.Length - 2 || y == 0) =>   ds.Where(x => x.MaSv.Contains(item) || x.TenSV.Contains(item) || x.DichVuChung.Contains(item) || x.Dichvurieng.Contains(item)),
 
                 };
 
