@@ -1,6 +1,4 @@
-﻿using Quan_Ly_KTX.Controller;
-using Quan_Ly_KTX.View;
-using System.Windows;
+﻿using Quan_Ly_KTX.View;
 using System.Windows.Controls;
 
 namespace Quan_Ly_KTX.SVPage
@@ -10,16 +8,16 @@ namespace Quan_Ly_KTX.SVPage
     /// </summary>
     public partial class EditInfoPage : Page
     {
-       
-        
+
+
         public EditInfoPage(InfoSV sv)
         {
             InitializeComponent();
             this.DataContext = sv;
-          
-         }
+
+        }
 
 
-       
+
     }
 }

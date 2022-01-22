@@ -3,7 +3,6 @@ using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using System.Threading;
 namespace Quan_Ly_KTX
 {
     /// <summary>
@@ -29,7 +28,7 @@ namespace Quan_Ly_KTX
             var username = Regex.Replace(Username.Text.TrimStart().TrimEnd(), @"[^0-9a-zA-Z]+", "");
             var password = Password.Password.Replace(" ", String.Empty);
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-             if (await SQLworker.KiemtraTrung(username)) mss += "Tài khoản đã tồn tại, " ;
+            if (await SQLworker.KiemtraTrung(username)) mss += "Tài khoản đã tồn tại, ";
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
             if (mss.Length > 0)
             {

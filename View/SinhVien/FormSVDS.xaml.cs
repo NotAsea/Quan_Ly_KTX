@@ -17,8 +17,8 @@ namespace Quan_Ly_KTX
         public FormSVDS(int id)
         {
             this.WindowState = WindowState.Maximized;
-            this.MaxHeight = SystemParameters.WorkArea.Height+12;
-            this.MaxWidth = SystemParameters.WorkArea.Width+12;
+            this.MaxHeight = SystemParameters.WorkArea.Height + 12;
+            this.MaxWidth = SystemParameters.WorkArea.Width + 12;
             InitializeComponent();
             ID = id;
             SV = QLSVController.Controller.LaySV(ID);

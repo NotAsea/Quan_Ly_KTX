@@ -64,7 +64,7 @@ namespace Quan_Ly_KTX.Controller
            x.Msv,
            Tongtien = y.Sum(y => y.dienuoc + y.GiaDv),
            DichVuRieng = String.Join(",", y.Select(y => y.TenDv)).TrimEnd(',')
-       }).Select(x => new InfoHD(x.Hoten, x.MaPhong, x.Msv, x.DichVuRieng, x.Tongtien , "DS")).ToList();
+       }).Select(x => new InfoHD(x.Hoten, x.MaPhong, x.Msv, x.DichVuRieng, x.Tongtien, "DS")).ToList();
             return dshd;
         }
         public ICollection<InfoHD> LayDSHdQuanSu()

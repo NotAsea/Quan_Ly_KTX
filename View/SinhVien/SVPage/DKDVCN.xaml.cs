@@ -7,7 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-namespace Quan_Ly_KTX.SVPage{
+namespace Quan_Ly_KTX.SVPage
+{
     /// <summary>
     /// Interaction logic for DKDVCN.xaml
     /// </summary>
@@ -30,9 +31,9 @@ namespace Quan_Ly_KTX.SVPage{
         {
 
             var row = dvList.SelectedItem as DichVu;
-#pragma warning disable CS8604 // Possible null reference argument.
+
             dkList.Add(new dvDK(row!.MaDv, row!.TenDv, row.GiaDv));
-#pragma warning restore CS8604 // Possible null reference argument.
+
             dichvuDK.ItemsSource = null;
             dichvuDK.ItemsSource = dkList;
             var d = new dvDK(row.MaDv, msv);
@@ -57,6 +58,6 @@ namespace Quan_Ly_KTX.SVPage{
             }
         }
 
-      
+
     }
 }

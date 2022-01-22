@@ -68,8 +68,7 @@ namespace Quan_Ly_KTX.Controller
         }
         public bool XoaSV(InfoSV sv)
         {
-            bool flag = false;
-
+            bool flag;
             try
             {
                 SQLConnection.Instance.SinhViens.Remove(sv.ToSV());

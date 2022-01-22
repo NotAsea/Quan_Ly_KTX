@@ -1,9 +1,9 @@
 ﻿using Quan_Ly_KTX.Controller;
 using Quan_Ly_KTX.Main_Window;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using System.Text.RegularExpressions;
 namespace Quan_Ly_KTX
 {
     /// <summary>
