@@ -28,9 +28,7 @@
   muốn commit và push   
   ```cmd
   git status #check xem có lm việc tạo orgin của link trên 
-  ``` 
 
-  ```cmd
   git add 
   git commit -m <thông điệp không dk để trống> 
   git push -u origin branch 
